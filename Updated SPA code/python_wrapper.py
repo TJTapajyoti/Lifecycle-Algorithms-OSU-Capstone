@@ -56,9 +56,13 @@ class Model_Generator(object):
         self.b = np.loadtxt(open(b_path, "rb"), delimiter=",")
 
     def add_codes(self, codes_path):
-        reader = csv.reader(open(codes_path, "r"), delimiter=",")
-        self.codes = list(reader)
-        self.codes = self.codes[0]
+        f = open(codes_path, "r")
+        line = f.readline()
+        self.codes = line.split(',')
+
+        # reader = csv.reader(open(codes_path, "r"), delimiter=",")
+        # self.codes = list(reader)
+        # self.codes = self.codes[0]
 
     def run_spa(self, code):
 
