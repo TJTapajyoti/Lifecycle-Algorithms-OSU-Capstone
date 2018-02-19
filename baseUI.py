@@ -3,75 +3,150 @@
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
+import python_wrapper as p
 
+global MG;
+MG = p.Model_Generator()
 
+#Keep track of number of inputs the user enters
+numInputs = 0;
+def increment():
+    global numInputs
+    numInputs += 1
 
-class WindowOne:
+class ProcessOutputWindow:
     builder = Gtk.Builder()
-
+    
     def __init__(self):
-        WindowOne.builder.add_from_file("user_input_draft1.glade")
-        WindowOne.builder.connect_signals(self)
-        self.window = WindowOne.builder.get_object("window1")
+        ProcessOutputWindow.builder.add_from_file("user_input_draft1.glade")
+        ProcessOutputWindow.builder.connect_signals(self)
+        self.window = ProcessOutputWindow.builder.get_object("window1")
         self.window.show_all()
 
     def onDeleteWindow(self, *args):
         print("window one closed")    
 
     def onButtonClicked(self, button):
-        entry1 = WindowOne.builder.get_object("entry1")
-        entry2 = WindowOne.builder.get_object("entry2")
-        entry3 = WindowOne.builder.get_object("entry3")
-        entry4 = WindowOne.builder.get_object("entry4")
-        entry5 = WindowOne.builder.get_object("entry5")
-        entry6 = WindowOne.builder.get_object("entry6")
-        entry7 = WindowOne.builder.get_object("entry7")
-        entry8 = WindowOne.builder.get_object("entry8")
-        print(entry1.get_text())
-        print(entry2.get_text())
-        print(int(entry1.get_text(), 10) + int(entry2.get_text(), 10))
+        entry1 = ProcessOutputWindow.builder.get_object("entry1");
+        entry2 = ProcessOutputWindow.builder.get_object("entry2");
+        entry3 = ProcessOutputWindow.builder.get_object("entry3");
+        entry4 = ProcessOutputWindow.builder.get_object("entry4");
+        entry5 = ProcessOutputWindow.builder.get_object("entry5");
+        code = entry2.get_text()
+        amt = int(entry3.get_text())
+        price = float(entry4.get_text())
+        MG.add_process_output(code,amt,price)
+        ei = float(entry5.get_text())
+        MG.add_environmental_impact(ei)
         self.window.destroy()
-        econ.window.show_all()
+        print("window one closed")
+        Window2.window.show_all()
         print("window two opened")
-class WindowTwo:
+       
+class ProcessInputWindow:
+    builder = Gtk.Builder()
+    
+    def __init__(self):
+        ProcessInputWindow.builder.add_from_file("process_inputs.glade")
+        ProcessInputWindow.builder.connect_signals(self)
+        self.window = ProcessInputWindow.builder.get_object("window1")
+        title = ProcessInputWindow.builder.get_object("label4")
+        title.set_label("Input1")
+        increment()
+        
+    def onDeleteWindow(self, *args):
+        print("window two closed")    
+
+    def onButton1Clicked(self, button1):
+        entry1 = ProcessInputWindow.builder.get_object("entry1")
+        entry2 = ProcessInputWindow.builder.get_object("entry2")
+        entry3 = ProcessInputWindow.builder.get_object("entry3")
+        code = entry1.get_text()
+        amt = float(entry2.get_text())
+        price = float(entry3.get_text())
+        MG.add_process_input(code,amt,price)
+        print("Input"+str(numInputs))
+        print("NAICS: "+entry1.get_text())
+        print("AMT: "+entry2.get_text())
+        print("Price: "+entry3.get_text())
+        self.window.destroy()
+        print("Window two closed")
+        econ.window.show_all()
+        print("window three opened")
+
+    def onButton2Clicked(self, button2):
+        entry1 = ProcessInputWindow.builder.get_object("entry1")
+        entry2 = ProcessInputWindow.builder.get_object("entry2")
+        entry3 = ProcessInputWindow.builder.get_object("entry3")
+        code = entry1.get_text()
+        amt = float(entry2.get_text())
+        price = float(entry3.get_text())
+        MG.add_process_input(code,amt,price)
+        print("Input"+str(numInputs))
+        print("NAICS: "+entry1.get_text())
+        print("AMT: "+entry2.get_text())
+        print("Price: "+entry3.get_text())
+        entry1.set_text("")
+        entry2.set_text("")
+        entry3.set_text("")
+        increment()
+        title = ProcessInputWindow.builder.get_object("label4")
+        title.set_label("Input"+str(numInputs))
+        print("window two opened")
+
+class MatrixWindow:
     builder = Gtk.Builder()
 
     def __init__(self):
-        WindowTwo.builder.add_from_file("user_input_draft2.glade")
-        WindowTwo.builder.connect_signals(self)
-        self.window = WindowTwo.builder.get_object("econ_window")
+        MatrixWindow.builder.add_from_file("user_input_draft2.glade")
+        MatrixWindow.builder.connect_signals(self)
+        self.window = MatrixWindow.builder.get_object("econ_window")
+        
     def onDeleteWindow(self, *args):
-        Gtk.main_quit(*args)    
+        print("window three closed")     
 
     def onButtonClicked(self, button):
-        entry1 = WindowTwo.builder.get_object("entry1")
-        entry2 = WindowTwo.builder.get_object("entry2")
-        entry3 = WindowTwo.builder.get_object("entry3")
-        entry4 = WindowTwo.builder.get_object("entry4")
-        print(entry1.get_text())
-        print(entry2.get_text())
-        print(entry3.get_text())
-        print(entry4.get_text())
+        entry1 = MatrixWindow.builder.get_object("entry1")
+        entry2 = MatrixWindow.builder.get_object("entry2")
+        entry3 = MatrixWindow.builder.get_object("entry3")
+        entry4 = MatrixWindow.builder.get_object("entry4")
+        v = entry1.get_text()
+        u = entry2.get_text()
+        b = entry3.get_text()
+        codes = entry4.get_text()
+        print("U: "+v)
+        print("V: "+u)
+        print("B: "+b)
+        print("Codes: "+codes)
+#commented these out because having problems with csv files at the moment
+        #MG.add_v(v)
+        #MG.add_u(u)
+        #MG.add_b(b)
+        #MG.add_codes(codes)
+        #MG.run_spa('A03')
         self.window.destroy()
-        ##window.destroy()
-        #WindowTwo.builder.add_from_file("user_input_draft2.glade")
-        #WindowTwo.builder.connect_signals(Handler())
-        #newWindow = WindowTwo.builder.get_object("econ_window")
-        #newWindow.show_all()
+        print("window three closed")
+        spa.window.show_all()
+        print("window four opened")
+        
 
-#def handleTransition(*args):
-    #create a WindowTwo object
-	
+class SpaWindow:
+    builder = Gtk.Builder()
+
+    def __init__(self):
+        SpaWindow.builder.add_from_file("SPA_results.glade")
+        SpaWindow.builder.connect_signals(self)
+        self.window = SpaWindow.builder.get_object("window1")
+        title = SpaWindow.builder.get_object("label2")
+        title.set_label("results...")
+        
+    def onDeleteWindow(self, *args):
+        Gtk.main_quit(*args)
 
 
-#window 1 object
-window1 = WindowOne()
-econ = WindowTwo()
-#builder = Gtk.Builder()
-#builder.add_from_file("user_input_draft1.glade")
-#builder.connect_signals(Handler())
-
-#window = builder.get_object("window1")
-#window.show_all()
+window1 = ProcessOutputWindow()
+Window2 = ProcessInputWindow()
+econ = MatrixWindow()
+spa = SpaWindow()
 
 Gtk.main()
