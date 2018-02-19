@@ -4,7 +4,6 @@ from __future__ import division
 from __future__ import absolute_import
 import matlab.engine
 import numpy as np
-import csv
 
 
 class Process(object):
@@ -47,22 +46,18 @@ class Model_Generator(object):
         self.env_impact = amt
 
     def add_v(self, v_path):
-        self.v = np.loadtxt(open(v_path, "rb"), delimiter=",")
+        self.v = np.loadtxt(open(v_path, 'rb'), delimiter=',')
 
     def add_u(self, u_path):
-        self.u = np.loadtxt(open(u_path, "rb"), delimiter=",")
+        self.u = np.loadtxt(open(u_path, 'rb'), delimiter=',')
 
     def add_b(self, b_path):
-        self.b = np.loadtxt(open(b_path, "rb"), delimiter=",")
+        self.b = np.loadtxt(open(b_path, 'rb'), delimiter=',')
 
     def add_codes(self, codes_path):
-        f = open(codes_path, "r")
+        f = open(codes_path, 'r')
         line = f.readline()
         self.codes = line.split(',')
-
-        # reader = csv.reader(open(codes_path, "r"), delimiter=",")
-        # self.codes = list(reader)
-        # self.codes = self.codes[0]
 
     def run_spa(self, code):
 
@@ -73,7 +68,7 @@ class Model_Generator(object):
             try:
                 location = self.codes.index(code)
             except ValueError:
-                raise Exception("Code {} not in codes list.".format(code))
+                raise Exception('Code {} not in codes list.'.format(code))
 
         # Check whether output process code is in codes list
         try:
