@@ -150,6 +150,78 @@ class MatrixWindow:
         print("window four opened")
         MG.run_spa(pName)
         
+    #file dialog event handlers so user can browse/upload instead of entering file path manually
+    def on_file_button1_clicked(self, button):
+        print("clicked file chooser button")
+        fileDialog = Gtk.FileChooserDialog("Select a File", None, Gtk.FileChooserAction.OPEN, ("Cancel", Gtk.ResponseType.CANCEL, "Open", Gtk.ResponseType.OK))
+
+        response = fileDialog.run()
+
+        entry1 = WindowTwo.builder.get_object("entry1")
+        if response == Gtk.ResponseType.OK:
+            print("You clicked the Open button")
+            print("File selected " + fileDialog.get_filename())
+            entry1.set_text(fileDialog.get_filename())
+
+        
+
+        elif response == Gtk.ResponseType.CANCEL:
+            print("User did not select a file")
+
+        fileDialog.destroy()
+
+    def on_file_button2_clicked(self, button):
+        print("clicked file chooser button")
+        fileDialog = Gtk.FileChooserDialog("Select a File", None, Gtk.FileChooserAction.OPEN, ("Cancel", Gtk.ResponseType.CANCEL, "Open", Gtk.ResponseType.OK))
+
+        response = fileDialog.run()
+
+	entry2 = WindowTwo.builder.get_object("entry2")
+        if response == Gtk.ResponseType.OK:
+            print("You clicked the Open button")
+            print("File selected " + fileDialog.get_filename())
+            entry2.set_text(fileDialog.get_filename())
+
+        elif response == Gtk.ResponseType.CANCEL:
+            print("User did not select a file")
+
+        fileDialog.destroy()
+
+    def on_file_button3_clicked(self, button):
+        print("clicked file chooser button")
+        fileDialog = Gtk.FileChooserDialog("Select a File", None, Gtk.FileChooserAction.OPEN, ("Cancel", Gtk.ResponseType.CANCEL, "Open", Gtk.ResponseType.OK))
+
+        response = fileDialog.run()
+
+        entry3 = WindowTwo.builder.get_object("entry3")
+        if response == Gtk.ResponseType.OK:
+            print("You clicked the Open button")
+            print("File selected " + fileDialog.get_filename())
+            entry3.set_text(fileDialog.get_filename())
+
+        elif response == Gtk.ResponseType.CANCEL:
+            print("User did not select a file")
+
+        fileDialog.destroy()
+
+
+    def on_file_button4_clicked(self, button):
+        print("clicked file chooser button")
+        fileDialog = Gtk.FileChooserDialog("Select a File", None, Gtk.FileChooserAction.OPEN, ("Cancel", Gtk.ResponseType.CANCEL, "Open", Gtk.ResponseType.OK))
+
+        response = fileDialog.run()
+
+        entry4 = WindowTwo.builder.get_object("entry4")
+        if response == Gtk.ResponseType.OK:
+            print("You clicked the Open button")
+            print("File selected " + fileDialog.get_filename())
+            entry4.set_text(fileDialog.get_filename())
+
+        elif response == Gtk.ResponseType.CANCEL:
+            print("User did not select a file")
+
+        fileDialog.destroy()
+
 
 class SpaWindow:
     builder = Gtk.Builder()

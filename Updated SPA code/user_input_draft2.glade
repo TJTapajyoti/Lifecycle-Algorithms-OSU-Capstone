@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
+<!-- Generated with glade 3.16.1 -->
 <interface>
   <requires lib="gtk+" version="3.10"/>
   <object class="GtkWindow" id="econ_window">
     <property name="can_focus">False</property>
-    <property name="window_position">center</property>
     <property name="default_width">500</property>
-    <property name="default_height">500</property>
+    <property name="default_height">400</property>
     <signal name="delete-event" handler="onDeleteWindow" swapped="no"/>
     <signal name="destroy" handler="onDeleteWindow" swapped="no"/>
     <child>
@@ -105,6 +104,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="margin_top">5</property>
+                    <property name="placeholder_text" translatable="yes">enter</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -117,6 +117,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="margin_top">5</property>
+                    <property name="placeholder_text" translatable="yes">enter</property>
                   </object>
                   <packing>
                     <property name="expand">True</property>
@@ -129,6 +130,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="margin_top">5</property>
+                    <property name="placeholder_text" translatable="yes">enter</property>
                   </object>
                   <packing>
                     <property name="expand">True</property>
@@ -141,6 +143,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="margin_top">5</property>
+                    <property name="placeholder_text" translatable="yes">enter</property>
                   </object>
                   <packing>
                     <property name="expand">True</property>
@@ -153,6 +156,76 @@
                 <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkBox" id="box4">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkButton" id="filebutton1">
+                    <property name="label" translatable="yes">Select File</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_file_button1_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">False</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="filebutton2">
+                    <property name="label" translatable="yes">Select File</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_file_button2_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="filebutton3">
+                    <property name="label" translatable="yes">Select File</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_file_button3_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">False</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="filebutton4">
+                    <property name="label" translatable="yes">Select File</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">end</property>
+                    <signal name="clicked" handler="on_file_button4_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">3</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
               </packing>
             </child>
           </object>
