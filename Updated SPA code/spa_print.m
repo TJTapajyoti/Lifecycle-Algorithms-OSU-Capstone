@@ -21,7 +21,7 @@ function [] = spa_print()
     global list1;
     global list2;
     sum1=0;
-    x= sym('%'); 
+    x= str2sym('%'); 
     x = char(x);
     list1 = zeros(1);
     list2 = zeros(1);

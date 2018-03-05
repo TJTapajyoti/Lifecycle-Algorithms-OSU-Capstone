@@ -7,8 +7,6 @@ import python_wrapper as p
 
 global MG;
 MG = p.Model_Generator()
-global pName;
-pName = ""
 
 #Keep track of number of inputs the user enters
 numInputs = 0;
@@ -29,22 +27,31 @@ class ProcessOutputWindow:
         print("window one closed")    
 
     def onButtonClicked(self, button):
-        entry1 = ProcessOutputWindow.builder.get_object("entry1");
-        entry2 = ProcessOutputWindow.builder.get_object("entry2");
-        entry3 = ProcessOutputWindow.builder.get_object("entry3");
-        entry4 = ProcessOutputWindow.builder.get_object("entry4");
-        entry5 = ProcessOutputWindow.builder.get_object("entry5");
-        pName = entry1.get_text()
-        code = entry2.get_text()
-        amt = int(entry3.get_text())
-        price = float(entry4.get_text())
-        MG.add_process_output(code,amt,price)
-        ei = float(entry5.get_text())
-        MG.add_environmental_impact(ei)
-        self.window.destroy()
-        print("window one closed")
-        Window2.window.show_all()
-        print("window two opened")
+        entry1 = ProcessOutputWindow.builder.get_object("entry1")
+        entry2 = ProcessOutputWindow.builder.get_object("entry2")
+        entry3 = ProcessOutputWindow.builder.get_object("entry3")
+        entry4 = ProcessOutputWindow.builder.get_object("entry4")
+        entry5 = ProcessOutputWindow.builder.get_object("entry5")
+        errorMessage = ProcessOutputWindow.builder.get_object("label1")
+        try:
+            pName = entry1.get_text()
+            code = entry2.get_text()
+            amt = int(entry3.get_text())
+            price = float(entry4.get_text())
+            MG.add_process_output(code,amt,price)
+            ei = float(entry5.get_text())
+            MG.add_environmental_impact(ei)
+            self.window.destroy()
+            print("window one closed")
+            Window2.window.show_all()
+            print("window two opened")
+        except:
+            errorMessage.set_label("Invalid Input")
+            entry1.set_text("")
+            entry2.set_text("")
+            entry3.set_text("")
+            entry4.set_text("")
+            entry5.set_text("")
        
 class ProcessInputWindow:
     builder = Gtk.Builder()
@@ -146,9 +153,10 @@ class MatrixWindow:
         MG.add_codes(codes)
         self.window.destroy()
         print("window three closed")
-        spa.window.show_all()
         print("window four opened")
-        MG.run_spa(pName)
+        MG.run_spa("A03")
+        spa = SpaWindow()
+        spa.window.show_all()
         
     #file dialog event handlers so user can browse/upload instead of entering file path manually
     def on_file_button1_clicked(self, button):
@@ -157,7 +165,7 @@ class MatrixWindow:
 
         response = fileDialog.run()
 
-        entry1 = WindowTwo.builder.get_object("entry1")
+        entry1 = MatrixWindow.builder.get_object("entry1")
         if response == Gtk.ResponseType.OK:
             print("You clicked the Open button")
             print("File selected " + fileDialog.get_filename())
@@ -176,7 +184,7 @@ class MatrixWindow:
 
         response = fileDialog.run()
 
-	entry2 = WindowTwo.builder.get_object("entry2")
+	entry2 = MatrixWindow.builder.get_object("entry2")
         if response == Gtk.ResponseType.OK:
             print("You clicked the Open button")
             print("File selected " + fileDialog.get_filename())
@@ -193,7 +201,7 @@ class MatrixWindow:
 
         response = fileDialog.run()
 
-        entry3 = WindowTwo.builder.get_object("entry3")
+        entry3 = MatrixWindow.builder.get_object("entry3")
         if response == Gtk.ResponseType.OK:
             print("You clicked the Open button")
             print("File selected " + fileDialog.get_filename())
@@ -211,7 +219,7 @@ class MatrixWindow:
 
         response = fileDialog.run()
 
-        entry4 = WindowTwo.builder.get_object("entry4")
+        entry4 = MatrixWindow.builder.get_object("entry4")
         if response == Gtk.ResponseType.OK:
             print("You clicked the Open button")
             print("File selected " + fileDialog.get_filename())
@@ -231,7 +239,9 @@ class SpaWindow:
         SpaWindow.builder.connect_signals(self)
         self.window = SpaWindow.builder.get_object("window1")
         title = SpaWindow.builder.get_object("label2")
-        title.set_label("Results...")
+        myfile4 = open("myfile4.txt","r")
+        results = myfile4.read()
+        title.set_label(results)
         
     def onDeleteWindow(self, *args):
         Gtk.main_quit(*args)
@@ -240,6 +250,6 @@ class SpaWindow:
 window1 = ProcessOutputWindow()
 Window2 = ProcessInputWindow()
 econ = MatrixWindow()
-spa = SpaWindow()
+
 
 Gtk.main()
