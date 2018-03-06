@@ -184,7 +184,7 @@ class MatrixWindow:
 
         response = fileDialog.run()
 
-	entry2 = MatrixWindow.builder.get_object("entry2")
+        entry2 = MatrixWindow.builder.get_object("entry2")
         if response == Gtk.ResponseType.OK:
             print("You clicked the Open button")
             print("File selected " + fileDialog.get_filename())
