@@ -1,6 +1,4 @@
 
-
-
 class Process:
 
     def __init__(self, name):
@@ -10,55 +8,78 @@ class Process:
         self.outputs = []
         found = 0
 
-        # Search for process name and add inputs/outputs 
+        # Search for process name and add inputs/outputs with their amounts
         for line in allProcesses:
             if name in line:
                 self.pname = name
                 found = 1
-                print(line)
             if found == 1:
                 if line != "\n":
-                    index = line.index("$")-1
+                    nameIndex = line.index("$")-1
+                    amtIndex = line.index("*")+1
                     if "$input: True" in line:
                         # append input
-                        self.inputs.append(line[0:index])
-                        print("added input: "+line[0:index])
+                        self.inputs.append([line[0:nameIndex],line[amtIndex:-1]])
+                        print("added input: "+line[0:nameIndex]+" "+line[amtIndex:-1])
                     elif "$input: False" in line:
                         # append output
-                        self.outputs.append(line[0:index])
-                        print("added output: "+line[0:index])
+                        self.outputs.append([line[0:nameIndex],line[amtIndex:-1]])
+                        print("added output: "+line[0:nameIndex]+" "+line[amtIndex:-1])
+                elif line == "\n":
+                    break
         allProcesses.close()
 
     # returns the mass of the name in the process
     def mass(self,name):
-        return 0
+        for i in self.inputs:
+            if i[0] == name:
+                return i[1]
+        for o in self.outputs:
+            if 0[0] == name:
+                return o[1]
 
-    # returns list of inputs with name in it 
+    # returns name and amt of inputs with name in it 
     def input(self, name):
         results = []
         for i in self.inputs:
-            if name in i:
+            if name in i[0]:
                 results.append(i)
         return results
 
     # returns list of inputs
-    def inputs(self):
+    def allInputs(self):
         return self.inputs
     
     # returns list of outputs
-    def outputs(self):
+    def allOutputs(self):
         return self.outputs
     
-    # returns list of outputs with name in it
+    # returns name and amt of outputs with name in it 
     def output(self, name):
         results = []
         for o in self.outputs:
-            if name in o:
-                results.append(i)
+            if name in o[0]:
+                results.append(o)
         return results
+
+    # returns the name of the process
     def name(self):
         return self.pname
-    
-p1 = Process("Transport, transit bus, diesel powered, Northeast")
-print(p1.inputs)
-print(p1.outputs)
+
+# examples     
+p1 = Process("Metal composite material (MCM) panel, at plant")
+print("name of process:")
+print(p1.name())
+
+print("all inputs:")
+print(p1.allInputs())
+
+print("all outputs:")
+print(p1.allOutputs())
+
+print("inputs with CUTOFF:")
+print(p1.input("CUTOFF"))
+
+print("mass of CUTOFF Steel cast part (machined):")
+print(p1.mass("CUTOFF Steel cast part (machined)"))
+
