@@ -247,6 +247,49 @@ class SpaWindow:
         Gtk.main_quit(*args)
 
 
+class RefineDialog:
+    builder = Gtk.Builder()
+
+    def __init__(self):
+       RefineDialog.builder.add_from_file("refine_dialog.glade")
+       RefineDialog.builder.connect_signals(self)
+       self.window = RefineDialog.builder.get_object("window1")
+       
+
+    #TODO: functionality integration, all below is just a basic template
+    def onYesClicked(self, button):
+        #TODO: functionality integration
+        return None
+    def onNoClicked(self, button):
+        self.window.destroy()
+    def onDeleteWindow(self, *args):
+        Gtk.main_quit(*args)
+
+class DatabaseWindow:
+    builder = Gtk.Builder()
+
+    def __init__(self):
+        DatabaseWindow.builder.add_from_file("database_window.glade")
+        DatabaseWindow.builder.connect_signals(self)
+        self.window = DatabaseWindow.builder.get_object("window1")
+
+    #TODO: functionality integration, all below is just a basic template
+    def onSearchClicked(self, button):
+        #TODO: integrate the search with the actual model code, base window has text fields entry1 for NAICS and entry2 for a search term,
+        #you can add more as needed
+        return None
+
+    #user clicks if they are done refining
+    def onFinishClicked(self, button):
+        #TODO: atm I set the window up thinking that the user clicks the search button to incrementally refine the model one component at a time, but this can be changed to have the user search a series of terms (i.e., enter info and then search, then the text entries clear)
+        #and then click finish to update the model in a batch style when they are done adding components for the refinement, or something
+        #whatever works best, up to you - NL
+        self.window.destroy()
+
+    def onDeleteWindow(self, *args):
+        Gtk.main_quit(*args)
+
+
 window1 = ProcessOutputWindow()
 Window2 = ProcessInputWindow()
 econ = MatrixWindow()
