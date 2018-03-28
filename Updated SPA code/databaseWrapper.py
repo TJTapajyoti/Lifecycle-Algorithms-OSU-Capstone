@@ -1,3 +1,5 @@
+import csv
+import re
 
 class Process:
 
@@ -66,8 +68,92 @@ class Process:
     def name(self):
         return self.pname
 
+    
+    # returns the top 5 likely outputs for the NAICS code passed in 
+    def top5Outputs(self, code):
+        naicsDescrs = findNAICS(code)
+        scores = []
+        for name in self.outputs:
+            score = compareNames(name[0],naicsDescrs)
+            scores.append([name[0],score])
+        top5 = []
+        numOutputs = len(scores)
+        for x in xrange(numOutputs):
+            top = topScore(scores)
+            scores.remove(top)
+            top5.append(top)
+        if len(top5) > 5:
+            top5 = top5[0:5]
+        return top5
+
+    
+    # returns the top 5 likely inputs for the NAICS code passed in 
+    def top5Inputs(self, code):
+        naicsDescrs = findNAICS(code)
+        scores = []
+        for name in self.inputs:
+            score = compareNames(name[0],naicsDescrs)
+            scores.append([name[0],score])
+        top5 = []
+        numOutputs = len(scores)
+        for x in xrange(numOutputs):
+            top = topScore(scores)
+            scores.remove(top)
+            top5.append(top)
+        if len(top5) > 5:
+            top5 = top5[0:5]
+        return top5
+
+# returns the top score
+def topScore(scores):
+    top = 0
+    index = 0
+    i = 0
+    for score in scores:
+        if score[1] > top:
+            top = score[1]
+            index = i
+        i += 1
+    return scores[index]
+    
+# gives a score on how closely the name relates to the NAICS code
+def compareNames(name, naicsDescrs):
+    score = 0
+    for descr in naicsDescrs:
+        naicsWords = re.findall(r"[\w']+",descr)
+        for naicsWord in naicsWords:
+            nameWords = re.findall(r"[\w']+",name)
+            for nameWord in nameWords:
+                if nameWord == naicsWord:
+                    score += 1
+    return score
+
+# function to return list of descriptions for NAICS code passed in   
+def findNAICS(code):
+    list = []
+    code = str(code)
+    with open("2017_NAICS_Cross_References.csv",'rb') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if row[0] == code:
+                list.append(row[1])
+    with open("2017_NAICS_Descriptions.csv",'rb') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if row[0] == code:
+                list.append(row[1])
+                list.append(row[2])
+    with open("2017_NAICS_Index_File.csv",'rb') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if row[0] == code:
+                list.append(row[1])
+    return list
+
+
 # examples     
 p1 = Process("Metal composite material (MCM) panel, at plant")
+'''
 print("name of process:")
 print(p1.name())
 
@@ -82,4 +168,8 @@ print(p1.input("CUTOFF"))
 
 print("mass of CUTOFF Steel cast part (machined):")
 print(p1.mass("CUTOFF Steel cast part (machined)"))
+'''
+result = p1.top5Inputs(336310)
+print(result)
+
 
