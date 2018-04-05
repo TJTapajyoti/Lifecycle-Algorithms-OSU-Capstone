@@ -259,7 +259,7 @@ class RefineDialog:
     #TODO: functionality integration, all below is just a basic template
     def onYesClicked(self, button):
         #TODO: functionality integration
-        return None
+        #begin the database searching and open the database window
     def onNoClicked(self, button):
         self.window.destroy()
     def onDeleteWindow(self, *args):
@@ -287,12 +287,147 @@ class DatabaseWindow:
         self.window.destroy()
 
     def onDeleteWindow(self, *args):
-        Gtk.main_quit(*args)
+	print("refine window closed")
+        #Gtk.main_quit(*args)
+
+
+class DatabaseResultsWindow:
+    builder = Gtk.Builder()
+
+    #constructor takes a list of tuples which are the names and amounts, this list is left empty if nothing is given
+    def __init__(self, namesAndAmounts=[]):
+        DatabaseResultsWindow.builder.add_from_file("databaseresults.glade")
+        DatabaseResultsWindow.builder.connect_signals(self)
+
+        self.fruitList = ['apple', 'orange', 'banana', 'kiwi', 'strawberry']
+        self.priceList = ['4.00', '3.00', '6.00', '5.00', '2.00']
+        self.fruitsAndPrices = zip(self.fruitList, self.priceList)
+        self.window = DatabaseResultsWindow.builder.get_object("database_results")
+        self.firstResultName = DatabaseResultsWindow.builder.get_object("firstResultName")
+        self.firstResultAmount = DatabaseResultsWindow.builder.get_object("firstResultAmount")
+        self.secondResultName = DatabaseResultsWindow.builder.get_object("secondResultName")
+        self.secondResultAmount = DatabaseResultsWindow.builder.get_object("secondResultAmount")
+        self.thirdResultName = DatabaseResultsWindow.builder.get_object("thirdResultName")
+        self.thirdResultAmount = DatabaseResultsWindow.builder.get_object("thirdResultAmount")
+        self.fourthResultName = DatabaseResultsWindow.builder.get_object("fourthResultName")
+        self.fourthResultAmount = DatabaseResultsWindow.builder.get_object("fourthResultAmount")
+        self.fifthResultName = DatabaseResultsWindow.builder.get_object("fifthResultName")
+        self.fifthResultAmount = DatabaseResultsWindow.builder.get_object("fifthResultAmount")
+        self.firstResultButton = DatabaseResultsWindow.builder.get_object("firstResultSelectButton")
+        self.secondResultButton = DatabaseResultsWindow.builder.get_object("secondResultSelectButton")
+        self.thirdResultButton = DatabaseResultsWindow.builder.get_object("thirdResultSelectButton")
+        self.fourthResultButton = DatabaseResultsWindow.builder.get_object("fourthResultSelectButton")
+        self.fifthResultButton = DatabaseResultsWindow.builder.get_object("fifthResultSelectButton")
+
+        self.manualEntryName = DatabaseResultsWindow.builder.get_object("manualEntryName")
+        self.manualEntryAmount = DatabaseResultsWindow.builder.get_object("manualEntryAmount")
+        self.manualEntryButton = DatabaseResultsWindow.builder.get_object("manualEntrySelectButton")
+
+
+        self.resultNames = [self.firstResultName, self.secondResultName, self.thirdResultName, self.fourthResultName, self.fifthResultName, self.manualEntryName]
+        self.resultAmounts = [self.firstResultAmount, self.secondResultAmount, self.thirdResultAmount, self.fourthResultAmount, self.fifthResultAmount, self.manualEntryAmount]
+
+        if len(namesAndAmounts) == 0:
+            namesAndAmounts = self.fruitsAndPrices #set the list to be this default if namesAndAmounts aren't given
+            #a placeholder for now basically
+
+            #reminder that default function args are set only once when the function is defined, so if you call the constructor multiple times
+            #the list will change based on that
+        for x in range(0, len(namesAndAmounts)):
+            self.resultNames[x].set_text(namesAndAmounts[x][0])
+            self.resultAmounts[x].set_text(namesAndAmounts[x][1])
+
+        #set all of the results fields to be non-editable regardless of result presence
+        for x in range(0, 5):
+                self.resultNames[x].set_editable(False)
+                self.resultAmounts[x].set_editable(False)
+
+        self.buttonList = [self.firstResultButton, self.secondResultButton, self.thirdResultButton, self.fourthResultButton, self.fifthResultButton, self.manualEntryButton]
+
+        #zip the results together into a three tuple list
+        self.resultsContentAndButtons = zip(self.resultNames, self.resultAmounts, self.buttonList)
+
+        '''
+        reference for manual setting in case the above doesn't work for some reason - NL
+        self.firstResultName.set_text(namesAndAmounts[0][0])
+        self.firstResultAmount.set_text(namesAndAmounts[0][1])
+        self.secondResultName.set_text(namesAndAmounts[1][0])
+        self.secondResultAmount.set_text(namesAndAmounts[1][1])
+        self.thirdResultName.set_text(namesAndAmounts[2][0])
+        self.thirdResultAmount.set_text(namesAndAmounts[2][1])
+        self.fourthResultName.set_text(namesAndAmounts[3][0])
+        self.fourthResultAmount.set_text(namesAndAmounts[3][1])
+        self.fifthResultName.set_text(namesAndAmounts[4][0])
+        self.fifthResultAmount.set_text(namesAndAmounts[4][1])
+        self.firstResultName.set_editable(False)
+        self.firstResultAmount.set_editable(False)
+        self.secondResultName.set_editable(False)
+        self.secondResultAmount.set_editable(False)
+        self.thirdResultName.set_editable(False)
+        self.thirdResultAmount.set_editable(False)
+        self.fourthResultName.set_editable(False)
+        self.fourthResultAmount.set_editable(False)
+        self.fifthResultName.set_editable(False)
+        self.fifthResultAmount.set_editable(False)
+        '''
+
+        
+        
+
+
+        
+        self.window.show_all()
+
+    def on_radiobutton1_toggled(self, button):
+        print("toggle button 1 clicked")
+        print(button.get_active())
+    
+    def on_radiobutton2_toggled(self, button):
+        print("toggle button 2 clicked")
+    
+    def on_radiobutton3_toggled(self, button):
+        print("toggle button 3 clicked")
+    
+    def on_radiobutton4_toggled(self, button):
+        print("toggle button 4 clicked")
+    
+    def on_radiobutton5_toggled(self, button):
+        print("toggle button 5 clicked")
+    
+    def on_radiobutton6_toggled(self, button):
+        print("toggle button 6 clicked")
+    
+    def onDeleteWindow(self, *args):
+        print("database results window closed")
+	Gtk.main_quit(*args)
+
+    def onManualEntryDataChanged(self, entry):
+        #set the manual entry radio button to be active
+        self.manualEntryButton.set_active(True)
+
+    def onContinueClicked(self, button):
+        print("continue button clicked")
+        
+        for x in range(0, 6):
+            if (self.resultsContentAndButtons[x][2].get_active()):
+                #get the text for this button's fields
+                print("The following choice has been selected")
+                print(self.resultsContentAndButtons[x][0].get_text() + ' ' + self.resultsContentAndButtons[x][1].get_text())
+                
+                break
+       #destroy the window here and move on or something
+
+
+
+
+
+
 
 
 window1 = ProcessOutputWindow()
 Window2 = ProcessInputWindow()
 econ = MatrixWindow()
+db_results = DatabaseResultsWindow()
 
 
 Gtk.main()
