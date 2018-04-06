@@ -5,6 +5,7 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 import python_wrapper as p
 import numpy as np
+import databaseWrapper as d
 
 global MG;
 MG = p.Model_Generator()
@@ -14,6 +15,10 @@ numInputs = 0;
 def increment():
     global numInputs
     numInputs += 1
+
+pName = "Transport, transit bus, diesel powered"
+p1 = d.Process(pName)
+spaLines = []
 
 class ProcessOutputWindow:
     builder = Gtk.Builder()
@@ -35,10 +40,13 @@ class ProcessOutputWindow:
         entry5 = ProcessOutputWindow.builder.get_object("entry5")
         errorMessage = ProcessOutputWindow.builder.get_object("label1")
         try:
+            global pName
             pName = entry1.get_text()
             code = entry2.get_text()
             amt = int(entry3.get_text())
             price = float(entry4.get_text())
+            #global p1
+            #p1 = d.Process(pName)
             MG.add_process_output(code,amt,price)
             ei = float(entry5.get_text())
             MG.add_environmental_impact(ei)
@@ -109,7 +117,7 @@ class ProcessInputWindow:
             amt = float(entry2.get_text())
             price = float(entry3.get_text())
             MG.add_process_input(code,amt,price)
-            print("Input"+str(numInputs))
+            print("Input "+str(numInputs))
             print("NAICS: "+entry1.get_text())
             print("AMT: "+entry2.get_text())
             print("Price: "+entry3.get_text())
@@ -122,8 +130,8 @@ class ProcessInputWindow:
         entry3.set_text("")
         title = ProcessInputWindow.builder.get_object("label4")
         title.set_label("Input"+str(numInputs))
-        print("window two opened")
 
+        
 class MatrixWindow:
     builder = Gtk.Builder()
 
@@ -156,6 +164,8 @@ class MatrixWindow:
         print("window three closed")
         print("window four opened")
         MG.run_spa("A03")
+        #database = DatabaseResultsWindow()
+        #database.window.show_all()
         spa = SpaWindow()
         spa.window.show_all()
         
@@ -259,6 +269,7 @@ class RefineDialog:
 
     #TODO: functionality integration, all below is just a basic template
     def onYesClicked(self, button):
+        print("yes clicked")
         #TODO: functionality integration
         #begin the database searching and open the database window
     def onNoClicked(self, button):
@@ -296,16 +307,22 @@ class DatabaseWindow:
 
 class DatabaseResultsWindow:
     builder = Gtk.Builder()
-
+    
     #constructor takes a list of tuples which are the names and amounts, this list is left empty if nothing is given
     def __init__(self, namesAndAmounts=[]):
         DatabaseResultsWindow.builder.add_from_file("databaseresults.glade")
         DatabaseResultsWindow.builder.connect_signals(self)
+        self.window = DatabaseResultsWindow.builder.get_object("database_results")
 
+        # Read SPA results and put lines in spaLines
+        #with open("myfile4.txt","r") as f:
+         #   global spaLines
+          #  spaLines = f.readlines()
+            
+        #self.spaNumbers = spaResults(spaLines,0)  
         self.fruitList = ['apple', 'orange', 'banana', 'kiwi', 'strawberry']
         self.priceList = ['4.00', '3.00', '6.00', '5.00', '2.00']
         self.fruitsAndPrices = zip(self.fruitList, self.priceList)
-        self.window = DatabaseResultsWindow.builder.get_object("database_results")
         self.firstResultName = DatabaseResultsWindow.builder.get_object("firstResultName")
         self.firstResultAmount = DatabaseResultsWindow.builder.get_object("firstResultAmount")
         self.secondResultName = DatabaseResultsWindow.builder.get_object("secondResultName")
@@ -326,10 +343,11 @@ class DatabaseResultsWindow:
         self.manualEntryAmount = DatabaseResultsWindow.builder.get_object("manualEntryAmount")
         self.manualEntryButton = DatabaseResultsWindow.builder.get_object("manualEntrySelectButton")
 
-
         self.resultNames = [self.firstResultName, self.secondResultName, self.thirdResultName, self.fourthResultName, self.fifthResultName, self.manualEntryName]
         self.resultAmounts = [self.firstResultAmount, self.secondResultAmount, self.thirdResultAmount, self.fourthResultAmount, self.fifthResultAmount, self.manualEntryAmount]
+        #self.window.show_all()
 
+        
         if len(namesAndAmounts) == 0:
             namesAndAmounts = self.fruitsAndPrices #set the list to be this default if namesAndAmounts aren't given
             #a placeholder for now basically
@@ -350,8 +368,7 @@ class DatabaseResultsWindow:
         #zip the results together into a three tuple list
         self.resultsContentAndButtons = zip(self.resultNames, self.resultAmounts, self.buttonList)
 
-        '''
-        reference for manual setting in case the above doesn't work for some reason - NL
+# reference for manual setting in case the above doesnt work for some reason - NL
         self.firstResultName.set_text(namesAndAmounts[0][0])
         self.firstResultAmount.set_text(namesAndAmounts[0][1])
         self.secondResultName.set_text(namesAndAmounts[1][0])
@@ -371,35 +388,28 @@ class DatabaseResultsWindow:
         self.fourthResultName.set_editable(False)
         self.fourthResultAmount.set_editable(False)
         self.fifthResultName.set_editable(False)
-        self.fifthResultAmount.set_editable(False)
-        '''
-
+        self.fifthResultAmount.set_editable(False)       
         
-        
-
-
-        
-        self.window.show_all()
-
+    
     def on_radiobutton1_toggled(self, button):
         print("toggle button 1 clicked")
         print(button.get_active())
-    
+            
     def on_radiobutton2_toggled(self, button):
         print("toggle button 2 clicked")
-    
+        
     def on_radiobutton3_toggled(self, button):
         print("toggle button 3 clicked")
-    
+        
     def on_radiobutton4_toggled(self, button):
         print("toggle button 4 clicked")
-    
+        
     def on_radiobutton5_toggled(self, button):
         print("toggle button 5 clicked")
-    
+        
     def on_radiobutton6_toggled(self, button):
         print("toggle button 6 clicked")
-    
+        
     def onDeleteWindow(self, *args):
         print("database results window closed")
 	Gtk.main_quit(*args)
@@ -416,22 +426,40 @@ class DatabaseResultsWindow:
                 #get the text for this button's fields
                 print("The following choice has been selected")
                 print(self.resultsContentAndButtons[x][0].get_text() + ' ' + self.resultsContentAndButtons[x][1].get_text())
-                
                 break
-       #destroy the window here and move on or something
-
-
-
-
-
-
-
+            #destroy the window here and move on or something
+    
 
 window1 = ProcessOutputWindow()
 Window2 = ProcessInputWindow()
 econ = MatrixWindow()
-db_results = DatabaseResultsWindow()
+#db_results = DatabaseResultsWindow()
 
 
 Gtk.main()
+
+
+# Returns the links from the line number (num) of the SPA results
+def spaResults(lines, num):
+    num = num+2
+    allNumbers = []
+    #model = lines[1].lstrip()
+    for line in lines[num]:
+        #value1 = line[:9]
+        noValue1 = line[9:]
+        f = len(noValue1) - len(noValue1.lstrip())
+        noWhite = noValue1[f:]
+        endNumbers = noWhite.find(" ")
+        numbers = noWhite[:endNumbers].split("----")
+        allNumbers.append(numbers)
+        print(value1)
+        print(numbers)
+    return allNumbers
+    
+                
+def getTop5(p1, num):
+     naics = num #need function to get NAICS from SPA number
+     results = p1.top5Inputs(naics)
+     #print(results)
+     return results
 

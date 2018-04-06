@@ -1,5 +1,6 @@
 import csv
 import re
+import numpy as np
 
 class Process:
 
@@ -75,7 +76,7 @@ class Process:
         scores = []
         for name in self.outputs:
             score = compareNames(name[0],naicsDescrs)
-            scores.append([name[0],score])
+            scores.append([name[0],score,name[1]])
         top5 = []
         numOutputs = len(scores)
         for x in xrange(numOutputs):
@@ -93,7 +94,7 @@ class Process:
         scores = []
         for name in self.inputs:
             score = compareNames(name[0],naicsDescrs)
-            scores.append([name[0],score])
+            scores.append([name[0],score,name[1]])
         top5 = []
         numOutputs = len(scores)
         for x in xrange(numOutputs):
@@ -103,6 +104,7 @@ class Process:
         if len(top5) > 5:
             top5 = top5[0:5]
         return top5
+
 
 # returns the top score
 def topScore(scores):
@@ -150,6 +152,21 @@ def findNAICS(code):
                 list.append(row[1])
     return list
 
+def top5Processes(self, desc):
+    processNames =  open("processNames.txt",'r')
+    scores = []
+    for line in processNames:
+        score = compareNames(line,desc)
+        scores.append([line,score])
+    top5 = []
+    numOutputs = len(scores)
+    for x in xrange(numOutputs):
+        top = topScore(scores)
+        scores.remove(top)
+        top5.append(top)
+    if len(top5) > 5:
+        top5 = top5[0:5]
+    return top5
 
 # examples     
 p1 = Process("Metal composite material (MCM) panel, at plant")
@@ -168,8 +185,27 @@ print(p1.input("CUTOFF"))
 
 print("mass of CUTOFF Steel cast part (machined):")
 print(p1.mass("CUTOFF Steel cast part (machined)"))
-'''
+
 result = p1.top5Inputs(336310)
 print(result)
 
 
+with open("myfile4.txt","r") as f:
+    lines = f.readlines()
+    model = lines[1].lstrip()
+    print(model)
+    #matrix = np.array([)
+    for line in lines[2:]:
+        value1 = line[:9]
+        noValue1 = line[9:]
+        f = len(noValue1) - len(noValue1.lstrip())
+        noWhite = noValue1[f:]
+        endNumbers = noWhite.find(" ")
+        numbers = noWhite[:endNumbers].split("----")
+        print(value1)
+        print(numbers)
+        for x in reversed(numbers[:-1]):
+            naics = x #hard coded for now
+            top = p1.top5Inputs(naics)
+            print(top)
+'''
