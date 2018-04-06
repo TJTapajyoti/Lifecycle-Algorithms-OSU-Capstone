@@ -4,6 +4,7 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 import python_wrapper as p
+import numpy as np
 
 global MG;
 MG = p.Model_Generator()
@@ -272,6 +273,8 @@ class DatabaseWindow:
         DatabaseWindow.builder.add_from_file("database_window.glade")
         DatabaseWindow.builder.connect_signals(self)
         self.window = DatabaseWindow.builder.get_object("window1")
+        
+            
 
     #TODO: functionality integration, all below is just a basic template
     def onSearchClicked(self, button):
@@ -296,3 +299,4 @@ econ = MatrixWindow()
 
 
 Gtk.main()
+
