@@ -31,7 +31,7 @@ with open("myfile4.txt","r") as f:
         #print(noWhite)
         endNumbers = noWhite.find(" ")
         numbers = noWhite[:endNumbers].split("----")
-        print(numbers)
+        #print(numbers)
         spaLinks.append(numbers)
     f.close()
 
@@ -56,34 +56,7 @@ class limitsWindow:
     def onDeleteWindow(self, *args):
 	self.window.destroy()
         Gtk.main_quit(*args)
-        
-class DatabaseWindow:
-    builder = Gtk.Builder()
-
-    def __init__(self):
-        DatabaseWindow.builder.add_from_file("database_window.glade")
-        DatabaseWindow.builder.connect_signals(self)
-        self.window = DatabaseWindow.builder.get_object("window1")
-        
-            
-
-    #TODO: functionality integration, all below is just a basic template
-    def onSearchClicked(self, button):
-        #TODO: integrate the search with the actual model code, base window has text fields entry1 for NAICS and entry2 for a search term,
-        #you can add more as needed
-        return None
-
-    #user clicks if they are done refining
-    def onFinishClicked(self, button):
-        #TODO: atm I set the window up thinking that the user clicks the search button to incrementally refine the model one component at a time, but this can be changed to have the user search a series of terms (i.e., enter info and then search, then the text entries clear)
-        #and then click finish to update the model in a batch style when they are done adding components for the refinement, or something
-        #whatever works best, up to you - NL
-        self.window.destroy()
-
-    def onDeleteWindow(self, *args):
-	self.window.destroy()
-        Gtk.main_quit(*args)
-
+      
 
 class ProcessWindow:
     builder = Gtk.Builder()
@@ -112,8 +85,26 @@ class ProcessWindow:
         self.fifthResultButton = ProcessWindow.builder.get_object("fifthResultSelectButton")
         self.manualEntryButton = ProcessWindow.builder.get_object("manualEntrySelectButton")
 
+        #items used during the calculations process
+        self.failCount = 0
+        self.acceptable = False
+
+        #NOTE, indexing within row for calculations/model building happens by going from right to left,
+        #so the index in the line needs to be relative to the back of the list
+        self.currentRow = row
+        self.sectorIndexInLine = len(spaLinks[self.currentRow]) - 1
+
         # set title and get top 5 results
-        link = spaLinks[row][i]
+        print(i)
+        link = spaLinks[self.currentRow][self.sectorIndexInLine]
+        preceding = link
+
+        #reverse the row before we work with it so that the indexes line up 
+        spaLinks[row].reverse()
+
+        print(spaLinks[row])
+        spaLinks[row].reverse()
+        print(link)
         naics = getCode(link)
         self.title.set_text("Process Name for NAICS: " + str(naics))
         description = d.NAICSdescription(naics)
@@ -162,18 +153,74 @@ class ProcessWindow:
         print("toggle button 6 clicked")
         
     def onDeleteWindow(self, *args):
-        self.window.destroy()
-	Gtk.main_quit(*args)
-        
+        print("delete-event signal happened for ProcessWindow class")    
     def onManualEntryDataChanged(self, entry):
         #set the manual entry radio button to be active
         self.manualEntryButton.set_active(True)
         
     def onContinueClicked(self, button):
         # if there are inputs to the process, open up the top 5 inputs window. Else if there are more processes in the link, open up a new process window. Else perform calculations
-        self.window.destroy()
+
         
-class DatabaseResultsWindow:
+        #open the new window for the next results in this line
+        if (self.sectorIndexInLine > 0):
+            print("still working in current line")
+            #decrement sectorIndexInLine since we are traversing from back to front (since top levels are in the "back" at the rightmost position)
+            innerProcess = ProcessWindow(self.currentRow, self.sectorIndexInLine-1)
+            print(self.currentRow)
+            print(self.sectorIndexInLine)
+            innerProcess.window.show_all()
+            self.window.destroy()
+        elif (self.currentRow < len(spaLinks)):
+            print("current line finished, performing calculations")
+            #perform the calculations for the items in this row
+            #if the calculations fail, increment the fail counter and ask the user to re-enter complexity/uncertainty data
+            #and try these calculations again
+            if (True): #calculation fails
+
+                #TODO: After a failed calculation, we go back and let the user re-enter data to try again for this line of the file
+                #if the calculation for the line succeeds then we move on, also store the data that we get for each top-level/inner sector for each line for the sake of returning to if it reappears in subsequent lines
+                #TODO: determine storage method for data
+                self.failCount += 1
+                while(self.failCount < 5 and not self.acceptable ):
+                    #perform calculations and check failCount
+                    calc = 0
+                    self.failCount += 1
+
+            if (self.acceptable):
+
+                print("moved to next line of file")
+                #reset parameters to process the next row
+                #if calculation for this row was within parameters
+                self.sectorNumInLine = 0
+                topLevelProcess = ProcessWindow(self.currentRow+1, len(spaLinks[self.currentRow+1]))
+                self.window.destroy()
+                topLevelProcess.show_all()
+            #otherwise do nothing calculations have failed so print this to the screen and close the window
+            else:
+                print("successive fail limit of {} exceeded, exiting".format(self.failCount))
+                self.window.destroy()
+                Gtk.main_quit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#============================ OLD
+
+#while going through a line in the SPA results file, we can consider the sector numbers to alternate in an "outer level"
+#and "inner level" fashion, so for the line 22-248-380, the order would be 380 (top) -> 248 (inner) ; 248 (top) -> 22 (inner)
+class InnerProcessWindow:
     builder = Gtk.Builder()
     
     #constructor takes a list of tuples which are the names and amounts, this list is left empty if nothing is given
@@ -291,5 +338,6 @@ process = ProcessWindow(0,0)
 
 Gtk.main()
 
-
+#spaLinks is a list of lists, where each sublist is a line of the spa file
+#print(spaLinks)
 
