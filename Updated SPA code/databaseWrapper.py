@@ -1,6 +1,5 @@
 import csv
 import re
-import numpy as np
 
 class Process:
 
@@ -103,7 +102,7 @@ class Process:
     
     # returns the top 5 likely inputs for the NAICS code passed in 
     def top5Inputs(self, code):
-        naicsDescrs = findNAICS(code)
+        naicsDescrs = NAICSdescription(code)
         scores = []
         for name in self.inputs:
             score = compareNames(name[0],naicsDescrs)
@@ -144,7 +143,7 @@ def compareNames(name, naicsDescrs):
     return score
 
 # function to return list of descriptions for NAICS code passed in   
-def findNAICS(code):
+def NAICSdescription(code):
     list = []
     code = str(code)
     with open("2017_NAICS_Cross_References.csv",'rb') as f:
@@ -168,8 +167,9 @@ def findNAICS(code):
         f.close()
     return list
 
-def top5Processes(self, desc):
-    processNames =  open("processNames.txt",'r')
+processNames =  open("processNames.txt",'r')
+# returns the top 5 most likely process names from database, based on description passed in
+def top5Processes(desc):
     scores = []
     for line in processNames:
         score = compareNames(line,desc)
@@ -182,23 +182,23 @@ def top5Processes(self, desc):
         top5.append(top)
     if len(top5) > 5:
         top5 = top5[0:5]
-    processNames.close()
+    #processNames.close()
     return top5
 
 # examples     
-
+'''
 p1 = Process("Transport, single unit truck, short-haul, diesel powered, South")
 print(p1.carbonDioxide())
-'''
+
 print("name of process:")
 print(p1.name())
 
 print("all inputs:")
 print(p1.allInputs())
-'''
+
 print("all outputs:")
 print(p1.mass("Carbon dioxide, fossil "))
-'''
+
 print("inputs with CUTOFF:")
 print(p1.input("CUTOFF"))
 

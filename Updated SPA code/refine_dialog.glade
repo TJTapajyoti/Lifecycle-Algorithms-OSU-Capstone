@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.16.1 -->
+<!-- Generated with glade 3.18.3 -->
 <interface>
   <requires lib="gtk+" version="3.10"/>
   <object class="GtkWindow" id="window1">
@@ -9,59 +9,100 @@
     <signal name="delete-event" handler="onDeleteWindow" swapped="no"/>
     <signal name="destroy-event" handler="onDeleteWindow" swapped="no"/>
     <child>
-      <object class="GtkBox" id="box1">
+      <object class="GtkPaned" id="paned1">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="can_focus">True</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkLabel" id="label1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Refine the created model?</property>
+            <property name="label" translatable="yes">Set Limits</property>
+            <attributes>
+              <attribute name="scale" value="3"/>
+            </attributes>
           </object>
           <packing>
-            <property name="expand">True</property>
-            <property name="fill">False</property>
-            <property name="position">0</property>
+            <property name="resize">False</property>
+            <property name="shrink">True</property>
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="box2">
+          <object class="GtkPaned" id="paned2">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can_focus">True</property>
+            <property name="orientation">vertical</property>
             <child>
-              <object class="GtkButton" id="button1">
-                <property name="label" translatable="yes">Yes</property>
+              <object class="GtkGrid" id="grid1">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <signal name="clicked" handler="onYesClicked" swapped="no"/>
+                <property name="can_focus">False</property>
+                <property name="row_homogeneous">True</property>
+                <property name="column_homogeneous">True</property>
+                <child>
+                  <object class="GtkLabel" id="label2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Limit 1</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label3">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Limit 2</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="entry1">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="entry2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
               </object>
               <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
+                <property name="resize">False</property>
+                <property name="shrink">True</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="button2">
-                <property name="label" translatable="yes">No</property>
+              <object class="GtkButton" id="button1">
+                <property name="label" translatable="yes">Continue</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <signal name="clicked" handler="onNoClicked" swapped="no"/>
+                <signal name="clicked" handler="onContinue" swapped="no"/>
               </object>
               <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
+                <property name="resize">False</property>
+                <property name="shrink">True</property>
               </packing>
             </child>
           </object>
           <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
+            <property name="resize">True</property>
+            <property name="shrink">True</property>
           </packing>
         </child>
       </object>
