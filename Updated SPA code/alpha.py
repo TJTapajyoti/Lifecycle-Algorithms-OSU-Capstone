@@ -46,6 +46,13 @@ def getSPAlinks():
         f.close()
     return spaLinks
 
+# Get the name of the process for code 'c'
+def getName(cTn,c):
+    name = 0
+    for x in cTn:
+        if x[0] == c:
+            name = x[1]
+    return name
 
 class limitsWindow:
 
@@ -108,7 +115,7 @@ class ProcessWindow:
         if len(self.results) < 5:
             description = d.NAICSdescription(naics)
             self.results = self.results + d.top5Processes(description)
-        print(self.results)
+        #print(self.results)
         self.toggle = 6    
 
         # populate name fields with top 5 results for first line
@@ -135,22 +142,28 @@ class ProcessWindow:
 
     def on_radiobutton1_toggled(self, button):
         self.toggle = 1
-            
+        print("toggle button 1 clicked")
+    
     def on_radiobutton2_toggled(self, button):
         self.toggle = 2
-        
+        print("toggle button 2 clicked")
+       
     def on_radiobutton3_toggled(self, button):
         self.toggle = 3
-        
+        print("toggle button 3 clicked")
+ 
     def on_radiobutton4_toggled(self, button):
         self.toggle = 4
-        
+        print("toggle button 4 clicked")
+
     def on_radiobutton5_toggled(self, button):
         self.toggle = 5
-        
+        print("toggle button 5 clicked")
+
     def on_radiobutton6_toggled(self, button):
         self.toggle = 6
-        
+        print("toggle button 6 clicked")
+
     def onDeleteWindow(self, *args):
         self.window.destroy()
 	Gtk.main_quit(*args)
@@ -174,7 +187,7 @@ class ProcessWindow:
             self.results = self.results[4]
         elif self.toggle == 6:
             self.results = self.manualEntryName.get_text()
-        print(self.results)
+        print("User selected "+str(self.results))
         self.window.destroy()
         Gtk.main_quit()
 
@@ -210,16 +223,16 @@ class SkipWindow:
         self.window.destroy()
         new_dbwindow.window.show_all()
 
-'''
+
 #while going through a line in the SPA results file, we can consider the sector numbers to alternate in an "outer level"
 #and "inner level" fashion, so for the line 22-248-380, the order would be 380 (top) -> 248 (inner) ; 248 (top) -> 22 (inner)
-class DatabaseResultsWindow:
+class InputWindow:
 
     
     #constructor takes a list of tuples which are the names and amounts, this list is left empty if nothing is given
-    def __init__(self, link1, link2):
+    def __init__(self, outer, inner):
         self.builder = Gtk.Builder()
-        self.builder.add_from_file("databaseresults.glade")
+        self.builder.add_from_file("inputWindow.glade")
         self.builder.connect_signals(self)
         self.window = self.builder.get_object("database_results")
         self.title = self.builder.get_object("label1")
@@ -247,119 +260,131 @@ class DatabaseResultsWindow:
         self.fifthResultButton = self.builder.get_object("fifthResultSelectButton")
         self.manualEntryButton = self.builder.get_object("manualEntrySelectButton")
 
-        self.resultNames = [self.firstResultName, self.secondResultName, self.thirdResultName, self.fourthResultName, self.fifthResultName, self.manualEntryName]
-        self.resultAmounts = [self.firstResultAmount, self.secondResultAmount, self.thirdResultAmount, self.fourthResultAmount, self.fifthResultAmount, self.manualEntryAmount]
-
-        
-        #if len(namesAndAmounts) == 0:
-            #namesAndAmounts = self.fruitsAndPrices #set the list to be this default if namesAndAmounts aren't given
-            #a placeholder for now basically
-
-            #reminder that default function args are set only once when the function is defined, so if you call the constructor multiple times
-            #the list will change based on that
-   
-        
-      
-        for x in range(0, len(namesAndAmounts)):
-            self.resultNames[x].set_text(namesAndAmounts[x][0])
-            self.resultAmounts[x].set_text(namesAndAmounts[x][1])
-
-        #set all of the results fields to be non-editable regardless of result presence
-        for x in range(0, 5):
-                self.resultNames[x].set_editable(False)
-                self.resultAmounts[x].set_editable(False)
-
+        self.resultNames = [self.firstResultName, self.secondResultName, self.thirdResultName, self.fourthResultName, self.fifthResultName]
+        self.resultAmounts = [self.firstResultAmount, self.secondResultAmount, self.thirdResultAmount, self.fourthResultAmount, self.fifthResultAmount] 
         self.buttonList = [self.firstResultButton, self.secondResultButton, self.thirdResultButton, self.fourthResultButton, self.fifthResultButton, self.manualEntryButton]
 
-        #zip the results together into a three tuple list
-        self.resultsContentAndButtons = zip(self.resultNames, self.resultAmounts, self.buttonList)
+        # set title and get top 5 results
+        self.title.set_text("Input NAICS: "+str(inner)+"\nIn Process: " + str(outer))
+        self.results = []
+        try:
+            p = d.Process(outer)
+            self.results = p.top5Inputs(inner)
+        except:
+            for i in self.resultNames:
+                i.set_text("No database information for process name")
+        #print(self.results)
+        self.toggle = 6    
 
-# reference for manual setting in case the above doesnt work for some reason - NL
-        self.firstResultName.set_text(namesAndAmounts[0][0])
-        self.firstResultAmount.set_text(namesAndAmounts[0][1])
-        self.secondResultName.set_text(namesAndAmounts[1][0])
-        self.secondResultAmount.set_text(namesAndAmounts[1][1])
-        self.thirdResultName.set_text(namesAndAmounts[2][0])
-        self.thirdResultAmount.set_text(namesAndAmounts[2][1])
-        self.fourthResultName.set_text(namesAndAmounts[3][0])
-        self.fourthResultAmount.set_text(namesAndAmounts[3][1])
-        self.fifthResultName.set_text(namesAndAmounts[4][0])
-        self.fifthResultAmount.set_text(namesAndAmounts[4][1]) 
-
+        # populate name and amount fields with top 5 results for first line
+        i = 0
+        for x in self.resultNames:
+            try:
+                x.set_text(str(self.results[i][0]))
+            except:
+                x.set_text("...")
+            i += 1
+        i = 0
+        for y in self.resultAmounts:
+            try:
+                y.set_text(str(self.results[i][2]))
+            except:
+                y.set_text("...")
+            i += 1
         
     def on_radiobutton1_toggled(self, button):
         print("toggle button 1 clicked")
-        print(button.get_active())
-            
+        self.toggle = 1
+ 
     def on_radiobutton2_toggled(self, button):
         print("toggle button 2 clicked")
-        
+        self.toggle = 2
+
     def on_radiobutton3_toggled(self, button):
         print("toggle button 3 clicked")
+        self.toggle = 3
         
     def on_radiobutton4_toggled(self, button):
         print("toggle button 4 clicked")
-        
+        self.toggle = 4
+
     def on_radiobutton5_toggled(self, button):
         print("toggle button 5 clicked")
+        self.toggle = 5
         
     def on_radiobutton6_toggled(self, button):
         print("toggle button 6 clicked")
+        self.toggle = 6
         
     def onDeleteWindow(self, *args):
         self.window.destroy()
 	Gtk.main_quit(*args)
-
+        sys.exit()
+        print("delete-event signal happened for ProcessWindow class")
+        
     def onManualEntryDataChanged(self, entry):
         #set the manual entry radio button to be active
         self.manualEntryButton.set_active(True)
-
-    def onContinueClicked(self, button):
-        print("continue button clicked")
         
+    def onContinueClicked(self, button):
+        if self.toggle == 1:
+            self.results = self.results[0]
+        elif self.toggle == 2:
+            self.results = self.results[1]
+        elif self.toggle == 3:
+            self.results = self.results[2]
+        elif self.toggle == 4:
+            self.results = self.results[3]
+        elif self.toggle == 5:
+            self.results = self.results[4]
+        elif self.toggle == 6:
+            self.results = self.manualEntryName.get_text()
+        print("User selected: "+str(self.results[0]))
+        self.window.destroy()
+        Gtk.main_quit()
 
-        for x in range(0, 6):
-            if (self.resultsContentAndButtons[x][2].get_active()):
-                #get the text for this button's fields
-                print("The following choice has been selected")
-                print(self.resultsContentAndButtons[x][0].get_text() + ' ' + self.resultsContentAndButtons[x][1].get_text())
-                break
-            #destroy the window here and move on or something
-'''
 
 # Main
 
 limits = limitsWindow()
 Gtk.main()
 
-process = 0
+pWin = 0
 inner = 0
 viewed = [] # keeps track of codes that have already been updated by user
 spaLinks = getSPAlinks() # line by line links of codes in SPA results
+codeToName = [] # list of tuples containing spa codes and their corresponding names
 
 # read each line of the SPA results
 for x in range(len(spaLinks)):
     links = spaLinks[x]
-    print("SPA links: "+str(links))
+    print("\nSPA links: "+str(links))
     # read each link in the line
     for y in range(len(links)):
         print("link: "+str(links[-y-1]))
+        
         if links[-y-1] not in viewed:
             viewed.append(links[-y-1])
-            process = ProcessWindow(links[-y-1])
-            process.window.show_all()
+            pWin= ProcessWindow(links[-y-1])
+            pWin.window.show_all()
             Gtk.main()
-            while not process.onContinueClicked:
+            while not pWin.onContinueClicked:
                 t = 0 # do nothing
-            # add process.results to matrix
-            '''
+            name = pWin.results
+            codeToName.append([links[-y-1],name])
+            #print(codeToName)
             if y > 0:
-                inner = DatabaseResultsWindow(links[-y-1],links[-y])
-                inner.window.show_all()
-                while not inner.onContinueClicked:
+                #print("process input window")
+                outer = getName(codeToName,links[-y])
+                naics = getCode(links[-y-1])
+                iWin = InputWindow(outer,naics)
+                iWin.window.show_all()
+                Gtk.main()
+                while not iWin.onContinueClicked:
                     t = 0 # do nothing
-            
+                    # add inner.results to matrix
+                #print('exited input window')
+                    
 #spaLinks is a list of lists, where each sublist is a line of the spa file
 #print(spaLinks)
 
-            '''

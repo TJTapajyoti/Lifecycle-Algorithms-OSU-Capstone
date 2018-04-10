@@ -27,11 +27,11 @@ class Process:
                     if "$input: True" in puts:
                         # input
                         self.inputs.append([puts[0:nameIndex],puts[amtIndex:-1]])
-                        print("added input: "+puts[0:nameIndex]+" "+puts[amtIndex:-1])
+                        #print("added input: "+puts[0:nameIndex]+" "+puts[amtIndex:-1])
                     elif "$input: False" in puts:
                         # output
                         self.outputs.append([puts[0:nameIndex],puts[amtIndex:-1]])
-                        print("added output: "+puts[0:nameIndex]+" "+puts[amtIndex:-1])
+                        #print("added output: "+puts[0:nameIndex]+" "+puts[amtIndex:-1])
             else:
                 while lines[i] != "\n":
                     i += 1

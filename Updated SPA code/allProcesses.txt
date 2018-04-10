@@ -1,5 +1,6 @@
 
-Calcium carbonate, ground, 30 micron, at plant $input: False *1.0 Ethylene glycol, at plant  $input: True *0.013337967 kg
+Calcium carbonate, ground, 30 micron, at plant $input: False *1.0 
+Ethylene glycol, at plant  $input: True *0.013337967 kg
 CUTOFF Naphtha, at regional storage $input: True *0.01160328 l
 Particulates, unspecified $input: False *0.016865363 kg
 Mixed recyclables, at collection, curbside, weight basis $input: True *0.009204299 kg
@@ -9,7 +10,8 @@ Electricity, at Grid, US, 2010 $input: True *30.09309879 kWh
 Transport, combination truck, diesel powered $input: True *66.57960318 t*km
 CUTOFF Conveyor belt, at plant $input: True *0.000518086 m
 CUTOFF Oil and grease, at plant $input: True *0.055997415 kg
-Calcium carbonate $input: True *2.1436092 Steel, stainless 304, quarto plate $input: True *0.009854663 kg
+Calcium carbonate $input: True *2.1436092 
+Steel, stainless 304, quarto plate $input: True *0.009854663 kg
 CUTOFF Disposal, municipal solid wastes, to sanitary landfill $input: True *0.020172297 kg
 Diesel, combusted in industrial equipment $input: True *1.598351401 l
 Particulates, < 10 um  $input: False *0.004795054 kg
@@ -458,10 +460,13 @@ CUTOFF Lubricants, unspecified, at plant $input: True *0.035268 kg
 Reforesting, low intensity site, US PNW $input: True *15.33 m2
 Diesel, combusted in industrial equipment $input: True *2.269 l
 
-Winter wheat straw, ground and stored $input: False *1.0 CUTOFF Maize drying $input: True *33.3 kg
-Winter wheat straw, carted $input: True *1.33 CUTOFF Conveyor belt, at plant $input: True *3.4747e-05 m
+Winter wheat straw, ground and stored $input: False *1.0 
+CUTOFF Maize drying $input: True *33.3 kg
+Winter wheat straw, carted $input: True *1.33 
+CUTOFF Conveyor belt, at plant $input: True *3.4747e-05 m
 CUTOFF Dried roughage store, non ventilated $input: True *1.1723e-07 m3
-Grinding $input: True *0.88 CUTOFF Fodder loading, by self-loading trailer $input: True *2.7751 m3
+Grinding $input: True *0.88 
+CUTOFF Fodder loading, by self-loading trailer $input: True *2.7751 m3
 Water $input: False *333.0 kg
 CUTOFF Loading bales $input: True *1.43 Item(s)
 CUTOFF Agricultural machinery, general, production $input: True *0.9 kg
@@ -1071,7 +1076,8 @@ Particulates, < 10 um  $input: False *1.99768414002e-06 kg
 Nitrous oxide $input: False *5.5238441892e-08 kg
 Particulates, < 10 um  $input: False *4.6728823586e-07 kg
 
-Spring wheat straw, ground and stored, 2022 $input: False *1.0 Electricity, at grid, US, 2008 $input: True *3.2550627 MJ
+Spring wheat straw, ground and stored, 2022 $input: False *1.0 
+Electricity, at grid, US, 2008 $input: True *3.2550627 MJ
 CUTOFF Dried roughage store, non ventilated $input: True *1.1723176e-07 m3
 Water $input: False *333.0 kg
 CUTOFF Agricultural machinery, general, production $input: True *0.9 kg
@@ -1082,7 +1088,8 @@ CUTOFF Conveyor belt, at plant $input: True *3.47472e-05 m
 Electricity, at grid, US, 2008 $input: True *53.664547 MJ
 Grinding $input: True *0.97003389 sh tn
 CUTOFF Maize drying $input: True *33.3 kg
-Spring wheat straw, carted, 2022 $input: True *1.33 CUTOFF Loading bales $input: True *1.43 Item(s)
+Spring wheat straw, carted, 2022 $input: True *1.33 
+CUTOFF Loading bales $input: True *1.43 Item(s)
 
 Corn, decomposition, 15.5% moisture $input: False *1.0 kg
 Carbon dioxide, biogenic $input: False *1.4 kg
@@ -1241,7 +1248,8 @@ CUTOFF Copper product manufacturing, average metal working $input: True *1.094 k
 CUTOFF Injection moulding $input: True *12.73 kg
 CUTOFF Polyurethane, flexible foam, at plant $input: True *0.004 kg
 CUTOFF Polyethylene terephthalate, granulate, amorphous, at plant $input: True *0.117 kg
-Aluminum ingot, production mix, at plant $input: True *0.000425 CUTOFF Flat glass, uncoated, at plant $input: True *0.2045 kg
+Aluminum ingot, production mix, at plant $input: True *0.000425 
+CUTOFF Flat glass, uncoated, at plant $input: True *0.2045 kg
 CUTOFF Power adapter, for laptop, at plant $input: True *0.808 kg
 CUTOFF Silver, at regional storage $input: True *0.009 kg
 CUTOFF Synthetic rubber, at plant $input: True *0.448 kg
@@ -1473,7 +1481,8 @@ Beryllium $input: False *1.2789e-09 kg
 Naphthalene $input: False *-4.2336e-05 kg
 Ammonium, ion $input: False *-0.012172 kg
 
-Winter wheat straw, carted $input: False *0.476 Transport, combination truck, diesel powered $input: True *7.8546 t*km
+Winter wheat straw, carted $input: False *0.476 
+Transport, combination truck, diesel powered $input: True *7.8546 t*km
 CUTOFF Baling $input: True *0.342 ha
 Winter wheat straw, production, average, US, 2022 $input: True *357.0 kg
 CUTOFF Transport, tractor and trailer $input: True *0.38835 t*km
@@ -1499,7 +1508,9 @@ Coal mine ventilation energy; Electric fan; Underground mine $input: False *1.0 
 Electricity, at Grid, US, 2010 $input: True *0.1535159988 MJ
 
 Ethanol, 85%, blended, at service station, 2022 $input: False *1.0 kg
-CUTOFF Rubber and plastics hose and belting $input: True *7.49e-16 CUTOFF Measuring and dispensing pumps $input: True *9.17e-15 Ethanol, 85%, at blending terminal, 2022 $input: True *1.0 kg
+CUTOFF Rubber and plastics hose and belting $input: True *7.49e-16 
+CUTOFF Measuring and dispensing pumps $input: True *9.17e-15 
+Ethanol, 85%, at blending terminal, 2022 $input: True *1.0 kg
 CUTOFF Liquid storage tank, chemicals, organics $input: True *9.47e-12 Item(s)
 Electricity, at grid, US, 2008 $input: True *0.052 kWh
 
@@ -2089,7 +2100,8 @@ Soybean oil, crude, degummed, at plant $input: False *1000.0 kg
 Electricity, at grid, US, 2000 $input: True *289.0 kWh
 Natural gas, combusted in industrial boiler $input: True *107.268473777 m3
 
-Corn grain, at conversion plant, 2022 $input: False *1.0 Corn grain, harvested and stored $input: True *1000.0 kg
+Corn grain, at conversion plant, 2022 $input: False *1.0 
+Corn grain, harvested and stored $input: True *1000.0 kg
 Transport, barge, diesel powered $input: True *11.3 t*km
 Transport, train, diesel powered $input: True *200.0 t*km
 Transport, combination truck, diesel powered $input: True *67.0 t*km
@@ -2181,7 +2193,8 @@ Water $input: False *235000.0 kg
 Organic substances, unspecified $input: False *1420.0 kg
 Nitrogen $input: False *241000.0 kg
 Nitrogen, in air $input: True *240000.0 kg
-Corn stover, at conversion plant, 2022 $input: True *98.0 Nitrogen dioxide $input: False *63.1 kg
+Corn stover, at conversion plant, 2022 $input: True *98.0 
+Nitrogen dioxide $input: False *63.1 kg
 Phosphorous fertilizer, production mix, at plant $input: True *163.0 kg
 Oxygen, in air $input: True *71100.0 kg
 CUTOFF Disposal, inert waste, 5% water, to inert material landfill $input: True *10500.0 kg
@@ -2247,7 +2260,8 @@ Particulates, < 10 um  $input: False *7.77472618623e-06 kg
 Particulates, < 2.5 um  $input: False *0.000277075417846 kg
 Carbon monoxide, fossil  $input: False *0.00342632505364 kg
 
-Calcium carbonate, ground, fine treated, 3 micron, at plant $input: False *1.0 Particulates, < 2.5 um $input: False *0.000694456 kg
+Calcium carbonate, ground, fine treated, 3 micron, at plant $input: False *1.0 
+Particulates, < 2.5 um $input: False *0.000694456 kg
 Sodium hydroxide, production mix, at plant $input: True *0.006790238 kg
 Alumina, at plant $input: True *0.367069667 kg
 Glycerine, at plant $input: True *0.244713111 kg
@@ -2273,7 +2287,8 @@ Ethylene glycol, at plant  $input: True *0.005831227 kg
 Polyethylene terephthalate, resin, at plant, CTR $input: True *0.01653467 kg
 Polypropylene, resin, at plant, CTR $input: True *0.000540133 kg
 CUTOFF Polycarboxylates, 40% active substance, at plant $input: True *3.454842064 kg
-Calcium carbonate $input: True *3.093677 CUTOFF Conveyor belt, at plant $input: True *0.00035274 m
+Calcium carbonate $input: True *3.093677 
+CUTOFF Conveyor belt, at plant $input: True *0.00035274 m
 Transport, train, diesel powered $input: True *243.6107997 t*km
 CUTOFF Benzimidazole-compounds, at regional storehouse $input: True *0.203927593 kg
 CUTOFF Water, process $input: True *275.0 kg
@@ -3549,12 +3564,14 @@ Skidding, wheeled skidder, 120-140 HP $input: False *1.0 h
 CUTOFF Lubricants, unspecified, at plant $input: True *0.21118764 kg
 Diesel, combusted in industrial equipment $input: True *13.7746 l
 
-Switchgrass, ground and stored, 2022 $input: False *1.0 CUTOFF Maize drying $input: True *50.0 kg
+Switchgrass, ground and stored, 2022 $input: False *1.0 
+CUTOFF Maize drying $input: True *50.0 kg
 Electricity, at grid, US, 2008 $input: True *63.928 kWh
 CUTOFF Fodder loading, by self-loading trailer $input: True *2.2653 m3
 CUTOFF Dried roughage store, non ventilated $input: True *9.5711e-08 m3
 CUTOFF Conveyor belt, at plant $input: True *3.4747e-05 m
-Switchgrass, carted, 2022 $input: True *1.33 CUTOFF Loading bales $input: True *1.43 Item(s)
+Switchgrass, carted, 2022 $input: True *1.33 
+CUTOFF Loading bales $input: True *1.43 Item(s)
 CUTOFF Agricultural machinery, general, production $input: True *0.9 kg
 Water $input: False *333.0 kg
 Grinding $input: True *0.97003 sh tn
@@ -4741,24 +4758,31 @@ Transport, train, diesel powered $input: True *159.2 t*km
 Transport, single unit truck, gasoline powered $input: True *0.0007461 t*km
 Transport, combination truck, average fuel mix $input: True *0.6306 t*km
 Natural gas, combusted in industrial equipment $input: True *0.764718 kWh
-CUTOFF Talc, at plant $input: True *1.079e-05 Transport, ocean freighter, average fuel mix $input: True *148.0 t*km
+CUTOFF Talc, at plant $input: True *1.079e-05 
+Transport, ocean freighter, average fuel mix $input: True *148.0 t*km
 Transport, combination truck, average fuel mix $input: True *0.622 t*km
 Transport, ocean freighter, average fuel mix $input: True *10.28 t*km
 Transport, combination truck, average fuel mix $input: True *0.6792 t*km
-CUTOFF Potato Starch, at plant $input: True *0.001264 Transport, ocean freighter, average fuel mix $input: True *0.1845 t*km
+CUTOFF Potato Starch, at plant $input: True *0.001264 
+Transport, ocean freighter, average fuel mix $input: True *0.1845 t*km
 Transport, ocean freighter, average fuel mix $input: True *8.353 t*km
 Transport, combination truck, average fuel mix $input: True *1.866 t*km
 carbon dioxide $input: False *0.4124 kg
-CUTOFF Water, at plant $input: True *0.001658 Transport, combination truck, average fuel mix $input: True *5.97 t*km
+CUTOFF Water, at plant $input: True *0.001658 
+Transport, combination truck, average fuel mix $input: True *5.97 t*km
 Methane  $input: False *0.2735 kg
-Water $input: True *0.2202 Water $input: False *0.8145 kg
+Water $input: True *0.2202 
+Water $input: False *0.8145 kg
 Transport, train, diesel powered $input: True *0.07969 t*km
 carbon dioxide $input: False *7.69841 kg
-CUTOFF Polymers, at plant $input: True *0.000274 CUTOFF Corn Starch, at plant $input: True *0.007165 Methane  $input: False *0.9622 kg
+CUTOFF Polymers, at plant $input: True *0.000274 
+CUTOFF Corn Starch, at plant $input: True *0.007165 
+Methane  $input: False *0.9622 kg
 Transport, train, diesel powered $input: True *3.014 t*km
 Transport, single unit truck, diesel powered $input: True *0.0017409 t*km
 Transport, combination truck, average fuel mix $input: True *6.613 t*km
 CUTOFF PVOH, at plant $input: True *0.0009277 
+
 Transport, single unit truck, long-haul, gasoline powered, West North Central $input: False *1.0 t*km
 Carbon monoxide, fossil  $input: False *0.00978615732046 kg
 Methane  $input: False *1.58007903818e-05 kg
@@ -4805,7 +4829,8 @@ CUTOFF Synthetic rubber, at plant $input: True *0.335 kg
 Transport, combination truck, diesel powered $input: True *76.0 t*km
 CUTOFF Cold impact extrusion, aluminium, 1 stroke $input: True *0.425 kg
 CUTOFF Light emitting diode, LED, at plant $input: True *0.16 kg
-Aluminum ingot, production mix, at plant $input: True *0.000425 Acrylonitrile-butadiene-styrene copolymer, resin, at plant $input: True *9.164 kg
+Aluminum ingot, production mix, at plant $input: True *0.000425 
+Acrylonitrile-butadiene-styrene copolymer, resin, at plant $input: True *9.164 kg
 CUTOFF Injection moulding $input: True *12.617 kg
 CUTOFF Tap water, at user $input: True *207.0 kg
 Polyvinyl chloride, resin, at plant $input: True *0.052 kg
@@ -5300,7 +5325,8 @@ Corn wet milling, operations, AP-42 $input: True *14.89 kg
 CUTOFF Sulphuric acid, liquid, at plant $input: True *92.0 kg
 Ethanol $input: False *0.534 kg
 Corn grain, harvested and stored $input: True *14200.0 kg
-Corn wet mill, gluten drying, AP-42 $input: True *7.36 Water, unspecified natural origin/kg $input: True *1830.0 kg
+Corn wet mill, gluten drying, AP-42 $input: True *7.36 
+Water, unspecified natural origin/kg $input: True *1830.0 kg
 Water, process, unspecified natural origin/kg $input: True *19600.0 kg
 Sodium hydroxide, production mix, at plant $input: True *231.0 kg
 Methane, biogenic $input: False *-50.6 kg
@@ -5310,7 +5336,8 @@ CUTOFF Heat, at cogen with ignition biogas engine, allocation exergy $input: Tru
 Enzyme, Alpha-amylase, Novozyme Liquozyme $input: True *32.0 kg
 Gasoline, at refinery $input: True *266.0 l
 Distillers dried grains with solubles, 2022 $input: False *15000.0 kg
-Corn grain, at conversion plant, 2022 $input: True *46.4 CUTOFF Ethanol fermentation plant $input: True *7.19e-06 Item(s)
+Corn grain, at conversion plant, 2022 $input: True *46.4 
+CUTOFF Ethanol fermentation plant $input: True *7.19e-06 Item(s)
 Soy meal, at plant $input: True *4550.0 kg
 Water $input: False *62300.0 kg
 CUTOFF Disposal, inert waste, 5% water, to inert material landfill $input: True *138.0 kg
@@ -5320,7 +5347,8 @@ Nitrogen fertilizer, production mix, at plant $input: True *173.0 kg
 Carbon dioxide, biogenic $input: False *22000.0 kg
 CUTOFF Yeast paste, from whey, at fermentation $input: True *60.0 kg
 
-Forest residue, processed and loaded, at landing system $input: False *1.0 Chloride $input: False *0.0032166065 kg
+Forest residue, processed and loaded, at landing system $input: False *1.0 
+Chloride $input: False *0.0032166065 kg
 Uranium alpha $input: False *7.7793968e-05 kBq
 Manganese $input: False *5.1171816e-06 kg
 Chromium VI $input: False *2.1922601e-07 kg
@@ -5568,7 +5596,8 @@ Benzal chloride $input: False *9.8323996e-17 kg
 Methane, dichlorodifluoro-, CFC-12 $input: False *8.8830047e-11 kg
 Stibnite, in ground $input: True *1.3802286e-10 kg
 Diatomite, in ground $input: True *1.3281467e-09 kg
-Cost, Variable $input: False *1.080265 Titanium, ion $input: False *5.3063467e-05 kg
+Cost, Variable $input: False *1.080265 
+Titanium, ion $input: False *5.3063467e-05 kg
 Arsenic $input: False *3.001146e-08 kg
 Pentane $input: False *2.6290523e-07 kg
 Iodine-131 $input: False *0.00039463783 kBq
@@ -5606,7 +5635,8 @@ Carbon dioxide, fossil $input: False *0.5976127 kg
 Transformation, to traffic area, rail network $input: True *4.8191193e-07 m2
 Sulfate $input: False *3.1372282e-12 kg
 Chromium-51 $input: False *9.2862977e-06 kBq
-Cost, Fixed $input: False *2.0106157 Copper, ion $input: False *2.6626666e-06 kg
+Cost, Fixed $input: False *2.0106157 
+Copper, ion $input: False *2.6626666e-06 kg
 Particulates, < 2.5 um $input: False *4.98129e-12 kg
 Chloride $input: False *0.021336628 kg
 Heat, waste $input: False *9.5703023 MJ
@@ -6439,7 +6469,8 @@ Calcium $input: False *7.0198048e-08 kg
 Zinc, ion $input: False *9.0402526e-06 kg
 Energy, solar, converted $input: True *0.00067037462 MJ
 Nickel $input: False *9.1761169e-15 kg
-Cost, Labor $input: False *1.0714465 Cadmium $input: False *1.3108797e-15 kg
+Cost, Labor $input: False *1.0714465 
+Cadmium $input: False *1.3108797e-15 kg
 Propane $input: False *1.0713818e-09 kg
 Lead $input: False *1.9887082e-07 kg
 Antimony $input: False *2.1121085e-07 kg
@@ -6568,9 +6599,12 @@ Nitrogen dioxide $input: False *2.82461712312e-05 kg
 VOC, volatile organic compounds $input: False *1.69013189481e-05 kg
 Sulfur dioxide  $input: False *3.51438657087e-07 kg
 
-Forest residue, dried, stored $input: False *0.772 CUTOFF Conveyor belt, at plant $input: True *3.4747e-05 m
+Forest residue, dried, stored $input: False *0.772 
+CUTOFF Conveyor belt, at plant $input: True *3.4747e-05 m
 CUTOFF Dried roughage store, non ventilated $input: True *9.5711e-08 m3
-Water $input: False *0.136 Forest residue, processed and loaded, at landing system $input: True *0.908 CUTOFF Fodder loading, by self-loading trailer $input: True *2.2653 m3
+Water $input: False *0.136 
+Forest residue, processed and loaded, at landing system $input: True *0.908 
+CUTOFF Fodder loading, by self-loading trailer $input: True *2.2653 m3
 Transport, combination truck, diesel powered $input: True *29.2 t*km
 
 Bituminous coal, at mine $input: False *1.0 kg
@@ -7789,7 +7823,8 @@ Steel plate; Blast furnace route; Production mix; 85% recovery rate $input: True
 Steel reinforcement bar; Blast furnace route; Production mix $input: True *250000.0 kg
 Portland cement, at plant $input: True *318519.0 kg
 
-Corn stover, ground and stored $input: False *1.0 CUTOFF Dried roughage store, non ventilated $input: True *1.1723e-07 m3
+Corn stover, ground and stored $input: False *1.0 
+CUTOFF Dried roughage store, non ventilated $input: True *1.1723e-07 m3
 Grinding $input: True *0.93145 sh tn
 Electricity, at grid, US, 2008 $input: True *61.289 kWh
 CUTOFF Conveyor belt, at plant $input: True *3.4747e-05 m
@@ -7799,6 +7834,7 @@ CUTOFF Fodder loading, by self-loading trailer $input: True *2.7751 m3
 CUTOFF Maize drying $input: True *238.0 kg
 Water $input: False *280.0 kg
 Corn stover, carted $input: True *1.28 
+
 RFO, combusted in industrial boiler, at pulp and paper mill (EXCL.) $input: False *1.0 l
 Dioxins, measured as 2,3,7,8-tetrachlorodibenzo-p-dioxin $input: False *1.7914e-12 kg
 Oils, unspecified $input: False *6.4359e-07 kg
@@ -9880,7 +9916,8 @@ Transport, combination truck, diesel powered $input: True *19.0 t*km
 CUTOFF Silver, at regional storage $input: True *0.014 kg
 CUTOFF Polymethyl methacrylate, beads, at plant $input: True *0.012 kg
 CUTOFF Tetrafluoroethylene, at plant $input: True *0.012 kg
-Aluminum ingot, production mix, at plant $input: True *0.000933 CUTOFF Polycarbonate, at plant $input: True *0.47 kg
+Aluminum ingot, production mix, at plant $input: True *0.000933 
+CUTOFF Polycarbonate, at plant $input: True *0.47 kg
 CUTOFF Copper, primary, at refinery $input: True *0.028 kg
 CUTOFF Cable, connector for computer, without plugs, at plant $input: True *0.084 kg
 CUTOFF Steel, low-alloyed, at plant $input: True *6.31 kg
@@ -9888,8 +9925,10 @@ CUTOFF Steel, low-alloyed, at plant $input: True *6.31 kg
 Electric shearer; Manufacture; For underground coal mine, at plant $input: False *1.0 Item(s)
 Steel plate; Blast furnace route; Production mix; 85% recovery rate $input: True *56699.0 kg
 
-Switchgrass, carted, 2022 $input: False *9.07 CUTOFF Transport, tractor and trailer $input: True *7.42 t*km
-Switchgrass, harvested, wet $input: True *9.07 Transport, combination truck, diesel powered $input: True *150.4 t*km
+Switchgrass, carted, 2022 $input: False *9.07 
+CUTOFF Transport, tractor and trailer $input: True *7.42 t*km
+Switchgrass, harvested, wet $input: True *9.07 
+Transport, combination truck, diesel powered $input: True *150.4 t*km
 
 Fertilizer, winter wheat straw, 2022 $input: False *1.0 ha
 CUTOFF Potassium chloride, as K2O, at regional storehouse $input: True *12.2 kg
@@ -12180,7 +12219,9 @@ Gasoline, combusted in equipment $input: True *1.71252833383e-05 l
 Hydrogen $input: False *5.18476475711e-06 kg
 Water, process, unspecified natural origin/m3 $input: True *0.000609611918736 m3
 
-Forest residue, preprocessed, at conversion facility $input: False *1.0 Forest residue, dried, stored $input: True *1.0 Transport, combination truck, diesel powered $input: True *34.0 t*km
+Forest residue, preprocessed, at conversion facility $input: False *1.0 
+Forest residue, dried, stored $input: True *1.0 
+Transport, combination truck, diesel powered $input: True *34.0 t*km
 
 Steel, cold-formed studs and track, at plant $input: False *1.0 kg
 CUTOFF Lubricating oil $input: True *9.22e-05 kg
@@ -14209,7 +14250,8 @@ Water, process $input: True *4.80105636115 l
 CUTOFF Defoamant, unspecified $input: True *0.0022 kg
 Suspended solids, unspecified $input: False *0.003 kg
 
-Calcium carbonate, ground, 20 micron, at plant $input: False *1.0 Particulates, < 2.5 um $input: False *0.000573202 kg
+Calcium carbonate, ground, 20 micron, at plant $input: False *1.0 
+Particulates, < 2.5 um $input: False *0.000573202 kg
 Polybutadiene, at plant $input: True *0.012235656 kg
 Residual fuel oil, combusted in industrial boiler $input: True *0.324079525 l
 CUTOFF Disposal, municipal solid wastes, to sanitary landfill $input: True *0.023369 kg
@@ -14233,7 +14275,8 @@ Kerosene, at refinery $input: True *0.025022467 l
 CUTOFF Lead, at regional storage $input: True *0.000507063 kg
 Particulates, unspecified $input: False *1.45505093 kg
 CUTOFF Disposal, mineral waste, underground deposit  $input: True *1510.166496 kg
-Calcium carbonate $input: True *2.49234 CUTOFF Blasting $input: True *0.745162446 kg
+Calcium carbonate $input: True *2.49234 
+CUTOFF Blasting $input: True *0.745162446 kg
 Natural gas, combusted in industrial equipment $input: True *0.000253532 m3
 Ethylene glycol, at plant  $input: True *0.015542589 kg
 CUTOFF Water, process $input: True *0.186290612 kg
@@ -15072,7 +15115,8 @@ CUTOFF Polyphenylene sulfide, at plant $input: True *0.485 kg
 CUTOFF Electricity, low voltage, at grid $input: True *24.0 kWh
 CUTOFF Polyurethane, flexible foam, at plant $input: True *0.002 kg
 CUTOFF Printed wiring board, surface mounted, unspec., Pb free, at plant $input: True *0.537 kg
-Aluminum ingot, production mix, at plant $input: True *0.001126 CUTOFF Flat glass, coated, at plant $input: True *0.2 kg
+Aluminum ingot, production mix, at plant $input: True *0.001126 
+CUTOFF Flat glass, coated, at plant $input: True *0.2 kg
 CUTOFF Copper product manufacturing, average metal working $input: True *0.894 kg
 Polypropylene resin, at plant $input: True *0.648 kg
 Polyvinyl chloride, resin, at plant $input: True *0.015 kg
@@ -18012,7 +18056,8 @@ CUTOFF Tetrafluoroethylene, at plant $input: True *0.012 kg
 CUTOFF Printed wiring board, surface mounted, unspec., Pb free, at plant $input: True *0.493 kg
 E-glass, at plant $input: True *0.02 kg
 CUTOFF Polycarbonate, at plant $input: True *0.52 kg
-Aluminum ingot, production mix, at plant $input: True *0.000952 CUTOFF Silver, at regional storage $input: True *0.014 kg
+Aluminum ingot, production mix, at plant $input: True *0.000952 
+CUTOFF Silver, at regional storage $input: True *0.014 kg
 
 Electricity, at Grid, FRCC, 2008 $input: False *1.0 kWh
 Electricity, bituminous coal, at power plant $input: True *0.00050912022134 kWh
@@ -19607,13 +19652,16 @@ Electricity, at grid, Eastern US, 2000 $input: True *36.12217795 kWh
 Roundwood, hardwood, green, at mill, E $input: True *1.0 m3
 Diesel, combusted in industrial equipment $input: True *0.284462151 l
 
-Spring wheat straw, carted, 2022 $input: False *0.476 CUTOFF Transport, tractor and trailer $input: True *0.38835 t*km
+Spring wheat straw, carted, 2022 $input: False *0.476 
+CUTOFF Transport, tractor and trailer $input: True *0.38835 t*km
 CUTOFF Baling $input: True *0.397 ha
 CUTOFF Spring wheat straw, production, average, US, 2022 $input: True *357.0 kg
 Transport, combination truck, diesel powered $input: True *7.8546 t*km
 
-Switchgrass, at conversion plant, 2022 $input: False *1.0 Transport, barge, diesel powered $input: True *11.3 t*km
-Switchgrass, ground and stored, 2022 $input: True *1.0 Transport, combination truck, diesel powered $input: True *32.2 t*km
+Switchgrass, at conversion plant, 2022 $input: False *1.0 
+Transport, barge, diesel powered $input: True *11.3 t*km
+Switchgrass, ground and stored, 2022 $input: True *1.0 
+Transport, combination truck, diesel powered $input: True *32.2 t*km
 Transport, train, diesel powered $input: True *200.0 t*km
 
 Roundwood, hardwood, average, at forest road, NE-NC $input: False *1.0 m3
@@ -19871,7 +19919,8 @@ Enzyme, Cellulase, Novozyme Celluclast $input: True *567.0 kg
 Gasoline, at refinery $input: True *464.0 l
 Water, process, unspecified natural origin/kg $input: True *6240.0 kg
 Water, cooling, well, in ground $input: True *200000.0 kg
-Switchgrass, at conversion plant, 2022 $input: True *98.0 Oxygen, in air $input: True *72600.0 kg
+Switchgrass, at conversion plant, 2022 $input: True *98.0 
+Oxygen, in air $input: True *72600.0 kg
 CUTOFF Chemicals inorganic, at plant $input: True *1.9 kg
 Oxygen $input: False *18500.0 kg
 CUTOFF Disposal, inert waste, 5% water, to inert material landfill $input: True *9610.0 kg
@@ -22070,7 +22119,8 @@ Sawdust, softwood, green, at sawmill, INW $input: False *0.109 kg
 Electricity, at grid, Western US, 2000 $input: True *0.0436 kWh
 Roundwood, softwood, green, at logyard, INW $input: True *1.63 kg
 
-Natural soda ash (Sodium carbonate), at plant $input: False *1.0 Gasoline, combusted in equipment $input: True *0.061702 l
+Natural soda ash (Sodium carbonate), at plant $input: False *1.0 
+Gasoline, combusted in equipment $input: True *0.061702 l
 Particulates $input: False *0.0012 kg
 Transport, combination truck, average fuel mix $input: True *0.0105 t*km
 Particulates $input: False *0.0288 kg
@@ -22423,7 +22473,8 @@ Sulfur dioxide  $input: False *0.00754 kg
 Nitrogen oxides  $input: False *0.00906 kg
 Gas, natural, in ground $input: True *0.7617 m3
 
-Corn stover, carted $input: False *1.71 CUTOFF Transport, tractor and trailer $input: True *1.3957 t*km
+Corn stover, carted $input: False *1.71 
+CUTOFF Transport, tractor and trailer $input: True *1.3957 t*km
 Transport, combination truck, diesel powered $input: True *28.177 t*km
 CUTOFF Baling $input: True *0.405 ha
 Corn stover, production, average, US, 2022 $input: True *1330.0 kg
@@ -28220,10 +28271,13 @@ Residual fuel oil, combusted in industrial boiler $input: True *0.0043389 l
 Transport, barge, diesel powered $input: True *0.00027428 t*km
 Carbon dioxide, fossil  $input: False *0.01929 kg
 
-Wheat straw, at conversion plant, 2022 $input: False *1.0 Transport, barge, diesel powered $input: True *11.3 t*km
+Wheat straw, at conversion plant, 2022 $input: False *1.0 
+Transport, barge, diesel powered $input: True *11.3 t*km
 Transport, train, diesel powered $input: True *200.0 t*km
-Winter wheat straw, ground and stored $input: True *0.5 Transport, combination truck, diesel powered $input: True *32.2 t*km
+Winter wheat straw, ground and stored $input: True *0.5 
+Transport, combination truck, diesel powered $input: True *32.2 t*km
 Spring wheat straw, ground and stored, 2022 $input: True *0.5 
+
 Transport, intercity bus, diesel powered, Northeast $input: False *1.0 p*km
 Transport, ocean freighter, average fuel mix $input: True *0.0336904510223 t*km
 Particulates, < 2.5 um  $input: False *5.58553192017e-07 kg
@@ -28643,7 +28697,8 @@ Mixed Alcohols, thermochemical process $input: False *3787.5 kg
 CUTOFF Energy, output $input: True *11968.0 MJ
 CUTOFF Magnesium oxide, at plant $input: True *3.1615 kg
 Water $input: False *63049.0 kg
-Forest residue, preprocessed, at conversion facility $input: True *119290.0 CUTOFF Disposal, wood ash mixture, pure, 0% water, to sanitary landfill $input: True *1102.2 kg
+Forest residue, preprocessed, at conversion facility $input: True *119290.0 
+CUTOFF Disposal, wood ash mixture, pure, 0% water, to sanitary landfill $input: True *1102.2 kg
 CUTOFF Silica sand, at plant $input: True *244.03 kg
 Heat, indirect, heated zones, softwood, plywood veneer drying, AP-42 $input: True *41730.0 kg
 CUTOFF Chemicals inorganic, at plant $input: True *0.45359 kg
@@ -29923,7 +29978,8 @@ VOC, volatile organic compounds $input: False *1.62e-12 kg
 Methyl methacrylate $input: False *1.16e-16 kg
 Transport, barge, diesel powered $input: True *0.00072824 t*km
 CUTOFF Disposal, unspecified waste from converting, to burning $input: True *4.8e-12 kg
-Liquefied petroleum gas, at refinery $input: True *0.00066781 Indeno(1,2,3-cd)pyrene $input: False *3.54e-19 kg
+Liquefied petroleum gas, at refinery $input: True *0.00066781 
+Indeno(1,2,3-cd)pyrene $input: False *3.54e-19 kg
 Methane, monochloro-, R-40 $input: False *3.07e-15 kg
 Toluene, chloro- $input: False *4.06e-15 kg
 Hydrogen chloride $input: False *5.23e-08 kg
@@ -30694,7 +30750,8 @@ Oxygen, in air $input: True *62100.0 kg
 Water $input: False *215000.0 kg
 Combustion, wet wood residue, AP-42 $input: True *616000.0 btu
 CUTOFF Disposal, inert waste, 5% water, to inert material landfill $input: True *15800.0 kg
-Wheat straw, at conversion plant, 2022 $input: True *98.0 Carbon dioxide, biogenic $input: False *82200.0 kg
+Wheat straw, at conversion plant, 2022 $input: True *98.0 
+Carbon dioxide, biogenic $input: False *82200.0 kg
 CUTOFF Hydrochloric acid, 30% in H2O, at plant $input: True *0.333 kg
 CUTOFF Sulphuric acid, liquid, at plant $input: True *3340.0 kg
 CUTOFF Chemicals organic, at plant $input: True *24.9 kg
@@ -31091,7 +31148,8 @@ Transport, barge, average fuel mix $input: True *0.00128890231545 t*km
 Transport, pipeline, unspecified petroleum products $input: True *0.0134318046206 t*km
 Nitrous oxide $input: False *4.40110181145e-08 kg
 
-Calcium carbonate, ground, screened grade, at plant $input: False *1.0 CUTOFF Sulfuric acid, at plant $input: True *0.000859803 kg
+Calcium carbonate, ground, screened grade, at plant $input: False *1.0 
+CUTOFF Sulfuric acid, at plant $input: True *0.000859803 kg
 Particulates, < 2.5 um $input: False *0.001223566 kg
 Gasoline, combusted in equipment $input: True *0.018077905 l
 CUTOFF Textile, woven cotton, at plant $input: True *0.003340003 kg
@@ -31102,7 +31160,8 @@ Residual fuel oil, combusted in industrial boiler $input: True *0.364865044 l
 CUTOFF Naphtha, at regional storage $input: True *0.015200293 l
 Polybutadiene, at plant $input: True *0.013889123 kg
 Electricity, at Grid, US, 2010 $input: True *22.48715074 kWh
-Calcium carbonate $input: True *2.80692 CUTOFF Lead, at regional storage $input: True *0.000573202 kg
+Calcium carbonate $input: True *2.80692 
+CUTOFF Lead, at regional storage $input: True *0.000573202 kg
 CUTOFF Disposal, municipal solid wastes, to sanitary landfill $input: True *0.039903669 kg
 Ethylene glycol, at plant  $input: True *0.01752675 kg
 CUTOFF Oil and grease, at plant $input: True *0.073413933 kg
@@ -31634,7 +31693,8 @@ Transport, combination truck, diesel powered $input: True *243.0 t*km
 Polyethylene, low density, resin, at plant $input: True *1.077 kg
 CUTOFF Power adapter, for laptop, at plant $input: True *1.152 kg
 Packaging, production scanners $input: True *54.444 kg
-Aluminum ingot, production mix, at plant $input: True *0.013148 CUTOFF Copper, primary, at refinery $input: True *0.588 kg
+Aluminum ingot, production mix, at plant $input: True *0.013148 
+CUTOFF Copper, primary, at refinery $input: True *0.588 kg
 CUTOFF Steel, low-alloyed, at plant $input: True *154.74 kg
 CUTOFF Printed wiring board, surface mounted, unspec., Pb free, at plant $input: True *1.913 kg
 CUTOFF Treatment, sewage, to wastewater treatment, class 1 $input: True *661.0 kg
@@ -32924,14 +32984,16 @@ Naphthalene $input: False *1.4506e-09 kg
 Oil, crude, in ground  $input: True *0.02643 kg
 Dibenzothiophene $input: False *1.0653e-11 kg
 
-Calcium carbonate, ground, fine slurry, 3 micron, at plant $input: False *1.0 Electricity, at Grid, US, 2010 $input: True *241.4061771 kWh
+Calcium carbonate, ground, fine slurry, 3 micron, at plant $input: False *1.0 
+Electricity, at Grid, US, 2010 $input: True *241.4061771 kWh
 Transport, combination truck, diesel powered $input: True *14.66074044 t*km
 CUTOFF Polycarboxylates, 40% active substance, at plant $input: True *4.221301165 kg
 Polypropylene, resin, at plant, CTR $input: True *0.000650364 kg
 Sodium hydroxide, production mix, at plant $input: True *0.003097495 kg
 CUTOFF Disposal, mineral waste, underground deposit  $input: True *1631.42074 kg
 CUTOFF Disposal, municipal solid wastes, to sanitary landfill $input: True *0.165346697 kg
-Calcium carbonate $input: True *3.0714039 CUTOFF Sulfuric acid, at plant $input: True *0.000936965 kg
+Calcium carbonate $input: True *3.0714039 
+CUTOFF Sulfuric acid, at plant $input: True *0.000936965 kg
 CUTOFF Blasting $input: True *0.918225322 kg
 Kerosene, at refinery $input: True *0.030864717 l
 Mixed recyclables, at collection, curbside, weight basis $input: True *0.00534621 kg
@@ -32980,8 +33042,10 @@ Loader operation, large, NE-NC $input: True *19.8734497596 h
 Felling, feller buncher, > 200 HP, NE-NC $input: True *11.2235563179 h
 Pulpwood, softwood, average, Low Intensity Management, NE-NC $input: False *119.612133333 m3
 
-Corn stover, at conversion plant, 2022 $input: False *1.0 Transport, train, diesel powered $input: True *200.0 t*km
-Corn stover, ground and stored $input: True *1.0 Transport, combination truck, diesel powered $input: True *30.2 t*km
+Corn stover, at conversion plant, 2022 $input: False *1.0 
+Transport, train, diesel powered $input: True *200.0 t*km
+Corn stover, ground and stored $input: True *1.0 
+Transport, combination truck, diesel powered $input: True *30.2 t*km
 Transport, barge, diesel powered $input: True *11.3 t*km
 
 Longwall mining system; Equipment assembly; Production mix, at underground coal mine $input: False *1.0 Item(s)
