@@ -17,24 +17,25 @@ def increment():
 pName = "Transport, transit bus, diesel powered"
 
 class ProcessOutputWindow:
-    builder = Gtk.Builder()
+    
     
     def __init__(self):
-        ProcessOutputWindow.builder.add_from_file("user_input_draft1.glade")
-        ProcessOutputWindow.builder.connect_signals(self)
-        self.window = ProcessOutputWindow.builder.get_object("window1")
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file("user_input_draft1.glade")
+        self.builder.connect_signals(self)
+        self.window = self.builder.get_object("window1")
         self.window.show_all()
 
     def onDeleteWindow(self, *args):
         print("window one closed")    
 
     def onButtonClicked(self, button):
-        entry1 = ProcessOutputWindow.builder.get_object("entry1")
-        entry2 = ProcessOutputWindow.builder.get_object("entry2")
-        entry3 = ProcessOutputWindow.builder.get_object("entry3")
-        entry4 = ProcessOutputWindow.builder.get_object("entry4")
-        entry5 = ProcessOutputWindow.builder.get_object("entry5")
-        errorMessage = ProcessOutputWindow.builder.get_object("label1")
+        entry1 = self.builder.get_object("entry1")
+        entry2 = self.builder.get_object("entry2")
+        entry3 = self.builder.get_object("entry3")
+        entry4 = self.builder.get_object("entry4")
+        entry5 = self.builder.get_object("entry5")
+        errorMessage = self.builder.get_object("label1")
         try:
             global pName
             pName = entry1.get_text()
@@ -57,13 +58,14 @@ class ProcessOutputWindow:
             entry5.set_text("")
        
 class ProcessInputWindow:
-    builder = Gtk.Builder()
+    
     
     def __init__(self):
-        ProcessInputWindow.builder.add_from_file("process_inputs.glade")
-        ProcessInputWindow.builder.connect_signals(self)
-        self.window = ProcessInputWindow.builder.get_object("window1")
-        title = ProcessInputWindow.builder.get_object("label4")
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file("process_inputs.glade")
+        self.builder.connect_signals(self)
+        self.window = self.builder.get_object("window1")
+        title = self.builder.get_object("label4")
         title.set_label("Input1")
         increment()
         
@@ -72,10 +74,10 @@ class ProcessInputWindow:
         print("window two closed")    
 
     def onButton1Clicked(self, button1):
-        entry1 = ProcessInputWindow.builder.get_object("entry1")
-        entry2 = ProcessInputWindow.builder.get_object("entry2")
-        entry3 = ProcessInputWindow.builder.get_object("entry3")
-        errorMessage = ProcessInputWindow.builder.get_object("label5")
+        entry1 = self.builder.get_object("entry1")
+        entry2 = self.builder.get_object("entry2")
+        entry3 = self.builder.get_object("entry3")
+        errorMessage = self.builder.get_object("label5")
         if entry1.get_text() == "" and entry2.get_text() == "" and entry3.get_text() == "":
             self.window.destroy()
             print("Window two closed")
@@ -103,10 +105,10 @@ class ProcessInputWindow:
         
             
     def onButton2Clicked(self, button2):
-        entry1 = ProcessInputWindow.builder.get_object("entry1")
-        entry2 = ProcessInputWindow.builder.get_object("entry2")
-        entry3 = ProcessInputWindow.builder.get_object("entry3")
-        errorMessage = ProcessInputWindow.builder.get_object("label5")
+        entry1 = self.builder.get_object("entry1")
+        entry2 = self.builder.get_object("entry2")
+        entry3 = self.builder.get_object("entry3")
+        errorMessage = self.builder.get_object("label5")
         try:
             code = entry1.get_text()
             amt = float(entry2.get_text())
@@ -123,26 +125,27 @@ class ProcessInputWindow:
         entry1.set_text("")
         entry2.set_text("")
         entry3.set_text("")
-        title = ProcessInputWindow.builder.get_object("label4")
+        title = self.builder.get_object("label4")
         title.set_label("Input"+str(numInputs))
 
         
 class MatrixWindow:
-    builder = Gtk.Builder()
+
 
     def __init__(self):
-        MatrixWindow.builder.add_from_file("user_input_draft2.glade")
-        MatrixWindow.builder.connect_signals(self)
-        self.window = MatrixWindow.builder.get_object("econ_window")
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file("user_input_draft2.glade")
+        self.builder.connect_signals(self)
+        self.window = self.builder.get_object("econ_window")
         
     def onDeleteWindow(self, *args):
         print("window three closed")     
 
     def onButtonClicked(self, button):
-        entry1 = MatrixWindow.builder.get_object("entry1")
-        entry2 = MatrixWindow.builder.get_object("entry2")
-        entry3 = MatrixWindow.builder.get_object("entry3")
-        entry4 = MatrixWindow.builder.get_object("entry4")
+        entry1 = self.builder.get_object("entry1")
+        entry2 = self.builder.get_object("entry2")
+        entry3 = self.builder.get_object("entry3")
+        entry4 = self.builder.get_object("entry4")
         v = entry1.get_text()
         u = entry2.get_text()
         b = entry3.get_text()
@@ -169,7 +172,7 @@ class MatrixWindow:
 
         response = fileDialog.run()
 
-        entry1 = MatrixWindow.builder.get_object("entry1")
+        entry1 = self.builder.get_object("entry1")
         if response == Gtk.ResponseType.OK:
             print("You clicked the Open button")
             print("File selected " + fileDialog.get_filename())
@@ -188,7 +191,7 @@ class MatrixWindow:
 
         response = fileDialog.run()
 
-        entry2 = MatrixWindow.builder.get_object("entry2")
+        entry2 = self.builder.get_object("entry2")
         if response == Gtk.ResponseType.OK:
             print("You clicked the Open button")
             print("File selected " + fileDialog.get_filename())
@@ -205,7 +208,7 @@ class MatrixWindow:
 
         response = fileDialog.run()
 
-        entry3 = MatrixWindow.builder.get_object("entry3")
+        entry3 = self.builder.get_object("entry3")
         if response == Gtk.ResponseType.OK:
             print("You clicked the Open button")
             print("File selected " + fileDialog.get_filename())
@@ -223,7 +226,7 @@ class MatrixWindow:
 
         response = fileDialog.run()
 
-        entry4 = MatrixWindow.builder.get_object("entry4")
+        entry4 = self.builder.get_object("entry4")
         if response == Gtk.ResponseType.OK:
             print("You clicked the Open button")
             print("File selected " + fileDialog.get_filename())
@@ -236,13 +239,14 @@ class MatrixWindow:
 
 
 class SpaWindow:
-    builder = Gtk.Builder()
+
 
     def __init__(self):
-        SpaWindow.builder.add_from_file("SPA_results.glade")
-        SpaWindow.builder.connect_signals(self)
-        self.window = SpaWindow.builder.get_object("window1")
-        title = SpaWindow.builder.get_object("label2")
+        builder = Gtk.Builder()
+        self.builder.add_from_file("SPA_results.glade")
+        self.builder.connect_signals(self)
+        self.window = self.builder.get_object("window1")
+        title = self.builder.get_object("label2")
         myfile4 = open("myfile4.txt","r")
         results = myfile4.read()
         title.set_label(results)
