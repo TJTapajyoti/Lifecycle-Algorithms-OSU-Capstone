@@ -5,9 +5,9 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 import databaseWrapper as d
 import csv
-
-uncertainty = 0 
-complexity = 0
+    
+limit1 = 0
+limit2 = 0
 line = 0
 
 # get the NAICS code from sectorsCodes csv file
@@ -22,13 +22,14 @@ def getCode(num):
 
 # get the industry description from sectorsCodes csv file
 def getDescr(num):
-    descr = 0
+    descr = ""
     with open('SectorsCodes.csv','rb') as f:
         sectorCodes = csv.reader(f)
         for row in sectorCodes:
             if row[0] == num:
                 descr = row[2]
     return descr
+
 
 # Get the links for each line of the the SPA results
 spaLinks = []
@@ -38,6 +39,7 @@ with open("myfile4.txt","r") as f:
         noValue1 = line[9:]
         x = len(noValue1) - len(noValue1.lstrip())
         noWhite = noValue1[x:]
+        #print(noWhite)
         endNumbers = noWhite.find(" ")
         numbers = noWhite[:endNumbers].split("----")
         #print(numbers)
@@ -45,54 +47,55 @@ with open("myfile4.txt","r") as f:
     f.close()
 
 class limitsWindow:
-    builder = Gtk.Builder()
 
     def __init__(self):
-       limitsWindow.builder.add_from_file("refine_dialog.glade")
-       limitsWindow.builder.connect_signals(self)
-       self.window = limitsWindow.builder.get_object("window1")
+       self.builder = Gtk.Builder()
+       self.builder.add_from_file("refine_dialog.glade")
+       self.builder.connect_signals(self)
+       self.window = self.builder.get_object("window1")
        self.window.show_all()
        
     #TODO: functionality integration, all below is just a basic template
     def onContinue(self, button):
-        global uncertainty
-        uncertainty = limitsWindow.builder.get_object("entry1").get_text()
-        global complexity
-        complexity = limitsWindow.builder.get_object("entry2").get_text()
+        global limit1
+        limit1 = self.builder.get_object("entry1").get_text()
+        global limit2
+        limit2 = self.builder.get_object("entry2").get_text()
         self.window.destroy()
         process.window.show_all()
         
     def onDeleteWindow(self, *args):
 	self.window.destroy()
         Gtk.main_quit(*args)
-
+      
 
 class ProcessWindow:
-    builder = Gtk.Builder()
+
     
     #constructor takes the row number from the spa results and index of the link in the row 
     def __init__(self, row, i):
-        ProcessWindow.builder.add_from_file("databaseresults.glade")
-        ProcessWindow.builder.connect_signals(self)
-        self.window = ProcessWindow.builder.get_object("database_results")
-        self.title = ProcessWindow.builder.get_object("label1")
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file("databaseresults.glade")
+        self.builder.connect_signals(self)
+        self.window = self.builder.get_object("database_results")
+        self.title = self.builder.get_object("label1")
         
         # name labels
-        self.firstResultName = ProcessWindow.builder.get_object("firstResultName")
-        self.secondResultName = ProcessWindow.builder.get_object("secondResultName")
-        self.thirdResultName = ProcessWindow.builder.get_object("thirdResultName")
-        self.fourthResultName = ProcessWindow.builder.get_object("fourthResultName")
-        self.fifthResultName = ProcessWindow.builder.get_object("fifthResultName")
+        self.firstResultName = self.builder.get_object("firstResultName")
+        self.secondResultName = self.builder.get_object("secondResultName")
+        self.thirdResultName = self.builder.get_object("thirdResultName")
+        self.fourthResultName = self.builder.get_object("fourthResultName")
+        self.fifthResultName = self.builder.get_object("fifthResultName")
         # name text field
-        self.manualEntryName = ProcessWindow.builder.get_object("manualEntryName")
+        self.manualEntryName = self.builder.get_object("manualEntryName")
         
         # radio buttons
-        self.firstResultButton = ProcessWindow.builder.get_object("firstResultSelectButton")
-        self.secondResultButton = ProcessWindow.builder.get_object("secondResultSelectButton")
-        self.thirdResultButton = ProcessWindow.builder.get_object("thirdResultSelectButton")
-        self.fourthResultButton = ProcessWindow.builder.get_object("fourthResultSelectButton")
-        self.fifthResultButton = ProcessWindow.builder.get_object("fifthResultSelectButton")
-        self.manualEntryButton = ProcessWindow.builder.get_object("manualEntrySelectButton")
+        self.firstResultButton = self.builder.get_object("firstResultSelectButton")
+        self.secondResultButton = self.builder.get_object("secondResultSelectButton")
+        self.thirdResultButton = self.builder.get_object("thirdResultSelectButton")
+        self.fourthResultButton = self.builder.get_object("fourthResultSelectButton")
+        self.fifthResultButton = self.builder.get_object("fifthResultSelectButton")
+        self.manualEntryButton = self.builder.get_object("manualEntrySelectButton")
 
         #items used during the calculations process
         self.failCount = 0
@@ -103,6 +106,7 @@ class ProcessWindow:
         self.currentRow = row
         self.sectorIndexInLine = len(spaLinks[self.currentRow]) - 1
 
+        # set title and get top 5 results
         print(i)
         link = spaLinks[self.currentRow][self.sectorIndexInLine]
         preceding = link
@@ -111,20 +115,17 @@ class ProcessWindow:
         spaLinks[row].reverse()
 
         print(spaLinks[row])
-        spaLinks[row].reverse()
         print(link)
-        
-        # set title and get top 5 results
         naics = getCode(link)
         self.title.set_text("Process Name for NAICS: " + str(naics))
         description = [getDescr(link)]
         print(description)
         results = d.top5Processes(description)
-        print(results)
         if len(results) < 5:
             description = d.NAICSdescription(naics)
             results = results + d.top5Processes(description)
         print(results)
+
         
         # populate name fields with top 5 results for first line
         try:
@@ -203,7 +204,7 @@ class ProcessWindow:
                     calc = 0
                     self.failCount += 1
 
-            if (self.acceptable):
+            if ( self.acceptable):
 
                 print("moved to next line of file")
                 #reset parameters to process the next row
@@ -211,49 +212,80 @@ class ProcessWindow:
                 self.sectorNumInLine = 0
                 topLevelProcess = ProcessWindow(self.currentRow+1, len(spaLinks[self.currentRow+1]))
                 self.window.destroy()
-                topLevelProcess.show_all()
+                topLevelProcess.window.show_all()
             #otherwise do nothing calculations have failed so print this to the screen and close the window
             else:
                 print("successive fail limit of {} exceeded, exiting".format(self.failCount))
                 self.window.destroy()
-                Gtk.main_quit()
+                skipWindow = SkipWindow(self.currentRow, len(spaLinks[self.currentRow]))
+                skipWindow.window.show_all()
 
+
+
+class SkipWindow:
+
+
+    #constructor takes a list of tuples which are the names and amounts, this list is left empty if nothing is given
+    def __init__(self, row, index):
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file("skip_window.glade")
+        self.builder.connect_signals(self)
+        self.currentRow = row
+        self.SectorIndexInRow = index
+
+        self.window = self.builder.get_object("skip_window")
+        self.window.show_all()
+
+    def onDeleteWindow(self, *args):
+        print("skip window delete-event signal")
+
+    def on_skip_yes_clicked(self, button):
+        #destroy the window and quit
+        self.window.destroy()
+        Gtk.main_quit()
+
+    def on_skip_no_clicked(self, button):
+        #re-open a database window
+        new_dbwindow = ProcessWindow(self.currentRow, self.SectorIndexInRow)
+        self.window.destroy()
+        new_dbwindow.window.show_all()
 
 
 #while going through a line in the SPA results file, we can consider the sector numbers to alternate in an "outer level"
 #and "inner level" fashion, so for the line 22-248-380, the order would be 380 (top) -> 248 (inner) ; 248 (top) -> 22 (inner)
 class DatabaseResultsWindow:
-    builder = Gtk.Builder()
+
     
     #constructor takes a list of tuples which are the names and amounts, this list is left empty if nothing is given
     def __init__(self, namesAndAmounts=[]):
-        DatabaseResultsWindow.builder.add_from_file("databaseresults.glade")
-        DatabaseResultsWindow.builder.connect_signals(self)
-        self.window = DatabaseResultsWindow.builder.get_object("database_results")
-        self.title = DatabaseResultsWindow.builder.get_object("label1")
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file("databaseresults.glade")
+        self.builder.connect_signals(self)
+        self.window = self.builder.get_object("database_results")
+        self.title = self.builder.get_object("label1")
 
         # name and amount labels
-        self.firstResultName = DatabaseResultsWindow.builder.get_object("firstResultName")
-        self.firstResultAmount = DatabaseResultsWindow.builder.get_object("firstResultAmount")
-        self.secondResultName = DatabaseResultsWindow.builder.get_object("secondResultName")
-        self.secondResultAmount = DatabaseResultsWindow.builder.get_object("secondResultAmount")
-        self.thirdResultName = DatabaseResultsWindow.builder.get_object("thirdResultName")
-        self.thirdResultAmount = DatabaseResultsWindow.builder.get_object("thirdResultAmount")
-        self.fourthResultName = DatabaseResultsWindow.builder.get_object("fourthResultName")
-        self.fourthResultAmount = DatabaseResultsWindow.builder.get_object("fourthResultAmount")
-        self.fifthResultName = DatabaseResultsWindow.builder.get_object("fifthResultName")
-        self.fifthResultAmount = DatabaseResultsWindow.builder.get_object("fifthResultAmount")
+        self.firstResultName = self.builder.get_object("firstResultName")
+        self.firstResultAmount = self.builder.get_object("firstResultAmount")
+        self.secondResultName = self.builder.get_object("secondResultName")
+        self.secondResultAmount = self.builder.get_object("secondResultAmount")
+        self.thirdResultName = self.builder.get_object("thirdResultName")
+        self.thirdResultAmount = self.builder.get_object("thirdResultAmount")
+        self.fourthResultName = self.builder.get_object("fourthResultName")
+        self.fourthResultAmount = self.builder.get_object("fourthResultAmount")
+        self.fifthResultName = self.builder.get_object("fifthResultName")
+        self.fifthResultAmount = self.builder.get_object("fifthResultAmount")
         # name and amount text fields
-        self.manualEntryName = DatabaseResultsWindow.builder.get_object("manualEntryName")
-        self.manualEntryAmount = DatabaseResultsWindow.builder.get_object("manualEntryAmount")
+        self.manualEntryName = self.builder.get_object("manualEntryName")
+        self.manualEntryAmount = self.builder.get_object("manualEntryAmount")
         
         # radio buttons
-        self.firstResultButton = DatabaseResultsWindow.builder.get_object("firstResultSelectButton")
-        self.secondResultButton = DatabaseResultsWindow.builder.get_object("secondResultSelectButton")
-        self.thirdResultButton = DatabaseResultsWindow.builder.get_object("thirdResultSelectButton")
-        self.fourthResultButton = DatabaseResultsWindow.builder.get_object("fourthResultSelectButton")
-        self.fifthResultButton = DatabaseResultsWindow.builder.get_object("fifthResultSelectButton")
-        self.manualEntryButton = DatabaseResultsWindow.builder.get_object("manualEntrySelectButton")
+        self.firstResultButton = self.builder.get_object("firstResultSelectButton")
+        self.secondResultButton = self.builder.get_object("secondResultSelectButton")
+        self.thirdResultButton = self.builder.get_object("thirdResultSelectButton")
+        self.fourthResultButton = self.builder.get_object("fourthResultSelectButton")
+        self.fifthResultButton = self.builder.get_object("fifthResultSelectButton")
+        self.manualEntryButton = self.builder.get_object("manualEntrySelectButton")
 
         self.resultNames = [self.firstResultName, self.secondResultName, self.thirdResultName, self.fourthResultName, self.fifthResultName, self.manualEntryName]
         self.resultAmounts = [self.firstResultAmount, self.secondResultAmount, self.thirdResultAmount, self.fourthResultAmount, self.fifthResultAmount, self.manualEntryAmount]
@@ -342,3 +374,4 @@ Gtk.main()
 
 #spaLinks is a list of lists, where each sublist is a line of the spa file
 #print(spaLinks)
+
