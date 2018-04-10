@@ -138,7 +138,7 @@ def compareNames(name, naicsDescrs):
         for naicsWord in naicsWords:
             nameWords = re.findall(r"[\w']+",name)
             for nameWord in nameWords:
-                if nameWord == naicsWord:
+                if nameWord.lower() == naicsWord.lower():
                     score += 1
     return score
 
@@ -173,7 +173,8 @@ def top5Processes(desc):
     scores = []
     for line in processNames:
         score = compareNames(line,desc)
-        scores.append([line[:-1],score])
+        if score > 0:
+            scores.append([line[:-1],score])
     top5 = []
     numOutputs = len(scores)
     for x in xrange(numOutputs):
@@ -182,7 +183,6 @@ def top5Processes(desc):
         top5.append(top[0])
     if len(top5) > 5:
         top5 = top5[0:5]
-    #processNames.close()
     return top5
 
 # examples     

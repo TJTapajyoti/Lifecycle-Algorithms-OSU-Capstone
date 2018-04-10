@@ -27,7 +27,7 @@ def getDescr(num):
         sectorCodes = csv.reader(f)
         for row in sectorCodes:
             if row[0] == num:
-                naics = row[2]
+                descr = row[2]
     return descr
 
 # Get the links for each line of the the SPA results
@@ -117,11 +117,12 @@ class ProcessWindow:
         # set title and get top 5 results
         naics = getCode(link)
         self.title.set_text("Process Name for NAICS: " + str(naics))
-        description = d.NAICSdescription(naics)
+        description = [getDescr(link)]
         print(description)
         results = d.top5Processes(description)
+        print(results)
         if len(results) < 5:
-            description = getDescr(link)
+            description = d.NAICSdescription(naics)
             results = results + d.top5Processes(description)
         print(results)
         
