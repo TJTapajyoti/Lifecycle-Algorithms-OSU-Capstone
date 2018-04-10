@@ -105,10 +105,10 @@ class ProcessWindow:
         description = [getDescr(link)]
         print(description)
         self.results = d.top5Processes(description)
-        print(self.results)
         if len(self.results) < 5:
             description = d.NAICSdescription(naics)
             self.results = self.results + d.top5Processes(description)
+        print(self.results)
         self.toggle = 6    
 
         # populate name fields with top 5 results for first line
@@ -177,50 +177,8 @@ class ProcessWindow:
         print(self.results)
         self.window.destroy()
         Gtk.main_quit()
-        '''
-        #open the new window for the next results in this line
-        if (self.sectorIndexInLine > 0):
-            print("still working in current line")
-            #decrement sectorIndexInLine since we are traversing from back to front (since top levels are in the "back" at the rightmost position)
-            innerProcess = ProcessWindow(self.currentRow, self.sectorIndexInLine-1)
-            print(self.currentRow)
-            print(self.sectorIndexInLine)
-            innerProcess.window.show_all()
-            self.window.destroy()
-        elif (self.currentRow < len(spaLinks)):
-            print("current line finished, performing calculations")
-            #perform the calculations for the items in this row
-            #if the calculations fail, increment the fail counter and ask the user to re-enter complexity/uncertainty data
-            #and try these calculations again
-            if (True): #calculation fails
 
-                #TODO: After a failed calculation, we go back and let the user re-enter data to try again for this line of the file
-                #if the calculation for the line succeeds then we move on, also store the data that we get for each top-level/inner sector for each line for the sake of returning to if it reappears in subsequent lines
-                #TODO: determine storage method for data
-                self.failCount += 1
-                while(self.failCount < 5 and not self.acceptable ):
-                    #perform calculations and check failCount
-                    calc = 0
-                    self.failCount += 1
-
-            if ( self.acceptable):
-
-                print("moved to next line of file")
-                #reset parameters to process the next row
-                #if calculation for this row was within parameters
-                self.sectorNumInLine = 0
-                topLevelProcess = ProcessWindow(self.currentRow+1, len(spaLinks[self.currentRow+1]))
-                self.window.destroy()
-                topLevelProcess.window.show_all()
-            #otherwise do nothing calculations have failed so print this to the screen and close the window
-            else:
-                print("successive fail limit of {} exceeded, exiting".format(self.failCount))
-                self.window.destroy()
-                skipWindow = SkipWindow(self.currentRow, len(spaLinks[self.currentRow]))
-                skipWindow.window.show_all()
-        '''
-
-
+        
 class SkipWindow:
 
 

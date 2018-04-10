@@ -81,25 +81,7 @@ class Process:
             if "Carbon dioxide, fossil " in i[0]:
                 co2 = i[1]
         return co2
-    '''
-    # returns the top 5 likely outputs for the NAICS code passed in 
-    def top5Outputs(self, code):
-        naicsDescrs = findNAICS(code)
-        scores = []
-        for name in self.outputs:
-            score = compareNames(name[0],naicsDescrs)
-            scores.append([name[0],score,name[1]])
-        top5 = []
-        numOutputs = len(scores)
-        for x in xrange(numOutputs):
-            top = topScore(scores)
-            scores.remove(top)
-            top5.append(top)
-        if len(top5) > 5:
-            top5 = top5[0:5]
-        return top5
-    '''
-    
+
     # returns the top 5 likely inputs for the NAICS code passed in 
     def top5Inputs(self, code):
         naicsDescrs = NAICSdescription(code)
@@ -131,9 +113,9 @@ def topScore(scores):
     return scores[index]
     
 # gives a score on how closely the name relates to the NAICS code
-def compareNames(name, naicsDescrs):
+def compareNames(name, descrs):
     score = 0
-    for descr in naicsDescrs:
+    for descr in descrs:
         naicsWords = re.findall(r"[\w']+",descr)
         for naicsWord in naicsWords:
             nameWords = re.findall(r"[\w']+",name)
@@ -144,32 +126,32 @@ def compareNames(name, naicsDescrs):
 
 # function to return list of descriptions for NAICS code passed in   
 def NAICSdescription(code):
-    list = []
+    list1 = []
     code = str(code)
     with open("2017_NAICS_Cross_References.csv",'rb') as f:
         reader = csv.reader(f)
         for row in reader:
             if row[0] == code:
-                list.append(row[1])
+                list1.append(row[1])
         f.close()
     with open("2017_NAICS_Descriptions.csv",'rb') as f:
         reader = csv.reader(f)
         for row in reader:
             if row[0] == code:
-                list.append(row[1])
-                list.append(row[2])
+                list1.append(row[1])
+                list1.append(row[2])
         f.close()
     with open("2017_NAICS_Index_File.csv",'rb') as f:
         reader = csv.reader(f)
         for row in reader:
             if row[0] == code:
-                list.append(row[1])
+                list1.append(row[1])
         f.close()
-    return list
+    return list1
 
 # returns the top 5 most likely process names from database, based on description passed in
 def top5Processes(desc):
-    processNames =  open("processNames.txt",'r')
+    processNames = open("processNames.txt",'r')
     scores = []
     for line in processNames:
         score = compareNames(line,desc)
@@ -179,11 +161,12 @@ def top5Processes(desc):
     numOutputs = len(scores)
     for x in xrange(numOutputs):
         top = topScore(scores)
-        print(top)
+        #print(top)
         scores.remove(top)
         top5.append(top[0])
     if len(top5) > 5:
         top5 = top5[0:5]
+    processNames.close()
     return top5
 
 # examples     
