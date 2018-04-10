@@ -5,9 +5,9 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 import databaseWrapper as d
 import csv
-    
-limit1 = 0
-limit2 = 0
+
+uncertainty = 0 
+complexity = 0
 line = 0
 
 # get the NAICS code from sectorsCodes csv file
@@ -46,40 +46,13 @@ class limitsWindow:
        
     #TODO: functionality integration, all below is just a basic template
     def onContinue(self, button):
-        global limit1
-        limit1 = limitsWindow.builder.get_object("entry1").get_text()
-        global limit2
-        limit2 = limitsWindow.builder.get_object("entry2").get_text()
+        global uncertainty
+        uncertainty = limitsWindow.builder.get_object("entry1").get_text()
+        global complexity
+        complexity = limitsWindow.builder.get_object("entry2").get_text()
         self.window.destroy()
         process.window.show_all()
         
-    def onDeleteWindow(self, *args):
-	self.window.destroy()
-        Gtk.main_quit(*args)
-        
-class DatabaseWindow:
-    builder = Gtk.Builder()
-
-    def __init__(self):
-        DatabaseWindow.builder.add_from_file("database_window.glade")
-        DatabaseWindow.builder.connect_signals(self)
-        self.window = DatabaseWindow.builder.get_object("window1")
-        
-            
-
-    #TODO: functionality integration, all below is just a basic template
-    def onSearchClicked(self, button):
-        #TODO: integrate the search with the actual model code, base window has text fields entry1 for NAICS and entry2 for a search term,
-        #you can add more as needed
-        return None
-
-    #user clicks if they are done refining
-    def onFinishClicked(self, button):
-        #TODO: atm I set the window up thinking that the user clicks the search button to incrementally refine the model one component at a time, but this can be changed to have the user search a series of terms (i.e., enter info and then search, then the text entries clear)
-        #and then click finish to update the model in a batch style when they are done adding components for the refinement, or something
-        #whatever works best, up to you - NL
-        self.window.destroy()
-
     def onDeleteWindow(self, *args):
 	self.window.destroy()
         Gtk.main_quit(*args)
@@ -117,6 +90,7 @@ class ProcessWindow:
         naics = getCode(link)
         self.title.set_text("Process Name for NAICS: " + str(naics))
         description = d.NAICSdescription(naics)
+        print(description)
         results = d.top5Processes(description)
         
         # populate name fields with top 5 results for first line
@@ -293,3 +267,30 @@ Gtk.main()
 
 
 
+        
+class DatabaseWindow:
+    builder = Gtk.Builder()
+
+    def __init__(self):
+        DatabaseWindow.builder.add_from_file("database_window.glade")
+        DatabaseWindow.builder.connect_signals(self)
+        self.window = DatabaseWindow.builder.get_object("window1")
+        
+            
+
+    #TODO: functionality integration, all below is just a basic template
+    def onSearchClicked(self, button):
+        #TODO: integrate the search with the actual model code, base window has text fields entry1 for NAICS and entry2 for a search term,
+        #you can add more as needed
+        return None
+
+    #user clicks if they are done refining
+    def onFinishClicked(self, button):
+        #TODO: atm I set the window up thinking that the user clicks the search button to incrementally refine the model one component at a time, but this can be changed to have the user search a series of terms (i.e., enter info and then search, then the text entries clear)
+        #and then click finish to update the model in a batch style when they are done adding components for the refinement, or something
+        #whatever works best, up to you - NL
+        self.window.destroy()
+
+    def onDeleteWindow(self, *args):
+	self.window.destroy()
+        Gtk.main_quit(*args)
