@@ -139,7 +139,7 @@ class ProcessWindow:
         except:
             self.thirdResultName.set_text("...")
         try:
-            self.fouthResultName.set_text(str(results[3]))
+            self.fourthResultName.set_text(str(results[3]))
         except:
             self.fourthResultName.set_text("...")
         try:

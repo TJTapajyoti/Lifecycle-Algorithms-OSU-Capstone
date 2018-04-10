@@ -173,13 +173,13 @@ def top5Processes(desc):
     scores = []
     for line in processNames:
         score = compareNames(line,desc)
-        scores.append([line,score])
+        scores.append([line[:-1],score])
     top5 = []
     numOutputs = len(scores)
     for x in xrange(numOutputs):
         top = topScore(scores)
         scores.remove(top)
-        top5.append(top)
+        top5.append(top[0])
     if len(top5) > 5:
         top5 = top5[0:5]
     #processNames.close()
