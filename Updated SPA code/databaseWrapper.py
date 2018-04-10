@@ -167,9 +167,9 @@ def NAICSdescription(code):
         f.close()
     return list
 
-processNames =  open("processNames.txt",'r')
 # returns the top 5 most likely process names from database, based on description passed in
 def top5Processes(desc):
+    processNames =  open("processNames.txt",'r')
     scores = []
     for line in processNames:
         score = compareNames(line,desc)
@@ -179,6 +179,7 @@ def top5Processes(desc):
     numOutputs = len(scores)
     for x in xrange(numOutputs):
         top = topScore(scores)
+        print(top)
         scores.remove(top)
         top5.append(top[0])
     if len(top5) > 5:
