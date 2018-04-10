@@ -19,7 +19,17 @@ def getCode(num):
             if row[0] == num:
                 naics = row[1]
     return naics
-    
+
+# get the industry description from sectorsCodes csv file
+def getDescr(num):
+    descr = 0
+    with open('SectorsCodes.csv','rb') as f:
+        sectorCodes = csv.reader(f)
+        for row in sectorCodes:
+            if row[0] == num:
+                naics = row[2]
+    return descr
+
 # Get the links for each line of the the SPA results
 spaLinks = []
 with open("myfile4.txt","r") as f:
@@ -28,7 +38,6 @@ with open("myfile4.txt","r") as f:
         noValue1 = line[9:]
         x = len(noValue1) - len(noValue1.lstrip())
         noWhite = noValue1[x:]
-        #print(noWhite)
         endNumbers = noWhite.find(" ")
         numbers = noWhite[:endNumbers].split("----")
         #print(numbers)
@@ -56,11 +65,7 @@ class limitsWindow:
     def onDeleteWindow(self, *args):
 	self.window.destroy()
         Gtk.main_quit(*args)
-<<<<<<< HEAD
 
-=======
-      
->>>>>>> refs/remotes/origin/master
 
 class ProcessWindow:
     builder = Gtk.Builder()
@@ -98,7 +103,6 @@ class ProcessWindow:
         self.currentRow = row
         self.sectorIndexInLine = len(spaLinks[self.currentRow]) - 1
 
-        # set title and get top 5 results
         print(i)
         link = spaLinks[self.currentRow][self.sectorIndexInLine]
         preceding = link
@@ -109,31 +113,37 @@ class ProcessWindow:
         print(spaLinks[row])
         spaLinks[row].reverse()
         print(link)
+        
+        # set title and get top 5 results
         naics = getCode(link)
         self.title.set_text("Process Name for NAICS: " + str(naics))
         description = d.NAICSdescription(naics)
         print(description)
         results = d.top5Processes(description)
+        if len(results) < 5:
+            description = getDescr(link)
+            results = results + d.top5Processes(description)
+        print(results)
         
         # populate name fields with top 5 results for first line
         try:
-            self.firstResultName.set_text(results[0])
+            self.firstResultName.set_text(str(results[0]))
         except:
             self.firstResultName.set_text("...")
         try:
-            self.secondResultName.set_text(results[1])
+            self.secondResultName.set_text(str(results[1]))
         except:
             self.secondResultName.set_text("...")
         try:
-            self.thirdResultName.set_text(results[2])
+            self.thirdResultName.set_text(str(results[2]))
         except:
             self.thirdResultName.set_text("...")
         try:
-            self.fouthResultName.set_text(results[3])
+            self.fouthResultName.set_text(str(results[3]))
         except:
             self.fourthResultName.set_text("...")
         try:
-            self.fifthResultName.set_text(results[4])
+            self.fifthResultName.set_text(str(results[4]))
         except:
             self.fifthResultName.set_text("...")
 
@@ -331,31 +341,3 @@ Gtk.main()
 
 #spaLinks is a list of lists, where each sublist is a line of the spa file
 #print(spaLinks)
-
-        
-class DatabaseWindow:
-    builder = Gtk.Builder()
-
-    def __init__(self):
-        DatabaseWindow.builder.add_from_file("database_window.glade")
-        DatabaseWindow.builder.connect_signals(self)
-        self.window = DatabaseWindow.builder.get_object("window1")
-        
-            
-
-    #TODO: functionality integration, all below is just a basic template
-    def onSearchClicked(self, button):
-        #TODO: integrate the search with the actual model code, base window has text fields entry1 for NAICS and entry2 for a search term,
-        #you can add more as needed
-        return None
-
-    #user clicks if they are done refining
-    def onFinishClicked(self, button):
-        #TODO: atm I set the window up thinking that the user clicks the search button to incrementally refine the model one component at a time, but this can be changed to have the user search a series of terms (i.e., enter info and then search, then the text entries clear)
-        #and then click finish to update the model in a batch style when they are done adding components for the refinement, or something
-        #whatever works best, up to you - NL
-        self.window.destroy()
-
-    def onDeleteWindow(self, *args):
-	self.window.destroy()
-        Gtk.main_quit(*args)

@@ -1,764 +1,764 @@
-Calcium carbonate, ground, 30 micron, at plant $input: False *1.0 Ethylene glycol, at plant  $input: True *0.013337967 kg
-Electricity, at Grid, SPP, 2008 $input: False *1.0 kWh
-Fuels, burned at bleached kraft market pulp mill, average production, at mill $input: False *10867.0 MJ
-Transport, light commercial truck, gasoline powered, Northeast $input: False *1.0 t*km
-Transport, train, diesel powered $input: False *1.0 t*km
-Transport, combination truck, short-haul, diesel powered $input: False *1.0 t*km
-Cold rolled sheet, steel, at plant $input: False *1.0 kg
-Mixed recyclables, to MRF $input: False *1.0 kg
-Ethylene, at plant $input: False *1.0 kg
-Diesel, at refinery $input: False *0.244 l
-Electricity, at eGrid, RFCW, 2008 $input: False *1.0 kWh
-Electricity, at Grid, SERC, 2008 $input: False *1.0 kWh
-Transport, single unit truck, short-haul, diesel powered, South $input: False *1.0 t*km
-Softwood logs with bark, harvested at low intensity site, at mill, US PNW $input: False *1.0 m3
-Winter wheat straw, ground and stored $input: False *1.0 CUTOFF Maize drying $input: True *33.3 kg
-Transport, light commercial truck, diesel powered, South $input: False *1.0 t*km
-Ammonia, steam reforming, liquid, at plant $input: False *1.0 kg
-Conditioned log, at plywood plant, US SE $input: False *1.0 kg
-Transport, light commercial truck, gasoline powered, East North Central $input: False *1.0 t*km
-Galvanized steel sheet, at plant $input: False *1.0 kg
-Metallurgical coke, at plant $input: False *1.0 kg
-Coal mine tailings storage and disposal; Production mix, underground mine $input: False *1.0 kg
-Sawn lumber, hardwood, rough, kiln dried, at kiln, SE $input: False *1.0 m3
-Electricity, at eGrid, HIOA, 2008 $input: False *1.0 kWh
-Electricity, at eGrid, NYUP, 2008 $input: False *1.0 kWh
-Methane emission; Production mix, surface mine $input: False *1.0 Item(s)
-Transport, transit bus, diesel powered, West $input: False *1.0 p*km
-Transport, pipeline, unspecified petroleum products $input: False *1.0 t*km
-Roundwood, hardwood, green, at mill, SE $input: False *1.0 m3
-Scanner, i1190E desktop $input: False *1.0 Item(s)
-Pulpwood, hardwood, average, at forest road, NE-NC $input: False *1.0 m3
-Compression molding, rigid composites part, at plant $input: False *1.0 kg
-Coal stockpile stacker;  Manufacture; At point-of-sale $input: False *1.0 Item(s)
-Dry rough lumber, at kiln, US PNW $input: False *1.0 kg
-Petroleum refining, for olefins production, at plant $input: False *1.0 kg
-Corn stover, at field $input: False *1.0 kg
-Tillage, intensive, corn production $input: False *1.0 ha
-Transport, combination truck, short-haul, diesel powered, East North Central $input: False *1.0 t*km
-Transport, intercity bus, diesel powered, Southeast $input: False *1.0 p*km
-Spring wheat straw, ground and stored, 2022 $input: False *1.0 Electricity, at grid, US, 2008 $input: True *3.2550627 MJ
-Corn, decomposition, 15.5% moisture $input: False *1.0 kg
-Electricity, at Grid, HICC, 2010 $input: False *1.0 kWh
-Transport, combination truck, long-haul, diesel powered, Southeast $input: False *1.0 t*km
-Electricity, at Grid, ASCC, 2008 $input: False *1.0 kWh
-Electricity, at Grid, TRE, 2010 $input: False *1.0 kWh
-Roundwood, softwood, green, at logyard, NE-NC $input: False *1.0 m3
-Electricity, at eGrid, CAMX, 2010 $input: False *1.0 kWh
-Hog fuel, self-gen., combusted in ind. boiler, at pulp and paper mill (EXCL.) $input: False *1.0 kg
-Switchgrass, harvested, wet $input: False *1.07 kg
-Heat, drying veneer, hardwood, at veneer mill, E $input: False *3770.5 MJ
-Scanner, department, i5200, i5600 $input: False *1.0 Item(s)
-Coal conveyor system; Manufacture; For surface mine, at point-of-sale; 1.83 m belt width $input: False *1.0 Item(s)
-Steel reinforcement bar; Blast furnace route; Production mix $input: False *1.0 kg
-Wood fuel, hardwood, purchased, combusted in industrial boiler, SE $input: False *1.0 kg
-Green veneer, at plywood plant, US SE $input: False *1.0 kg
-Chainsawing, delimbing, NE-NC $input: False *1.0 h
-Transport, combination truck, short-haul, diesel powered, West $input: False *1.0 t*km
-Steel, liquid, at plant $input: False *1.0 kg
-Winter wheat straw, carted $input: False *0.476 Transport, combination truck, diesel powered $input: True *7.8546 t*km
-Pressed raw plywood, from lay-up, at plywood plant, US SE $input: False *1.0 kg
-Coal mine ventilation energy; Electric fan; Underground mine $input: False *1.0 Item(s)
-Ethanol, 85%, blended, at service station, 2022 $input: False *1.0 kg
-Wood fuel, MDF, generated on-site, combusted in industrial boiler $input: False *1.0 kg
-Wood Combusted, at boiler, at cellulosic fiberboard mill $input: False *1.0 kg
-Transport, single unit truck, short-haul, gasoline powered, Central $input: False *1.0 t*km
-Electricity, at eGrid, SRTV, 2010 $input: False *1.0 kWh
-Transport, light commercial truck, diesel powered, Northwest $input: False *1.0 t*km
-Soda powder, at plant $input: False *1.0 kg
-Crude oil, extracted $input: False *1.0 kg
-Soy-based polyol, at plant $input: False *1.0 kg
-Transport, combination truck, short-haul, gasoline powered $input: False *1.0 t*km
-Dry rough lumber, at kiln, US SE $input: False *1.0 kg
-Transport, transit bus, diesel powered, Central $input: False *1.0 p*km
-Polylactide Biopolymer Resin, at plant $input: False *1.0 kg
-Soy meal, at plant $input: False *4131.0 kg
-Corn grain, at conversion plant, 2022 $input: False *1.0 Corn grain, harvested and stored $input: True *1000.0 kg
-Chlorine, production mix, at plant $input: False *0.48 kg
-Corn wet mill, gluten drying, AP-42 $input: False *2000.0 kg
-Transport, light commercial truck, diesel powered, East North Central $input: False *1.0 t*km
-Ethanol, denatured, corn stover, biochemical $input: False *26100.0 kg
-Transport, combination truck, long-haul, diesel powered, South $input: False *1.0 t*km
-Transport, light commercial truck, diesel powered, Hawaii $input: False *1.0 t*km
-Calcium carbonate, ground, fine treated, 3 micron, at plant $input: False *1.0 Particulates, < 2.5 um $input: False *0.000694456 kg
-Transport, school bus, diesel powered, Alaska $input: False *1.0 p*km
-Scanner, i1150 desktop and i1190 desktop $input: False *1.0 Item(s)
-Aluminum, secondary, rolled $input: False *1.0 kg
-Aluminium, extrusion, at plant $input: False *1000.0 kg
-Lumber, softwood, ACQ treated, SE $input: False *1.0 m3
-Polyethylene, low density, resin, at plant $input: False *1.0 kg
-Electricity, aluminum smelting and ingot casting regions $input: False *1.0 kWh
-Roundwood, hardwood, average, High Intensity Management, NE-NC $input: False *106.87 m3
-Electricity, at eGrid, FRCC, 2008 $input: False *1.0 kWh
-Coal loading silo;  Manufacture; For railcar loading of coal, underground mine; 295 metric tonnes $input: False *1.0 Item(s)
-Hog fuel, pur., combusted in industrial boiler, at pulp and paper mill (EXCL.) $input: False *1.0 kg
-Coal loading silo;  Manufacture; For railcar loading of coal, surface mine $input: False *1.0 Item(s)
-Packaging and information sheets, i2900 desktop scanner $input: False *0.296 kg
-Transport, single unit truck, long-haul, diesel powered, Northwest $input: False *1.0 t*km
-Natural gas, combusted in industrial boiler, at hydrocracker, for pyrolysis gas $input: False *1.0 m3
-Wood fuel, hardwood, purchased, combusted in industrial boiler, E $input: False *1.0 kg
-Transport, single unit truck, long-haul, gasoline powered, Northeast region $input: False *1.0 t*km
-Transport, single unit truck, long-haul, gasoline powered, West $input: False *1.0 t*km
-Electricity, bauxite mining regions $input: False *1.0 kWh
-Polyethylene terephthalate, resin, at plant $input: False *1.0 kg
-Fuel grade uranium, at regional storage $input: False *1.0 kg
-Electricity, at Grid, RFC, 2010 $input: False *1.0 kWh
-Fuel consumption and emissions from coal mine commissioning and decommissioning; Surface mine $input: False *1.0 Item(s)
-Tractor-propelled coal crusher;  Manufacture; For surface mine, at plant $input: False *1.0 Item(s)
-Corn wet milling, operations, AP-42 $input: False *2000.0 kg
-Poles, softwood, PCP treated $input: False *1.0 m3
-Planting, switchgrass, 2022 $input: False *1.0 m2
-Residual fuel oil, combusted in industrial boiler $input: False *1.0 l
-Transport, combination truck, long-haul, diesel powered, East North Central $input: False *1.0 t*km
-Methane emission; Production mix, underground mine $input: False *1.0 Item(s)
-Transport, refuse truck, diesel powered, West North Central $input: False *1.0 t*km
-Skidding, wheeled skidder, 120-140 HP $input: False *1.0 h
-Switchgrass, ground and stored, 2022 $input: False *1.0 CUTOFF Maize drying $input: True *50.0 kg
-Pulpwood, softwood, average, state or private dry forest, at forest road, INW $input: False *1.0 m3
-Transport, single unit truck, long-haul, gasoline powered, Central $input: False *1.0 t*km
-Roundwood, softwd, avg, state or private moist cold forest, at forest rd, INW $input: False *1.0 m3
-Transport, single unit truck, short-haul, gasoline powered $input: False *1.0 t*km
-Bark, hardwood, average, at forest road, NE-NC $input: False *1.0 kg
-Sawn lumber, hardwood, planed, kiln dried, at planer mill, SE $input: False *1.0 m3
-Transport, combination truck, long-haul, diesel powered, Central $input: False *1.0 t*km
-Site preparation, state or private moist cold softwood forest, steep slope, INW $input: False *1.0 ha
-Corrugated Product $input: False *1.0 kg
-Transport, transit bus, diesel powered, Northwest $input: False *1.0 p*km
-Office scanner $input: False *8.703 kg
-Phenol resorcinol formaldehyde hardener, at plant $input: False *1.0 kg
-Roundwood, softwood, average, High Intensity Management, NE-NC $input: False *105.236181818 m3
-Transport, combination truck, short-haul, diesel powered, Northwest $input: False *1.0 t*km
-Rough green lumber, softwood, at sawmill, US PNW $input: False *1.0 kg
-Aluminum, primary, ingot, at plant $input: False *1.0 kg
-Transport, transit bus, diesel powered $input: False *1.0 p*km
-Enzyme, Cellulase, Novozyme Celluclast $input: False *1.0 kg
-Chainsawing, hand felling and delimbing, INW $input: False *1.0 h
-Transport, single unit truck, short-haul, diesel powered, West $input: False *1.0 t*km
-Transport, combination truck, long-haul, diesel powered $input: False *1.0 t*km
-Transport, single unit truck, short-haul, diesel powered, East North Central $input: False *1.0 t*km
-Electricity, at eGrid, SRTV, 2008 $input: False *1.0 kWh
-Transport, single unit truck, short-haul, diesel powered $input: False *1.0 t*km
-Transport, refuse truck, diesel powered, Central $input: False *1.0 t*km
-Transport, single unit truck, long-haul, diesel powered, West $input: False *1.0 t*km
-Coal; Handled; From underground mine $input: False *1.0 kg
-Electricity, lignite coal, at power plant $input: False *1.0 kWh
-Transport, ocean freighter, residual fuel oil powered $input: False *1.0 t*km
-Biodegradable loose fill $input: False *1.0 m3
-Scanner, department, i5200v, i5600v $input: False *1.0 Item(s)
-Roundwood, softwd, state or private dry forest, gentle slope, at forest rd, INW $input: False *174.41 m3
-Heat, indirect, heated zones, softwood, plywood veneer drying, AP-42 $input: False *1993.2 kg
-Cellulosic fiberboard, uncoated, at plant $input: False *254.0 kg
-Recovered energy, for Polyol ether, for rigid foam polyurethane production, at plant, CTR $input: False *0.23311 MJ
-Galvanized steel coil, coated, at plant $input: False *5.8256312304 kg
-Automotive painting, pretreatment $input: False *1.0 m2
-Crew to Burn Bole Only slash in the Woods, INW $input: False *1.0 ha
-Harvest, switchgrass $input: False *1.0 ha
-Veneer, hardwood, green, at veneer mill, E $input: False *1.0 kg
-Transport, combination truck, long-haul, diesel powered, Northwest $input: False *1.0 t*km
-Transport, passenger truck, gasoline powered $input: False *1.0 p*km
-Scanner, packaging and information sheets $input: False *1.88 kg
-Ethanol, denatured, corn dry mill $input: False *14900.0 kg
-Forest residue, processed and loaded, at landing system $input: False *1.0 Chloride $input: False *0.0032166065 kg
-Transport, single unit truck, long-haul, diesel powered, Central $input: False *1.0 t*km
-Transport, intercity bus, diesel powered, West $input: False *1.0 p*km
-Forest residue, dried, stored $input: False *0.772 CUTOFF Conveyor belt, at plant $input: True *3.4747e-05 m
-Bituminous coal, at mine $input: False *1.0 kg
-Chlor-alkali electrolysis, chlorine for PVC, at plant $input: False *1.0 kg
-Electric tail drive; Manufacture; For underground coal mine, at plant $input: False *1.0 Item(s)
-Dry veneer, at plywood plant, US PNW $input: False *1.0 kg
-Natural gas, combusted in industrial boiler, at pulp and paper mill (EXCL.) $input: False *1.0 m3
-Electricity, at Grid, FRCC, 2010 $input: False *1.0 kWh
-Electricity, at eGrid, ERCT, 2008 $input: False *1.0 kWh
-Coal; Production mix, from surface mine $input: False *1.0 kg
-Electricity, at eGrid, SRVC, 2010 $input: False *1.0 kWh
-Xylenes, mixed, at plant $input: False *1.0 kg
-Seedlings, at greenhouse, US PNW $input: False *1.0 Item(s)
-Roundwood, sftwd, state-private moist cold forest, steep slope, at forest rd,INW $input: False *210.24 m3
-Sulfur, at plant $input: False *1.0 kg
-Melamine urea formaldehyde resin, at plant $input: False *1.0 kg
-Transport, single unit truck, short-haul, gasoline powered, Northeast $input: False *1.0 t*km
-Electricity, at eGrid, SPNO, 2008 $input: False *1.0 kWh
-Piling, bole slash, in forest, steep slope forest, INW $input: False *1.0 ha
-Fuels, burned at coated freesheet, average production, at mill $input: False *15145.0 MJ
-Gypsum wallboard product, regular, 0.5 inch (12.7 mm) $input: False *1.0 m2
-Rapeseed residues, at field $input: False *5.0 kg
-Polyethylene, linear low density, resin, at plant $input: False *1.0 kg
-Oxygen, liquid, at plant $input: False *1.0 kg
-Transport, combination truck, long-haul, diesel powered, Southwest $input: False *1.0 t*km
-Coal crusher facility; Construction; At underground mine $input: False *1.0 Item(s)
-Corn stover, ground and stored $input: False *1.0 CUTOFF Dried roughage store, non ventilated $input: True *1.1723e-07 m3
-Transport, motorcycle, gasoline powered $input: False *1.0 p*km
-Wood fuel, hardwood, purchased, combusted in industrial boiler, NE-NC $input: False *1.0 kg
-Electricity, at eGrid, SRMV, 2010 $input: False *1.0 kWh
-Electricity, at eGrid, AKGD, 2010 $input: False *1.0 kWh
-Electricity, at grid, Texas US, 2000 $input: False *1.0 kWh
-Automotive painting, top coat, per vehicle $input: False *1.0 Item(s)
-Transport, refuse truck, diesel powered, Southeast $input: False *1.0 t*km
-Coal; Cleaned; Underground mine $input: False *1.0 kg
-Electricity, at eGrid, SPNO, 2010 $input: False *1.0 kWh
-Metal panel, insulated, at plant $input: False *1.0 m2
-Enzyme, Glucoamylase, Novozyme Spirizyme $input: False *1.0 kg
-Transport, light commercial truck, diesel powered, West North Central $input: False *1.0 t*km
-E-glass, at plant $input: False *1.0 kg
-Transport, single unit truck, long-haul, diesel powered $input: False *1.0 t*km
-Ethanol, denatured, mixed feedstocks, at conversion facility, 2022 $input: False *1.0 kg
-TDF, combusted in industrial boiler, at pulp and paper mill (EXCL.) $input: False *1.0 kg
-Wood fuel, hardwood, generated at mill, combusted in industrial boiler, E $input: False *1.0 kg
-Phenol Resorcinol Formaldehyde resin, neat, 60% solids $input: False *1.0 kg
-Transport, motor home, diesel powered $input: False *1.0 p*km
-Polyethylene, low density, resin, at plant, CTR $input: False *1.0 kg
-Polyvinyl chloride, resin, at plant, CTR $input: False *1.0 kg
-Metal composite material (MCM) panel, at plant $input: False *1.0 m2
-Diesel, at refinery $input: False *0.252345277453 l
-Conditioned log, hardwood, green, at veneer mill, E $input: False *1.0 m3
-Transport, passenger car, gasoline powered $input: False *1.0 p*km
-Aluminum, hot rolling, at plant $input: False *1000.0 kg
-Liquefied petroleum gas, combusted in industrial boiler $input: False *1.0 l
-Anthracite coal, combusted in industrial boiler $input: False *1.0 kg
-Transport, single unit truck, short-haul, diesel powered, Alaska $input: False *1.0 t*km
-Corn grain, harvested and stored $input: False *8790.0 kg
-Wood, softwood, INW, generated at lumber mill, combusted in industrial boiler $input: False *1.0 kg
-Toluene, at plant $input: False *1.0 kg
-Stainless steel; Manufacture; Production mix, at plant; 316 2B, 80% recycled $input: False *1.0 kg
-Transport, refuse truck, diesel powered, East North Central $input: False *1.0 t*km
-Medium density fiberboard (MDF), at MDF mill $input: False *1.0 m3
-Transport, passenger car, diesel powered $input: False *1.0 p*km
-Scanner, i940 desktop $input: False *1.0 Item(s)
-Electricity, at eGrid, MROW, 2010 $input: False *1.0 kWh
-Electricity, at eGrid, MROW, 2008 $input: False *1.0 kWh
-Glue laminated beam processing, at plant, US PNW $input: False *1.0 kg
-Polyethylene, high density, resin, at plant  $input: False *1.0 kg
-Glycerine, at plant $input: False *1.0 kg
-Scanner, desktop, i2900 $input: False *1.0 Item(s)
-Electric shearer; Manufacture; For underground coal mine, at plant $input: False *1.0 Item(s)
-Switchgrass, carted, 2022 $input: False *9.07 CUTOFF Transport, tractor and trailer $input: True *7.42 t*km
-Fertilizer, winter wheat straw, 2022 $input: False *1.0 ha
-Seedlings, at greenhouse, US SE $input: False *1.0 Item(s)
-Fuels, burned at unbleached kraft bag sack paper, average production, at mill $input: False *11045.0 MJ
-Iron, sand casted $input: False *1.0 kg
-Transport, single unit truck, short-haul, gasoline powered, East North Central $input: False *1.0 t*km
-Transport, combination truck, long-haul, diesel powered, Hawaii $input: False *1.0 t*km
-Cladding, roll formed, at plant $input: False *1.0 m2
-Sawn lumber, hardwood, rough, green, at sawmill, SE $input: False *1.0 kg
-Polyvinyl chloride, resin, at plant $input: False *1.0 kg
-Open mold casting, rigid composites part, at plant $input: False *1.0 kg
-Site preparation, state or private dry softwood forest, steep slope, INW $input: False *1.0 ha
-Bark, softwood, national forest, average, at forest road, INW $input: False *1.0 kg
-Electricity, at eGrid, NYCW, 2008 $input: False *1.0 kWh
-Glue laminated beam processing, at plant, US SE $input: False *14741.752025 kg
-Fuel consumption and emissions from coal mine commissioning and decommissioning; Underground mine $input: False *1.0 Item(s)
-Electricity, at Grid, WECC, 2010 $input: False *1.0 kWh
-Acrylonitrile, at plant $input: False *1.0 kg
-Electricity, at eGrid, HIMS, 2008 $input: False *1.0 kWh
-Aluminum, secondary, ingot, at plant, 1998 $input: False *1.0 kg
-Sulfuric acid, at plant $input: False *1.0 kg
-Transport, pipeline, natural gas $input: False *1.0 t*km
-Electricity, at eGrid, SRMW, 2010 $input: False *1.0 kWh
-Wastewater treatment plant; Construction; For underground coal mine $input: False *1.0 Item(s)
-Steel, stainless 304, quarto plate $input: False *1.0 kg
-Transport, single unit truck, short-haul, diesel powered, Central $input: False *1.0 t*km
-EPS virgin resin; batch suspension polymerization; industry average, at plant $input: False *1000.0 kg
-EPS insulation board, at plant $input: False *1.0 kg
-Transport, single unit truck, long-haul, gasoline powered, Southwest $input: False *1.0 t*km
-Recovered energy, for Polypropylene, resin, at plant, CTR $input: False *0.0053 MJ
-Natural gas, processed, at plant $input: False *1.0 m3
-Injection molding, rigid LLDPE part, at plant $input: False *1.0 kg
-Transport, transit bus, diesel powered, Hawaii $input: False *1.0 p*km
-Transport, single unit truck, short-haul, gasoline powered, South $input: False *1.0 t*km
-Transport, single unit truck, short-haul, diesel powered, West North Central $input: False *1.0 t*km
-Aluminum, cast, semi-permanent mold (SPM), at plant $input: False *1.0 kg
-Phenol formaldehyde resin,  neat, 47% solids $input: False *1.0 kg
-Roundwood, softwood, green, at mill, INW $input: False *1.0 kg
-Wood waste, unspecified, combusted in industrial boiler $input: False *1.0 kg
-Electricity, at eGrid, NEWE, 2010 $input: False *1.0 kWh
-Land reclamation; Surface coal mine $input: False *1.0 Item(s)
-Electricity, at grid, US, 2008 $input: False *1.0 kWh
-Transport, combination truck, short-haul, diesel powered, Alaska $input: False *1.0 t*km
-Sawn lumber, hardwood, planed, kiln dried, at planer mill, NE-NC $input: False *1.0 m3
-Transport, motor home, gasoline powered $input: False *1.0 p*km
-Methanol, at plant $input: False *1.0 kg
-Natural gas, extracted $input: False *1.0 kg
-Anthracite coal, at mine $input: False *1.0 kg
-Wood fuel, hardwood, gen at lumber mill, combusted in industrial boiler, NE-NC $input: False *1.0 kg
-Soybean residues, at field, 1998-2001 $input: False *2.1 kg
-Electricity, at eGrid, SPSO, 2010 $input: False *1.0 kWh
-Propylene, at plant $input: False *1.0 kg
-Forest residue, preprocessed, at conversion facility $input: False *1.0 Forest residue, dried, stored $input: True *1.0 Transport, combination truck, diesel powered $input: True *34.0 t*km
-Steel, cold-formed studs and track, at plant $input: False *1.0 kg
-Methylene diphenyl diisocyanate resin, at plant, CTR $input: False *1.0 kg
-Pesticide, Switchgrass $input: False *1.0 ha
-Automotive painting, top coat, per m2 $input: False *1.0 m2
-Skidding, grapple skidder, >140 HP $input: False *1.0 h
-Loader operation, large, NE-NC $input: False *1.0 h
-Fuels, burned at uncoated mechanical paper, average production, at mill $input: False *8061.0 MJ
-Quicklime, at plant $input: False *1.0 kg
-Transport, single unit truck, short-haul, diesel powered, Hawaii $input: False *1.0 t*km
-Electricity, at eGrid, ERCT, 2010 $input: False *1.0 kWh
-Hydrogen, liquid, synthesis gas, at plant $input: False *1.0 kg
-Harvesting, fresh fruit bunch, at farm $input: False *1.0 kg
-Transport, single unit truck, long-haul, diesel powered, East North Central $input: False *1.0 t*km
-Paper, bag and sack, unbleached kraft, average production, at mill $input: False *834.61 kg
-Electricity, at Grid, SPP, 2010 $input: False *1.0 kWh
-Polybutadiene, at plant $input: False *1.0 kg
-Softwood logs with bark, harvested at medium intensity site, at mill, US PNW $input: False *1.0 m3
-Roundwood, softwd, state or private dry forest, steep slope, at forest rd, INW $input: False *174.41 m3
-Electricity, at eGrid, NEWE, 2008 $input: False *1.0 kWh
-Reforesting, average national softwood forest, INW $input: False *1.0 ha
-Transport, single unit truck, short-haul, gasoline powered, Southwest $input: False *1.0 t*km
-Transport, combination truck, long-haul, diesel powered, West $input: False *1.0 t*km
-Coal conveyor system; Manufacture; For underground mine, at point-of-sale; 1.22 m belt width $input: False *1.0 Item(s)
-Transport, refuse truck, diesel powered, West region $input: False *1.0 t*km
-Felling, feller buncher, > 200 HP, NE-NC $input: False *1.0 h
-Containerboard, average production, at mill $input: False *1.11 kg
-Zinc, sheet $input: False *1.0 kg
-Roundwood, hardwood, green, at mill, E $input: False *1.0 m3
-Transport, school bus, diesel powered, Southwest $input: False *1.0 p*km
-Soy biodiesel, production, at plant $input: False *3.36 kg
-Polystyrene, high impact, resin, at plant, CTR $input: False *1.0 kg
-Electricity, anthracite coal, at power plant $input: False *1.0 kWh
-Rough green lumber, at sawmill, US SE $input: False *1.0 kg
-Reforesting, low intensity site, US SE $input: False *1.0 m2
-Transport, combination truck, short-haul, diesel powered, West North Central $input: False *1.0 t*km
-Harvesting, fresh fruit bunch, at farm $input: False *1.0 kg
-Lime, agricultural, corn production $input: False *1.0 ha
-Fuels, burned at coated mechanical paper, average production, at mill $input: False *10691.0 MJ
-Transport, light commercial truck, diesel powered, Southwest $input: False *1.0 t*km
-Transport, refuse truck, diesel powered $input: False *1.0 t*km
-Plywood, at plywood plant, US PNW $input: False *1.0 kg
-Transport, intercity bus, diesel powered, Southwest $input: False *1.0 p*km
-Switchgrass, production, US, 2022 $input: False *14800.0 kg
-Pulpwood, softwood, average, at forest road, NE-NC $input: False *1.0 m3
-Soybean residues, at field $input: False *2100.0 kg
-Electricity, at eGrid, AKGD, 2008 $input: False *1.0 kWh
-Diesel, combusted in industrial boiler, at pulp and paper mill (EXCL.) $input: False *1.0 l
-Transport, single unit truck, long-haul, gasoline powered, East North Central $input: False *1.0 t*km
-Wood fuel, hardwood, generated at lumber mill, combusted in industrial boiler, SE $input: False *1.0 kg
-Chainsawing, hand felling, NE-NC $input: False *1.0 h
-Recycled postconsumer PET flake $input: False *1.0 kg
-Calcium carbonate, ground, 20 micron, at plant $input: False *1.0 Particulates, < 2.5 um $input: False *0.000573202 kg
-Roundwood, softwood, green, at logyard, INW $input: False *1.0 kg
-Steel product, secondary structural, girts and purlins, at plant $input: False *1.0 kg
-Electricity, at Grid, NPCC, 2010 $input: False *1.0 kWh
-Ethylene oxide, at plant $input: False *1.0 kg
-Overburden removal; Surface coal mine $input: False *1.0 Item(s)
-Aluminum, sheet, coated, at plant $input: False *5.82563123 kg
-Scanner, department, i4200, i4600 $input: False *1.0 Item(s)
-Transport, single unit truck, diesel powered $input: False *1.0 t*km
-Roundwood, softwood, average, at forest road, NE-NC $input: False *1.0 m3
-Transport, refuse truck, diesel powered, Northeast region $input: False *1.0 t*km
-Injection molding, rigid polypropylene part, at plant $input: False *1.0 kg
-Softwood logs with bark, harvested at low intensity site, at mill, US SE $input: False *1.0 m3
-Transport, refuse truck, diesel powered, Southwest $input: False *1.0 t*km
-Scanner, i710 desktop and i730EX desktop $input: False *1.0 Item(s)
-Track loader; Manufacture; At point-of-sale; 178 kW $input: False *1.0 Item(s)
-Transport, single unit truck, short-haul, gasoline powered, West $input: False *1.0 t*km
-Hot rolled sheet, steel, at plant $input: False *1.0 kg
-Transport, school bus, diesel powered, West $input: False *1.0 p*km
-Prefinished engineered wood flooring, at engineered wood flooring plant, E $input: False *1.0 m3
-Electricity, at grid, US, 2000 $input: False *1.0 kWh
-Electricity, natural gas, at power plant $input: False *1.0 kWh
-Transport, single unit truck, long-haul, diesel powered, South $input: False *1.0 t*km
-Transport, transit bus, diesel powered, Southeast $input: False *1.0 p*km
-Aluminum, cold rolling, at plant $input: False *1000.0 kg
-Bark, softwood, average, at forest road, INW $input: False *1.0 kg
-Loader operation, large, INW $input: False *1.0 h
-Containerboard, average production, at mill, 2010 $input: False *1.1052 kg
-Green veneer, at plywood plant, US PNW $input: False *1.0 kg
-Transport, single unit truck, short-haul, diesel powered, Northwest $input: False *1.0 t*km
-Electricity, at Grid, SERC, 2010 $input: False *1.0 kWh
-White mineral oil, at plant $input: False *1.0 kg
-Pulpwood, softwood, average, at forest road, INW $input: False *1.0 m3
-Aluminum, cast, lost foam, at plant $input: False *1.0 kg
-Veneer, hardwood, dry, at veneer mill, E $input: False *1.0 kg
-Transport, light commercial truck, diesel powered, Southeast $input: False *1.0 t*km
-Marine piling, softwood, CCA treated, SE $input: False *1.0 m3
-Natural gas, combusted in industrial boiler $input: False *1.0 m3
-Transport, light commercial truck, gasoline powered $input: False *1.0 t*km
-Reforesting, low intensity site, US PNW $input: False *1.0 m2
-Pressed raw panels, purchased, hardwood, at eng wood flooring plant, E $input: False *1.0 kg
-Metal panels, roof, at plant $input: False *1.0 kg
-Electricity, at eGrid, NYCW, 2010 $input: False *1.0 kWh
-Wood fuel, unspecified $input: False *1.0 kg
-Sawn lumber, hardwood, rough, green, at sawmill, NE-NC $input: False *1.0 kg
-Transport, school bus, diesel powered, East North Central $input: False *1.0 p*km
-Corn, production, average, US, 2022 $input: False *11000.0 kg
-Transport, light commercial truck, gasoline powered, West $input: False *1.0 t*km
-Palm kernels, at plant $input: False *1.0 kg
-Transport, school bus, diesel powered, Hawaii $input: False *1.0 p*km
-Wood, particleboard, generated onsite, combusted in industrial boiler $input: False *1.0 kg
-Fertilizer, corn, 2022 $input: False *1.0 ha
-Railroad ties, hardwood, creosote treated, SE $input: False *1.0 m3
-Transport, combination truck, short-haul, diesel powered, Hawaii $input: False *1.0 t*km
-Particleboard, average, softwood, particleboard mill $input: False *1.0 m3
-Electricity, at eGrid, RFCM, 2010 $input: False *1.0 kWh
-Softwood logs with bark, harvested at high intensity site, at mill, US PNW $input: False *1.0 m3
-Paper, mechanical, coated, average production, at mill $input: False *861.83 kg
-Transport, barge, residual fuel oil powered $input: False *1.0 t*km
-Hardboard, at hardboard plant $input: False *768.0 kg
-Transport, intercity bus, diesel powered $input: False *1.0 p*km
-Sodium chloride, at plant $input: False *1.0 kg
-Site preparation, state or private dry softwood forest, gentle slope, INW $input: False *1.0 ha
-LPG, combusted in industrial boiler, at pulp and paper mill (EXCL.) $input: False *1.0 l
-Tillage, conservation, corn production $input: False *1.0 m2
-Transport, combination truck, long-haul, diesel powered, Northeast $input: False *1.0 t*km
-Site preparation, national softwood forest, steep slope, INW $input: False *1.0 ha
-Acetic acid, at plant $input: False *1.0 kg
-Post, softwood, CCA treated, SE $input: False *1.0 m3
-Roundwood, hardwood, green, at logyard, NE-NC $input: False *1.0 m3
-Electricity, at eGrid, MROE, 2008 $input: False *1.0 kWh
-Scanner, department, i3200, i3400 $input: False *1.0 Item(s)
-Electricity, at Grid, FRCC, 2008 $input: False *1.0 kWh
-Transport, light commercial truck, diesel powered, West $input: False *1.0 t*km
-Pulpwood, softwood, national forest, average, at forest road, INW $input: False *1.0 m3
-Coal preparation facility; Multiple processes; Underground mine $input: False *1.0 Item(s)
-Roundwood, hardwood, green, at logyard, SE $input: False *1.0 m3
-Polyethylene terephthalate, resin, at plant, CTR $input: False *1.0 kg
-Sawn lumber, softwood, rough, kiln dried, at kiln, INW $input: False *1.0 m3
-Blasthole drill; Manufacture; For surface coal mine, at plant $input: False *1.0 Item(s)
-Surfaced dried lumber, at planer mill, US SE $input: False *1.0 kg
-Palm kernel oil, processed, at plant $input: False *1.0 kg
-Gasoline, combusted in equipment, at pulp and paper mill (EXCL.) $input: False *1.0 l
-Transport, combination truck, average fuel mix $input: False *1.0 t*km
-Transport, light commercial truck, gasoline powered, Southwest $input: False *1.0 t*km
-Polyol ether, for flexible foam polyurethane production, at plant $input: False *1.0 kg
-Ethylene glycol, at plant  $input: False *1.0 kg
-Skidding, aerial cable yarder, medium $input: False *1.0 h
-Reforesting, medium intensity site, US SE $input: False *1.0 m2
-Roundwood, softwood, national forest, gentle slope, at forest road, INW $input: False *34.092 m3
-Steel, stainless 304, flat rolled coil $input: False *1.0 kg
-Automotive painting, electrocoating, per vehicle $input: False *1.0 Item(s)
-Transport, single unit truck, long-haul, gasoline powered, Alaska $input: False *1.0 t*km
-Sawn lumber, hardwood, rough, kiln dried, at kiln, NE-NC $input: False *1.0 m3
-Coal mine site construction; Concrete structures and asphalt paving; Underground mine $input: False *1.0 Item(s)
-Crude oil, at production $input: False *1.0 kg
-Tall oil, at uncoated freesheet mill $input: False *21.818 kg
-Ethylbenzene styrene, at plant $input: False *1.0 kg
-Bark, hardwood, green, at veneer mill, E $input: False *24.74820717 kg
-Spring wheat straw, carted, 2022 $input: False *0.476 CUTOFF Transport, tractor and trailer $input: True *0.38835 t*km
-Switchgrass, at conversion plant, 2022 $input: False *1.0 Transport, barge, diesel powered $input: True *11.3 t*km
-Roundwood, hardwood, average, at forest road, NE-NC $input: False *1.0 m3
-Electricity, at Grid, ASCC, 2010 $input: False *1.0 kWh
-Polyethylene, high density, resin, at plant, CTR $input: False *1.0 kg
-Ethanol, denatured, switchgrass, biochemical $input: False *26100.0 kg
-Aluminum, primary, smelt, at plant $input: False *1000.0 kg
-Pulp, kraft market, bleached, average production, at mill $input: False *816.47 kg
-Phenol formaldehyde, at plant $input: False *1.0 kg
-Electricity, at eGrid, AKMS, 2008 $input: False *1.0 kWh
-Transport, ocean freighter, diesel powered $input: False *1.0 t*km
-Transport, transit bus, diesel powered, East North Central $input: False *1.0 p*km
-Softwood logs with bark, harvested at medium intensity site, at mill, US SE $input: False *1.0 m3
-Single-ply, white, polyester reinforced PVC roofing membrane, 48 mils (1.219 mm) $input: False *1.0 m2
-Acrylonitrile-butadiene-styrene copolymer resin, at plant, CTR $input: False *1.0 kg
-Crude palm kernel oil, at plant $input: False *1.0 kg
-Sawn lumber, softwood, rough, kiln dried, at kiln, NE-NC $input: False *1.0 m3
-Deposit containers, at collection $input: False *1.0 kg
-Potassium sulphate_alum, as K2O, Hardboard $input: False *1.0 kg
-Electricity, at eGrid, NYLI, 2010 $input: False *1.0 kWh
-Urea formaldehyde resin, neat, 65% solids $input: False *1.0 kg
-Plywood, at plywood plant, US SE $input: False *1.0 kg
-Electricity, at eGrid, RFCE, 2008 $input: False *1.0 kWh
-Polyethylene, linear low density, resin, at plant, CTR $input: False *1.0 kg
-Electricity, at Grid, MRO, 2010 $input: False *1.0 kWh
-Potato leaves, at field $input: False *0.4 kg
-Methylene diphenyl diisocyanate, resin, at plant $input: False *1.0 kg
-Aluminum, cast, precision sand casting $input: False *1.0 kg
-Roundwood, softwood, average, state or private dry forest, at forest road, INW $input: False *1.0 m3
-Harvest, corn, single pass $input: False *1.0 ha
-Recycled postconsumer HDPE pellet $input: False *1.0 kg
-Carbon monoxide, at plant $input: False *1.0 kg
-Bituminous coal, combusted in industrial boiler $input: False *1.0 kg
-Transport, transit bus, diesel powered, West North Central $input: False *1.0 p*km
-Transport, combination truck, short-haul, diesel powered, Central $input: False *1.0 t*km
-Transport, refuse truck, gasoline powered $input: False *1.0 t*km
-Aluminum, secondary, ingot, from automotive scrap, at plant $input: False *1.0 kg
-Transport, single unit truck, gasoline powered $input: False *1.0 t*km
-Heat, onsite boiler, hardwood mill, average, SE $input: False *1.0 MJ
-Transport, intercity bus, diesel powered, Northwest $input: False *1.0 p*km
-Cotton straw, at field $input: False *4.5 kg
-Sawn lumber, softwood, rough, green, at sawmill, INW $input: False *1.0 kg
-Natural soda ash (Sodium carbonate), at plant $input: False *1.0 Gasoline, combusted in equipment $input: True *0.061702 l
-Paraxylene, at plant $input: False *1.0 kg
-Softwood logs with bark, harvested at high intensity site, at mill, US SE $input: False *1.0 m3
-Transport, intercity bus, diesel powered, Alaska $input: False *1.0 p*km
-Transport, single unit truck, long-haul, diesel powered, Southwest $input: False *1.0 t*km
-Roundwood, softwood, average, at forest road, INW $input: False *1.0 m3
-Transport, barge, average fuel mix $input: False *1.0 t*km
-Skidding, wheeled cable skidder, 120-160 HP $input: False *1.0 h
-Steel, billets, at plant $input: False *1.0 kg
-Electricity, at eGrid, AZNM, 2010 $input: False *1.0 kWh
-Natural gas, combusted in industrial equipment $input: False *1.0 m3
-Electricity, at eGrid, SPSO, 2008 $input: False *1.0 kWh
-Melamine urea formaldehyde hardener, at plant $input: False *1.0 kg
-Corn stover, carted $input: False *1.71 CUTOFF Transport, tractor and trailer $input: True *1.3957 t*km
-Electricity, at Grid, MRO, 2008 $input: False *1.0 kWh
-Electricity, at eGrid, CAMX, 2008 $input: False *1.0 kWh
-Lumber, softwood, borate treated, PNW $input: False *1.0 m3
-Solid strip and plank flooring, hardwood, E $input: False *1.0 m3
-Diesel, combusted in industrial boiler $input: False *1.0 l
-Enzyme, Alpha-amylase, Novozyme Liquozyme $input: False *1.0 kg
-Transport, single unit truck, long-haul, diesel powered, West North Central $input: False *1.0 t*km
-Surfaced dried lumber, at planer mill, US PNW $input: False *1.0 kg
-Pulpwood, softwd, avg, state or private moist forest, at forest rd, INW $input: False *1.0 m3
-Benzene, at plant $input: False *1.0 kg
-Dragline; Manufacture; For surface coal mine, at plant; 7,439 metric tonne working weight $input: False *1.0 Item(s)
-Transport, single unit truck, long-haul, diesel powered, Hawaii $input: False *1.0 t*km
-Transport, combination truck, short-haul, diesel powered, Northeast $input: False *1.0 t*km
-Wood fuel, softwood, purchased, combusted in industrial boiler, NE-NC $input: False *1.0 kg
-Bark, at plywood plant, US PNW $input: False *0.0598 kg
-Electric head drive; Manufacture; For underground coal mine, at plant $input: False *1.0 Item(s)
-Site preparation, state or private moist cold softwood forest, gentle slope, INW $input: False *1.0 ha
-Electricity, at Grid, US, 2010 $input: False *1.0 kWh
-Phenol resorcinol formaldehyde resin, at plant $input: False *1.0 kg
-Bark, softwood, average, state or private moist cold forest, at forest road, INW $input: False *1.0 kg
-Transport, single unit truck, short-haul, gasoline powered, West North Central $input: False *1.0 t*km
-Roundwood, softwood, national forest, average, at forest road, INW $input: False *1.0 m3
-Reforesting, average state or private dry softwood forest, INW $input: False *1.0 ha
-Aluminum, secondary, shape casted $input: False *1.0 kg
-Lignite coal, at surface mine $input: False *1.0 kg
-Rice straw, at field $input: False *1.22 kg
-Transport, single unit truck, short-haul, gasoline powered, Hawaii $input: False *1.0 t*km
-Continuous coal miner; Manufacture; At underground mine; 563 kW $input: False *1.0 Item(s)
-Greenhouse seedling, softwood, INW $input: False *1.0 Item(s)
-Roundwood, hardwood, average, Low Intensity Management, NE-NC $input: False *151.87 m3
-Transport, light commercial truck, gasoline powered, Northwest $input: False *1.0 t*km
-Combustion, wet wood residue, AP-42 $input: False *1055.87 MJ
-Electricity, at eGrid, SRMV, 2008 $input: False *1.0 kWh
-Fertilizer, switchgrass, 2022 $input: False *1.0 ha
-Transport, single unit truck, long-haul, diesel powered, Southeast $input: False *1.0 t*km
-Electricity, at eGrid, NYUP, 2010 $input: False *1.0 kWh
-Reforesting, high intensity site, US PNW $input: False *1.0 m2
-Natural gas, combusted in industrial boiler, at hydrocracker, for ethylene $input: False *1.0 m3
-Electricity, diesel, at power plant $input: False *1.0 kWh
-Transport, transit bus, diesel powered, Southwest $input: False *1.0 p*km
-Wood fuel, hardwood,gen at flooring prod plant, combusted in industrial boiler, E $input: False *1.0 kg
-Electricity, at grid, Eastern US, 2000 $input: False *1.0 kWh
-Paper, mechanical, uncoated, average production, at mill $input: False *861.83 kg
-Transport, combination truck, short-haul, diesel powered, South $input: False *1.0 t*km
-Mining truck; Manufacture; For surface mine, at plant; Gross machine operating weight  623,690 kg $input: False *1.0 Item(s)
-Transport, intercity bus, diesel powered, East North Central $input: False *1.0 p*km
-Pyrolysis gasoline, at plant $input: False *1.0 kg
-Fuels, burned at uncoated freesheet, average production, at mill $input: False *13563.0 MJ
-Pressed raw panels, hardwood, at engineered wood flooring plant, E $input: False *1.0 kg
-Open molding, rigid composites part, at plant $input: False *1.0 kg
-Water use and quality; Production mix, from surface coal mine $input: False *1.0 Item(s)
-Transport, ocean freighter, average fuel mix $input: False *1.0 t*km
-Mixed recyclables, at collection, curbside, volume basis $input: False *1.0 m3
-Bituminous coal, combusted in industrial boiler, at pulp and paper mill (EXCL.) $input: False *1.0 kg
-Transport, intercity bus, diesel powered, Central $input: False *1.0 p*km
-Site preparation, national softwood forest, gentle slope, INW $input: False *1.0 ha
-Ethanol, 85%, at blending terminal, 2022 $input: False *1.0 kg
-Gypsum wallboard product, type X, 0.625 inch (15.875 mm) $input: False *1.0 m2
-Transport, light commercial truck, diesel powered, Central $input: False *1.0 t*km
-Thermal energy; From diesel fired equipment; Production mix $input: False *43.2 MJ
-Mixed recyclables, sorted at MRF $input: False *1.0 kg
-Softwood logs with bark, harvested at average intensity site, at mill, US PNW $input: False *1.0 m3
-Oriented strand board product, US SE $input: False *1.0 kg
-Transport, combination truck, short-haul, diesel powered, Southwest $input: False *1.0 t*km
-Softwood logs with bark, harvested at average intensity site, at mill, US SE $input: False *1.0 m3
-Electricity, at Grid, WECC, 2008 $input: False *1.0 kWh
-Roundwood, softwood, green, at mill, NE-NC $input: False *1.0 m3
-Recovered energy, for Polyol ether, for flexible foam polyurethane production, at plant, CTR $input: False *0.1861 MJ
-Soy oil, refined, at plant $input: False *1000.0 kg
-Aluminum, secondary, ingot, at plant $input: False *1000.0 kg
-Transport, light commercial truck, gasoline powered, Alaska $input: False *1.0 t*km
-Coal; Production mix, from underground mine $input: False *1.0 kg
-Corn stover, production, average, US, 2022 $input: False *3290.0 kg
-Containerboard, 100% recycled, average production, at mill $input: False *1.1052 kg
-Electricity, at eGrid, RMPA, 2008 $input: False *1.0 kWh
-Transport, school bus, gasoline powered $input: False *1.0 p*km
-Metal panels, wall, at plant $input: False *1.0 kg
-Transport, light commercial truck, diesel powered, Northeast $input: False *1.0 t*km
-Transport, light commercial truck, gasoline powered, Southeast $input: False *1.0 t*km
-Electricity, at Grid, HICC, 2008 $input: False *1.0 kWh
-Corn steep liquor $input: False *1.0 kg
-Transport, school bus, diesel powered, Central $input: False *1.0 p*km
-Transport, school bus, diesel powered, Northwest $input: False *1.0 p*km
-Transport, intercity bus, diesel powered, Hawaii $input: False *1.0 p*km
-Winter wheat straw, production, average, US, 2022 $input: False *1040.0 kg
-Engineered flooring, hardwood, unfinished, E $input: False *1.0 m3
-Electricity, at eGrid, SRMW, 2008 $input: False *1.0 kWh
-Deposit containers, at collection, CRV $input: False *1.0 kg
-Transport, single unit truck, long-haul, gasoline powered, Southeast $input: False *1.0 t*km
-Delimbing, slide boom delimber $input: False *1.0 h
-Surfaced green lumber, at planer mill, US PNW $input: False *1.0 kg
-Dry veneer, at plywood plant, US SE $input: False *1.0 kg
-Transport, school bus, diesel powered, Northeast $input: False *1.0 p*km
-Natural gas, combusted in industrial boiler, at hydrocracker, for propylene $input: False *1.0 m3
-Composite wood I-joist, at plant, US SE $input: False *1.0 kg
-Zinc, Special High Grade  $input: False *1000.0 kg
-Roundwood, softwood, average, Med Intensity Management, NE-NC $input: False *149.178 m3
-Transport, single unit truck, short-haul, diesel powered, Northeast $input: False *1.0 t*km
-Sawn Lumber, softwood, planed, kiln dried, at planer mill, INW $input: False *1.0 m3
-Transport, combination truck, long-haul, diesel powered, Alaska $input: False *1.0 t*km
-Heat, onsite boiler, softwood mill, average, NE-NC $input: False *1.0 MJ
-Packaging, production scanners $input: False *15.766 kg
-Line pan; Manufacture; For underground coal mine, at plant $input: False *1.0 Item(s)
-Steel product, primary structural, beams and columns, at plant $input: False *1.0 kg
-Electricity, at Grid, NPCC, 2008 $input: False *1.0 kWh
-Reforesting, medium intensity site, US PNW $input: False *1.0 m2
-Bauxite, at mine $input: False *1.0 kg
-Electricity, at Grid, TRE, 2008 $input: False *1.0 kWh
-Polypropylene resin, at plant $input: False *1.0 kg
-Wheat straw, at conversion plant, 2022 $input: False *1.0 Transport, barge, diesel powered $input: True *11.3 t*km
-Transport, single unit truck, short-haul, diesel powered, Southeast $input: False *1.0 t*km
-Electricity, bituminous coal, at power plant $input: False *1.0 kWh
-Electricity, at eGrid, AZNM, 2008 $input: False *1.0 kWh
-Steel plate; Blast furnace route; Production mix; 85% recovery rate $input: False *1.0 kg
-Harvest, wheat, single pass $input: False *1.0 ha
-Aluminum ingot, production mix, at plant $input: False *1.0 kg
-Methylene diphenyl diisocyanate resin, at plant, US SE $input: False *1.0 kg
-Roundwood, hardwood, average, Med Intensity Management, NE-NC $input: False *138.09 m3
-Electricity, residual fuel oil, at power plant $input: False *1.0 kWh
-Diesel, combusted in industrial equipment $input: False *1.0 l
-Transport, barge, diesel powered $input: False *1.0 t*km
-Combustion, dry wood residue, AP-42 $input: False *1055.87 MJ
-Electricity, biomass, at power plant $input: False *1.0 kWh
-Limestone, at mine $input: False *1.0 kg
-Electricity, nuclear, at power plant $input: False *1.0 kWh
-Electricity, at eGrid, SRVC, 2008 $input: False *1.0 kWh
-Transport, refuse truck, diesel powered, Hawaii $input: False *1.0 t*km
-Mixed Alcohols, thermochemical process $input: False *3787.5 kg
-Hydraulic shield; Manufacture; For underground coal mine, at plant; 2 m width $input: False *1.0 Item(s)
-Natural gas, combusted in industrial boiler, at hydrocracker, for butadiene $input: False *1.0 m3
-Electricity, at eGrid, HIMS, 2010 $input: False *1.0 kWh
-Electricity, at eGrid, RFCM, 2008 $input: False *1.0 kWh
-Pesticide, corn, 2022 $input: False *1.0 ha
-Water use and quality; Production mix, from underground coal mine $input: False *1.0 Item(s)
-Transport, light commercial truck, diesel powered, Alaska $input: False *1.0 t*km
-Natural gas, processed, for olefins production, at plant $input: False *1.0 kg
-Electricity, at eGrid, MROE, 2010 $input: False *1.0 kWh
-Transport, single unit truck, long-haul, diesel powered, Alaska $input: False *1.0 t*km
-Polystyrene, general purpose, at plant $input: False *1.0 kg
-Electricity, at grid, Western US, 2000 $input: False *1.0 kWh
-Transport, passenger truck, diesel powered $input: False *1.0 p*km
-Electricity, at eGrid, AKMS, 2010 $input: False *1.0 kWh
-Phosphorous fertilizer, production mix, at plant $input: False *1.0 kg
-Laminated veneer lumber, at plant, US SE $input: False *1.0 kg
-Soy-based resin, at plant $input: False *1.0 kg
-Transport, light commercial truck, gasoline powered, South $input: False *1.0 t*km
-Pressed raw plywood, from lay-up, at plywood plant, US PNW $input: False *1.0 kg
-Sawn lumber, softwood, planed, kiln dried, at planer, NE-NC $input: False *1.0 m3
-Transport, refuse truck, diesel powered, South $input: False *1.0 t*km
-Transport, single unit truck, short-haul, gasoline powered, Northwest $input: False *1.0 t*km
-Transport, intercity bus, diesel powered, South $input: False *1.0 p*km
-Natural gas, at extraction site $input: False *1.0 m3
-Transport, light commercial truck, gasoline powered, West North Central $input: False *1.0 t*km
-Electric shovel; Manufacture; For surface coal mine, at plant; 109 metric tonne payload $input: False *1.0 Item(s)
-Electricity, at Grid, RFC, 2008 $input: False *1.0 kWh
-Transport, refuse truck, diesel powered, Alaska $input: False *1.0 t*km
-Coal mine equipment assembly; Production mix, underground mine $input: False *1.0 Item(s)
-Fertilizer, stover, 2022 $input: False *1.0 ha
-Portland cement, at plant $input: False *1.0 kg
-Toluene diisocyanate, at plant, CTR $input: False *1.0 kg
-Transport, school bus, diesel powered, Southeast $input: False *1.0 p*km
-Nitrogen fertilizer, production mix, at plant $input: False *1.0 kg
-Gasoline, combusted in equipment $input: False *1.0 l
-Bark, softwood, average, state or private dry forest, at forest road, INW $input: False *1.0 kg
-Transport, aircraft, freight $input: False *1.0 t*km
-Roundwood, softwood, national forest, steep slope, at forest road, INW $input: False *34.0922800351 m3
-Slack wax, at plant, US SE $input: False *1.0 kg
-Iron and steel, production mix $input: False *1.0 kg
-Electricity, alumina refining regions $input: False *1.0 kWh
-Electricity, at eGrid, NWPP, 2010 $input: False *1.0 kWh
-Aluminum recovery, transport, to plant $input: False *1.0 kg
-Scanner, i1150WN desktop $input: False *1.0 Item(s)
-Butadiene, at plant $input: False *1.0 kg
-Roundwood, hardwood, green, at mill, NE-NC $input: False *1.0 m3
-Piling, whole tree slash, at landing, gentle slope forest, INW $input: False *1.0 ha
-Corrugated product, containerboard, average production, at mill, 2010 $input: False *1.0 kg
-Electricity, at eGrid, NYLI, 2008 $input: False *1.0 kWh
-Transport, light commercial truck, diesel powered $input: False *1.0 t*km
-Propylene oxide, at plant $input: False *1.0 kg
-Aniline, at plant $input: False *1.0 kg
-Roundwood, sftwd, state-private moist cold forest, gentle slope, at frst rd, INW $input: False *210.24 m3
-Coil, coating, m2, at plant $input: False *1.0 m2
-Conditioned log, at plywood plant, US PNW $input: False *1.0 kg
-Transport, refuse truck, diesel powered, Northwest $input: False *1.0 t*km
-Electricity, at eGrid, HIOA, 2010 $input: False *1.0 kWh
-Transport, combination truck, long-haul, diesel powered, West North Central $input: False *1.0 t*km
-Coal mine equipment assembly; Production mix, surface mine $input: False *1.0 Item(s)
-Melamine urea formaldehyde resin, neat, 60% solids $input: False *1.0 kg
-Automotive painting, electrocoating, per m2 $input: False *1.0 m2
-Mixed recyclables, at collection, commercial $input: False *1.0 kg
-Polystyrene, general purpose, at plant, CTR $input: False *1.0 kg
-Lignite coal, combusted in industrial boiler $input: False *1.0 kg
-Transport, single unit truck, long-haul, diesel powered, Northeast region $input: False *1.0 t*km
-Acrylonitrile-butadiene-styrene copolymer, resin, at plant $input: False *1.0 kg
-Tillage, reduce, corn production $input: False *1.0 ha
-Electricity, at eGrid, FRCC, 2010 $input: False *1.0 kWh
-Ethanol, denatured, wheat straw, biochemical $input: False *26100.0 kg
-Transport, school bus, diesel powered, South $input: False *1.0 p*km
-Toluene diisocyanate, at plant $input: False *1.0 kg
-Ethylene dichloride-vinyl chloride monomer, at plant $input: False *1.0 kg
-Alumina, at plant $input: False *1.0 kg
-Wood fuel, softwood, gen at lumber mill, combusted in industrial boiler, NE-NC $input: False *1.0 kg
-Coal cleaning facility;  Construction; At mine $input: False *1.0 Item(s)
-Wood fuel, MDF, purchased, combusted in industrial boiler $input: False *1.0 kg
-Transport, single unit truck, long-haul, gasoline powered $input: False *1.0 t*km
-Methylene diphenyl diisocyanate resin, at plant, US PNW $input: False *1.0 kg
-Electricity, at cogen, for natural gas turbine $input: False *1.0 kWh
-Secondary bonding application, rigid composites part, at plant $input: False *1.0 kg
-Laminated veneer lumber, at plant, US PNW $input: False *1.0 kg
-Aluminum, secondary, ingot, from beverage cans, at plant $input: False *1.0 kg
-Transport, school bus, diesel powered, West North Central $input: False *1.0 p*km
-Calcium carbonate, ground, screened grade, at plant $input: False *1.0 CUTOFF Sulfuric acid, at plant $input: True *0.000859803 kg
-Wood Combusted, at boiler, at hardboard mill $input: False *1.0 kg
-Railroad tie, hardwood, rough, green, at sawmill, SE $input: False *1.0 kg
-Transport, transit bus, gasoline powered $input: False *1.0 p*km
-Bark, softwood, average, at forest road, NE-NC $input: False *1.0 kg
-Transport, single unit truck, long-haul, gasoline powered, South $input: False *1.0 t*km
-Transport, single unit truck, short-haul, gasoline powered, Southeast $input: False *1.0 t*km
-Transport, transit bus, diesel powered, South $input: False *1.0 p*km
-Wheat straw, at field $input: False *1.3 kg
-Polystyrene, high impact, resin, at plant $input: False *1.0 kg
-Electric stage loader; Manufacture; For underground coal mine, at plant $input: False *1.0 Item(s)
-Composite wood I-joist, at plant, US PNW $input: False *1.0 kg
-Transport, transit bus, CNG powered $input: False *1.0 p*km
-Polyol ether, for rigid foam polyurethane production, at plant $input: False *1.0 kg
-Paper, freesheet, coated, average production, at mill $input: False *861.83 kg
-Vacuum infusion, rigid composites part, at plant $input: False *1.0 kg
-Transport, transit bus, diesel powered, Alaska $input: False *1.0 p*km
-Scanner, department, i5800 $input: False *1.0 Item(s)
-Transport, school bus, diesel powered $input: False *1.0 p*km
-Electricity, at eGrid, RFCE, 2010 $input: False *1.0 kWh
-Transport, combination truck, gasoline powered $input: False *1.0 t*km
-Bark, at plywood plant, US SE $input: False *0.134 kg
-Thermoforming, rigid polypropylene part, at plant $input: False *1.0 kg
-Transport, single unit truck, long-haul, gasoline powered, Northwest $input: False *1.0 t*km
-Metal composite material (MCM) sheet, at plant $input: False *1.0 m2
-Reforesting, average state or private moist cold softwood forest, INW $input: False *1.0 ha
-Electricity, at eGrid, SRSO, 2008 $input: False *1.0 kWh
-Coal shuttle car; Manufacture; For underground mine, at plant; 28.6 metric tonnes $input: False *1.0 Item(s)
-Ethanol, denatured, at refueling station, 2022 $input: False *1.0 kg
-Recycled postconsumer PET pellet $input: False *1.0 kg
-Sawn lumber, softwood, rough, green, at sawmill, NE-NC $input: False *1.0 kg
-Transport, light commercial truck, gasoline powered, Hawaii $input: False *1.0 t*km
-Aluminum, primary, ingot, at plant, 1998 $input: False *1.0 kg
-Unsaturated polyester, resin, at plant $input: False *1.0 kg
-Electricity, onsite boiler, hardwood mill, average, NE-NC $input: False *0.000497 kWh
-Transport, single unit truck, short-haul, gasoline powered, Alaska $input: False *1.0 t*km
-Felling, feller buncher, > 200 HP, INW $input: False *1.0 h
-Mixed recyclables, at collection, curbside, weight basis $input: False *1.0 kg
-Electricity, at eGrid, SRSO, 2010 $input: False *1.0 kWh
-Transport, single unit truck, short-haul, diesel powered, Southwest $input: False *1.0 t*km
-Steel, stainless 304, scrap $input: False *1.0 kg
-Electricity, at eGrid, NWPP, 2008 $input: False *1.0 kWh
-Electricity, at eGrid, RMPA, 2010 $input: False *1.0 kWh
-Hydrochloric acid, at plant  $input: False *1.0 kg
-Calcium carbonate, ground, fine slurry, 3 micron, at plant $input: False *1.0 Electricity, at Grid, US, 2010 $input: True *241.4061771 kWh
-Mixed recyclables, at collection, dropoff center $input: False *1.0 kg
-Roundwood, softwood, average, Low Intensity Management, NE-NC $input: False *142.1212 m3
-Corn stover, at conversion plant, 2022 $input: False *1.0 Transport, train, diesel powered $input: True *200.0 t*km
-Longwall mining system; Equipment assembly; Production mix, at underground coal mine $input: False *1.0 Item(s)
-Scanner, i1190WN desktop  $input: False *1.0 Item(s)
-Transport, combination truck, diesel powered $input: False *1.0 t*km
-Reforesting, high intensity site, US SE $input: False *1.0 m2
-Grinding $input: False *2000.0 kg
-Anode, at plant $input: False *1.0 kg
-Electricity, at eGrid, RFCW, 2010 $input: False *1.0 kWh
-Transport, intercity bus, diesel powered, West North Central $input: False *1.0 p*km
-Transport, light commercial truck, gasoline powered, Central $input: False *1.0 t*km
-Transport, single unit truck, long-haul, gasoline powered, Hawaii $input: False *1.0 t*km
-Aluminum, secondary, extruded $input: False *1.0 kg
-Transport, transit bus, diesel powered, Northeast $input: False *1.0 p*km
-Transport, combination truck, short-haul, diesel powered, Southeast $input: False *1.0 t*km
+Calcium carbonate, ground, 30 micron, at plant
+Electricity, at Grid, SPP, 2008
+Fuels, burned at bleached kraft market pulp mill, average production, at mill
+Transport, light commercial truck, gasoline powered, Northeast
+Transport, train, diesel powered
+Transport, combination truck, short-haul, diesel powered
+Cold rolled sheet, steel, at plant
+Mixed recyclables, to MRF
+Ethylene, at plant
+Diesel, at refinery
+Electricity, at eGrid, RFCW, 2008
+Electricity, at Grid, SERC, 2008
+Transport, single unit truck, short-haul, diesel powered, South
+Softwood logs with bark, harvested at low intensity site, at mill, US PNW
+Winter wheat straw, ground and stored
+Transport, light commercial truck, diesel powered, South
+Ammonia, steam reforming, liquid, at plant
+Conditioned log, at plywood plant, US SE
+Transport, light commercial truck, gasoline powered, East North Central
+Galvanized steel sheet, at plant
+Metallurgical coke, at plant
+Coal mine tailings storage and disposal; Production mix, underground mine
+Sawn lumber, hardwood, rough, kiln dried, at kiln, SE
+Electricity, at eGrid, HIOA, 2008
+Electricity, at eGrid, NYUP, 2008
+Methane emission; Production mix, surface mine
+Transport, transit bus, diesel powered, West
+Transport, pipeline, unspecified petroleum products
+Roundwood, hardwood, green, at mill, SE
+Scanner, i1190E desktop
+Pulpwood, hardwood, average, at forest road, NE-NC
+Compression molding, rigid composites part, at plant
+Coal stockpile stacker;  Manufacture; At point-of-sale
+Dry rough lumber, at kiln, US PNW
+Petroleum refining, for olefins production, at plant
+Corn stover, at field
+Tillage, intensive, corn production
+Transport, combination truck, short-haul, diesel powered, East North Central
+Transport, intercity bus, diesel powered, Southeast
+Spring wheat straw, ground and stored, 2022
+Corn, decomposition, 15.5% moisture
+Electricity, at Grid, HICC, 2010
+Transport, combination truck, long-haul, diesel powered, Southeast
+Electricity, at Grid, ASCC, 2008
+Electricity, at Grid, TRE, 2010
+Roundwood, softwood, green, at logyard, NE-NC
+Electricity, at eGrid, CAMX, 2010
+Hog fuel, self-gen., combusted in ind. boiler, at pulp and paper mill (EXCL.)
+Switchgrass, harvested, wet
+Heat, drying veneer, hardwood, at veneer mill, E
+Scanner, department, i5200, i5600
+Coal conveyor system; Manufacture; For surface mine, at point-of-sale; 1.83 m belt width
+Steel reinforcement bar; Blast furnace route; Production mix
+Wood fuel, hardwood, purchased, combusted in industrial boiler, SE
+Green veneer, at plywood plant, US SE
+Chainsawing, delimbing, NE-NC
+Transport, combination truck, short-haul, diesel powered, West
+Steel, liquid, at plant
+Winter wheat straw, carted
+Pressed raw plywood, from lay-up, at plywood plant, US SE
+Coal mine ventilation energy; Electric fan; Underground mine
+Ethanol, 85%, blended, at service station, 2022
+Wood fuel, MDF, generated on-site, combusted in industrial boiler
+Wood Combusted, at boiler, at cellulosic fiberboard mill
+Transport, single unit truck, short-haul, gasoline powered, Central
+Electricity, at eGrid, SRTV, 2010
+Transport, light commercial truck, diesel powered, Northwest
+Soda powder, at plant
+Crude oil, extracted
+Soy-based polyol, at plant
+Transport, combination truck, short-haul, gasoline powered
+Dry rough lumber, at kiln, US SE
+Transport, transit bus, diesel powered, Central
+Polylactide Biopolymer Resin, at plant
+Soy meal, at plant
+Corn grain, at conversion plant, 2022
+Chlorine, production mix, at plant
+Corn wet mill, gluten drying, AP-42
+Transport, light commercial truck, diesel powered, East North Central
+Ethanol, denatured, corn stover, biochemical
+Transport, combination truck, long-haul, diesel powered, South
+Transport, light commercial truck, diesel powered, Hawaii
+Calcium carbonate, ground, fine treated, 3 micron, at plant
+Transport, school bus, diesel powered, Alaska
+Scanner, i1150 desktop and i1190 desktop
+Aluminum, secondary, rolled
+Aluminium, extrusion, at plant
+Lumber, softwood, ACQ treated, SE
+Polyethylene, low density, resin, at plant
+Electricity, aluminum smelting and ingot casting regions
+Roundwood, hardwood, average, High Intensity Management, NE-NC
+Electricity, at eGrid, FRCC, 2008
+Coal loading silo;  Manufacture; For railcar loading of coal, underground mine; 295 metric tonnes
+Hog fuel, pur., combusted in industrial boiler, at pulp and paper mill (EXCL.)
+Coal loading silo;  Manufacture; For railcar loading of coal, surface mine
+Packaging and information sheets, i2900 desktop scanner
+Transport, single unit truck, long-haul, diesel powered, Northwest
+Natural gas, combusted in industrial boiler, at hydrocracker, for pyrolysis gas
+Wood fuel, hardwood, purchased, combusted in industrial boiler, E
+Transport, single unit truck, long-haul, gasoline powered, Northeast region
+Transport, single unit truck, long-haul, gasoline powered, West
+Electricity, bauxite mining regions
+Polyethylene terephthalate, resin, at plant
+Fuel grade uranium, at regional storage
+Electricity, at Grid, RFC, 2010
+Fuel consumption and emissions from coal mine commissioning and decommissioning; Surface mine
+Tractor-propelled coal crusher;  Manufacture; For surface mine, at plant
+Corn wet milling, operations, AP-42
+Poles, softwood, PCP treated
+Planting, switchgrass, 2022
+Residual fuel oil, combusted in industrial boiler
+Transport, combination truck, long-haul, diesel powered, East North Central
+Methane emission; Production mix, underground mine
+Transport, refuse truck, diesel powered, West North Central
+Skidding, wheeled skidder, 120-140 HP
+Switchgrass, ground and stored, 2022
+Pulpwood, softwood, average, state or private dry forest, at forest road, INW
+Transport, single unit truck, long-haul, gasoline powered, Central
+Roundwood, softwd, avg, state or private moist cold forest, at forest rd, INW
+Transport, single unit truck, short-haul, gasoline powered
+Bark, hardwood, average, at forest road, NE-NC
+Sawn lumber, hardwood, planed, kiln dried, at planer mill, SE
+Transport, combination truck, long-haul, diesel powered, Central
+Site preparation, state or private moist cold softwood forest, steep slope, INW
+Corrugated Product
+Transport, transit bus, diesel powered, Northwest
+Office scanner
+Phenol resorcinol formaldehyde hardener, at plant
+Roundwood, softwood, average, High Intensity Management, NE-NC
+Transport, combination truck, short-haul, diesel powered, Northwest
+Rough green lumber, softwood, at sawmill, US PNW
+Aluminum, primary, ingot, at plant
+Transport, transit bus, diesel powered
+Enzyme, Cellulase, Novozyme Celluclast
+Chainsawing, hand felling and delimbing, INW
+Transport, single unit truck, short-haul, diesel powered, West
+Transport, combination truck, long-haul, diesel powered
+Transport, single unit truck, short-haul, diesel powered, East North Central
+Electricity, at eGrid, SRTV, 2008
+Transport, single unit truck, short-haul, diesel powered
+Transport, refuse truck, diesel powered, Central
+Transport, single unit truck, long-haul, diesel powered, West
+Coal; Handled; From underground mine
+Electricity, lignite coal, at power plant
+Transport, ocean freighter, residual fuel oil powered
+Biodegradable loose fill
+Scanner, department, i5200v, i5600v
+Roundwood, softwd, state or private dry forest, gentle slope, at forest rd, INW
+Heat, indirect, heated zones, softwood, plywood veneer drying, AP-42
+Cellulosic fiberboard, uncoated, at plant
+Recovered energy, for Polyol ether, for rigid foam polyurethane production, at plant, CTR
+Galvanized steel coil, coated, at plant
+Automotive painting, pretreatment
+Crew to Burn Bole Only slash in the Woods, INW
+Harvest, switchgrass
+Veneer, hardwood, green, at veneer mill, E
+Transport, combination truck, long-haul, diesel powered, Northwest
+Transport, passenger truck, gasoline powered
+Scanner, packaging and information sheets
+Ethanol, denatured, corn dry mill
+Forest residue, processed and loaded, at landing system
+Transport, single unit truck, long-haul, diesel powered, Central
+Transport, intercity bus, diesel powered, West
+Forest residue, dried, stored
+Bituminous coal, at mine
+Chlor-alkali electrolysis, chlorine for PVC, at plant
+Electric tail drive; Manufacture; For underground coal mine, at plant
+Dry veneer, at plywood plant, US PNW
+Natural gas, combusted in industrial boiler, at pulp and paper mill (EXCL.)
+Electricity, at Grid, FRCC, 2010
+Electricity, at eGrid, ERCT, 2008
+Coal; Production mix, from surface mine
+Electricity, at eGrid, SRVC, 2010
+Xylenes, mixed, at plant
+Seedlings, at greenhouse, US PNW
+Roundwood, sftwd, state-private moist cold forest, steep slope, at forest rd,INW
+Sulfur, at plant
+Melamine urea formaldehyde resin, at plant
+Transport, single unit truck, short-haul, gasoline powered, Northeast
+Electricity, at eGrid, SPNO, 2008
+Piling, bole slash, in forest, steep slope forest, INW
+Fuels, burned at coated freesheet, average production, at mill
+Gypsum wallboard product, regular, 0.5 inch (12.7 mm)
+Rapeseed residues, at field
+Polyethylene, linear low density, resin, at plant
+Oxygen, liquid, at plant
+Transport, combination truck, long-haul, diesel powered, Southwest
+Coal crusher facility; Construction; At underground mine
+Corn stover, ground and stored
+Transport, motorcycle, gasoline powered
+Wood fuel, hardwood, purchased, combusted in industrial boiler, NE-NC
+Electricity, at eGrid, SRMV, 2010
+Electricity, at eGrid, AKGD, 2010
+Electricity, at grid, Texas US, 2000
+Automotive painting, top coat, per vehicle
+Transport, refuse truck, diesel powered, Southeast
+Coal; Cleaned; Underground mine
+Electricity, at eGrid, SPNO, 2010
+Metal panel, insulated, at plant
+Enzyme, Glucoamylase, Novozyme Spirizyme
+Transport, light commercial truck, diesel powered, West North Central
+E-glass, at plant
+Transport, single unit truck, long-haul, diesel powered
+Ethanol, denatured, mixed feedstocks, at conversion facility, 2022
+TDF, combusted in industrial boiler, at pulp and paper mill (EXCL.)
+Wood fuel, hardwood, generated at mill, combusted in industrial boiler, E
+Phenol Resorcinol Formaldehyde resin, neat, 60% solids
+Transport, motor home, diesel powered
+Polyethylene, low density, resin, at plant, CTR
+Polyvinyl chloride, resin, at plant, CTR
+Metal composite material (MCM) panel, at plant
+Diesel, at refinery
+Conditioned log, hardwood, green, at veneer mill, E
+Transport, passenger car, gasoline powered
+Aluminum, hot rolling, at plant
+Liquefied petroleum gas, combusted in industrial boiler
+Anthracite coal, combusted in industrial boiler
+Transport, single unit truck, short-haul, diesel powered, Alaska
+Corn grain, harvested and stored
+Wood, softwood, INW, generated at lumber mill, combusted in industrial boiler
+Toluene, at plant
+Stainless steel; Manufacture; Production mix, at plant; 316 2B, 80% recycled
+Transport, refuse truck, diesel powered, East North Central
+Medium density fiberboard (MDF), at MDF mill
+Transport, passenger car, diesel powered
+Scanner, i940 desktop
+Electricity, at eGrid, MROW, 2010
+Electricity, at eGrid, MROW, 2008
+Glue laminated beam processing, at plant, US PNW
+Polyethylene, high density, resin, at plant 
+Glycerine, at plant
+Scanner, desktop, i2900
+Electric shearer; Manufacture; For underground coal mine, at plant
+Switchgrass, carted, 2022
+Fertilizer, winter wheat straw, 2022
+Seedlings, at greenhouse, US SE
+Fuels, burned at unbleached kraft bag sack paper, average production, at mill
+Iron, sand casted
+Transport, single unit truck, short-haul, gasoline powered, East North Central
+Transport, combination truck, long-haul, diesel powered, Hawaii
+Cladding, roll formed, at plant
+Sawn lumber, hardwood, rough, green, at sawmill, SE
+Polyvinyl chloride, resin, at plant
+Open mold casting, rigid composites part, at plant
+Site preparation, state or private dry softwood forest, steep slope, INW
+Bark, softwood, national forest, average, at forest road, INW
+Electricity, at eGrid, NYCW, 2008
+Glue laminated beam processing, at plant, US SE
+Fuel consumption and emissions from coal mine commissioning and decommissioning; Underground mine
+Electricity, at Grid, WECC, 2010
+Acrylonitrile, at plant
+Electricity, at eGrid, HIMS, 2008
+Aluminum, secondary, ingot, at plant, 1998
+Sulfuric acid, at plant
+Transport, pipeline, natural gas
+Electricity, at eGrid, SRMW, 2010
+Wastewater treatment plant; Construction; For underground coal mine
+Steel, stainless 304, quarto plate
+Transport, single unit truck, short-haul, diesel powered, Central
+EPS virgin resin; batch suspension polymerization; industry average, at plant
+EPS insulation board, at plant
+Transport, single unit truck, long-haul, gasoline powered, Southwest
+Recovered energy, for Polypropylene, resin, at plant, CTR
+Natural gas, processed, at plant
+Injection molding, rigid LLDPE part, at plant
+Transport, transit bus, diesel powered, Hawaii
+Transport, single unit truck, short-haul, gasoline powered, South
+Transport, single unit truck, short-haul, diesel powered, West North Central
+Aluminum, cast, semi-permanent mold (SPM), at plant
+Phenol formaldehyde resin,  neat, 47% solids
+Roundwood, softwood, green, at mill, INW
+Wood waste, unspecified, combusted in industrial boiler
+Electricity, at eGrid, NEWE, 2010
+Land reclamation; Surface coal mine
+Electricity, at grid, US, 2008
+Transport, combination truck, short-haul, diesel powered, Alaska
+Sawn lumber, hardwood, planed, kiln dried, at planer mill, NE-NC
+Transport, motor home, gasoline powered
+Methanol, at plant
+Natural gas, extracted
+Anthracite coal, at mine
+Wood fuel, hardwood, gen at lumber mill, combusted in industrial boiler, NE-NC
+Soybean residues, at field, 1998-2001
+Electricity, at eGrid, SPSO, 2010
+Propylene, at plant
+Forest residue, preprocessed, at conversion facility
+Steel, cold-formed studs and track, at plant
+Methylene diphenyl diisocyanate resin, at plant, CTR
+Pesticide, Switchgrass
+Automotive painting, top coat, per m2
+Skidding, grapple skidder, >140 HP
+Loader operation, large, NE-NC
+Fuels, burned at uncoated mechanical paper, average production, at mill
+Quicklime, at plant
+Transport, single unit truck, short-haul, diesel powered, Hawaii
+Electricity, at eGrid, ERCT, 2010
+Hydrogen, liquid, synthesis gas, at plant
+Harvesting, fresh fruit bunch, at farm
+Transport, single unit truck, long-haul, diesel powered, East North Central
+Paper, bag and sack, unbleached kraft, average production, at mill
+Electricity, at Grid, SPP, 2010
+Polybutadiene, at plant
+Softwood logs with bark, harvested at medium intensity site, at mill, US PNW
+Roundwood, softwd, state or private dry forest, steep slope, at forest rd, INW
+Electricity, at eGrid, NEWE, 2008
+Reforesting, average national softwood forest, INW
+Transport, single unit truck, short-haul, gasoline powered, Southwest
+Transport, combination truck, long-haul, diesel powered, West
+Coal conveyor system; Manufacture; For underground mine, at point-of-sale; 1.22 m belt width
+Transport, refuse truck, diesel powered, West region
+Felling, feller buncher, > 200 HP, NE-NC
+Containerboard, average production, at mill
+Zinc, sheet
+Roundwood, hardwood, green, at mill, E
+Transport, school bus, diesel powered, Southwest
+Soy biodiesel, production, at plant
+Polystyrene, high impact, resin, at plant, CTR
+Electricity, anthracite coal, at power plant
+Rough green lumber, at sawmill, US SE
+Reforesting, low intensity site, US SE
+Transport, combination truck, short-haul, diesel powered, West North Central
+Harvesting, fresh fruit bunch, at farm
+Lime, agricultural, corn production
+Fuels, burned at coated mechanical paper, average production, at mill
+Transport, light commercial truck, diesel powered, Southwest
+Transport, refuse truck, diesel powered
+Plywood, at plywood plant, US PNW
+Transport, intercity bus, diesel powered, Southwest
+Switchgrass, production, US, 2022
+Pulpwood, softwood, average, at forest road, NE-NC
+Soybean residues, at field
+Electricity, at eGrid, AKGD, 2008
+Diesel, combusted in industrial boiler, at pulp and paper mill (EXCL.)
+Transport, single unit truck, long-haul, gasoline powered, East North Central
+Wood fuel, hardwood, generated at lumber mill, combusted in industrial boiler, SE
+Chainsawing, hand felling, NE-NC
+Recycled postconsumer PET flake
+Calcium carbonate, ground, 20 micron, at plant
+Roundwood, softwood, green, at logyard, INW
+Steel product, secondary structural, girts and purlins, at plant
+Electricity, at Grid, NPCC, 2010
+Ethylene oxide, at plant
+Overburden removal; Surface coal mine
+Aluminum, sheet, coated, at plant
+Scanner, department, i4200, i4600
+Transport, single unit truck, diesel powered
+Roundwood, softwood, average, at forest road, NE-NC
+Transport, refuse truck, diesel powered, Northeast region
+Injection molding, rigid polypropylene part, at plant
+Softwood logs with bark, harvested at low intensity site, at mill, US SE
+Transport, refuse truck, diesel powered, Southwest
+Scanner, i710 desktop and i730EX desktop
+Track loader; Manufacture; At point-of-sale; 178 kW
+Transport, single unit truck, short-haul, gasoline powered, West
+Hot rolled sheet, steel, at plant
+Transport, school bus, diesel powered, West
+Prefinished engineered wood flooring, at engineered wood flooring plant, E
+Electricity, at grid, US, 2000
+Electricity, natural gas, at power plant
+Transport, single unit truck, long-haul, diesel powered, South
+Transport, transit bus, diesel powered, Southeast
+Aluminum, cold rolling, at plant
+Bark, softwood, average, at forest road, INW
+Loader operation, large, INW
+Containerboard, average production, at mill, 2010
+Green veneer, at plywood plant, US PNW
+Transport, single unit truck, short-haul, diesel powered, Northwest
+Electricity, at Grid, SERC, 2010
+White mineral oil, at plant
+Pulpwood, softwood, average, at forest road, INW
+Aluminum, cast, lost foam, at plant
+Veneer, hardwood, dry, at veneer mill, E
+Transport, light commercial truck, diesel powered, Southeast
+Marine piling, softwood, CCA treated, SE
+Natural gas, combusted in industrial boiler
+Transport, light commercial truck, gasoline powered
+Reforesting, low intensity site, US PNW
+Pressed raw panels, purchased, hardwood, at eng wood flooring plant, E
+Metal panels, roof, at plant
+Electricity, at eGrid, NYCW, 2010
+Wood fuel, unspecified
+Sawn lumber, hardwood, rough, green, at sawmill, NE-NC
+Transport, school bus, diesel powered, East North Central
+Corn, production, average, US, 2022
+Transport, light commercial truck, gasoline powered, West
+Palm kernels, at plant
+Transport, school bus, diesel powered, Hawaii
+Wood, particleboard, generated onsite, combusted in industrial boiler
+Fertilizer, corn, 2022
+Railroad ties, hardwood, creosote treated, SE
+Transport, combination truck, short-haul, diesel powered, Hawaii
+Particleboard, average, softwood, particleboard mill
+Electricity, at eGrid, RFCM, 2010
+Softwood logs with bark, harvested at high intensity site, at mill, US PNW
+Paper, mechanical, coated, average production, at mill
+Transport, barge, residual fuel oil powered
+Hardboard, at hardboard plant
+Transport, intercity bus, diesel powered
+Sodium chloride, at plant
+Site preparation, state or private dry softwood forest, gentle slope, INW
+LPG, combusted in industrial boiler, at pulp and paper mill (EXCL.)
+Tillage, conservation, corn production
+Transport, combination truck, long-haul, diesel powered, Northeast
+Site preparation, national softwood forest, steep slope, INW
+Acetic acid, at plant
+Post, softwood, CCA treated, SE
+Roundwood, hardwood, green, at logyard, NE-NC
+Electricity, at eGrid, MROE, 2008
+Scanner, department, i3200, i3400
+Electricity, at Grid, FRCC, 2008
+Transport, light commercial truck, diesel powered, West
+Pulpwood, softwood, national forest, average, at forest road, INW
+Coal preparation facility; Multiple processes; Underground mine
+Roundwood, hardwood, green, at logyard, SE
+Polyethylene terephthalate, resin, at plant, CTR
+Sawn lumber, softwood, rough, kiln dried, at kiln, INW
+Blasthole drill; Manufacture; For surface coal mine, at plant
+Surfaced dried lumber, at planer mill, US SE
+Palm kernel oil, processed, at plant
+Gasoline, combusted in equipment, at pulp and paper mill (EXCL.)
+Transport, combination truck, average fuel mix
+Transport, light commercial truck, gasoline powered, Southwest
+Polyol ether, for flexible foam polyurethane production, at plant
+Ethylene glycol, at plant 
+Skidding, aerial cable yarder, medium
+Reforesting, medium intensity site, US SE
+Roundwood, softwood, national forest, gentle slope, at forest road, INW
+Steel, stainless 304, flat rolled coil
+Automotive painting, electrocoating, per vehicle
+Transport, single unit truck, long-haul, gasoline powered, Alaska
+Sawn lumber, hardwood, rough, kiln dried, at kiln, NE-NC
+Coal mine site construction; Concrete structures and asphalt paving; Underground mine
+Crude oil, at production
+Tall oil, at uncoated freesheet mill
+Ethylbenzene styrene, at plant
+Bark, hardwood, green, at veneer mill, E
+Spring wheat straw, carted, 2022
+Switchgrass, at conversion plant, 2022
+Roundwood, hardwood, average, at forest road, NE-NC
+Electricity, at Grid, ASCC, 2010
+Polyethylene, high density, resin, at plant, CTR
+Ethanol, denatured, switchgrass, biochemical
+Aluminum, primary, smelt, at plant
+Pulp, kraft market, bleached, average production, at mill
+Phenol formaldehyde, at plant
+Electricity, at eGrid, AKMS, 2008
+Transport, ocean freighter, diesel powered
+Transport, transit bus, diesel powered, East North Central
+Softwood logs with bark, harvested at medium intensity site, at mill, US SE
+Single-ply, white, polyester reinforced PVC roofing membrane, 48 mils (1.219 mm)
+Acrylonitrile-butadiene-styrene copolymer resin, at plant, CTR
+Crude palm kernel oil, at plant
+Sawn lumber, softwood, rough, kiln dried, at kiln, NE-NC
+Deposit containers, at collection
+Potassium sulphate_alum, as K2O, Hardboard
+Electricity, at eGrid, NYLI, 2010
+Urea formaldehyde resin, neat, 65% solids
+Plywood, at plywood plant, US SE
+Electricity, at eGrid, RFCE, 2008
+Polyethylene, linear low density, resin, at plant, CTR
+Electricity, at Grid, MRO, 2010
+Potato leaves, at field
+Methylene diphenyl diisocyanate, resin, at plant
+Aluminum, cast, precision sand casting
+Roundwood, softwood, average, state or private dry forest, at forest road, INW
+Harvest, corn, single pass
+Recycled postconsumer HDPE pellet
+Carbon monoxide, at plant
+Bituminous coal, combusted in industrial boiler
+Transport, transit bus, diesel powered, West North Central
+Transport, combination truck, short-haul, diesel powered, Central
+Transport, refuse truck, gasoline powered
+Aluminum, secondary, ingot, from automotive scrap, at plant
+Transport, single unit truck, gasoline powered
+Heat, onsite boiler, hardwood mill, average, SE
+Transport, intercity bus, diesel powered, Northwest
+Cotton straw, at field
+Sawn lumber, softwood, rough, green, at sawmill, INW
+Natural soda ash (Sodium carbonate), at plant
+Paraxylene, at plant
+Softwood logs with bark, harvested at high intensity site, at mill, US SE
+Transport, intercity bus, diesel powered, Alaska
+Transport, single unit truck, long-haul, diesel powered, Southwest
+Roundwood, softwood, average, at forest road, INW
+Transport, barge, average fuel mix
+Skidding, wheeled cable skidder, 120-160 HP
+Steel, billets, at plant
+Electricity, at eGrid, AZNM, 2010
+Natural gas, combusted in industrial equipment
+Electricity, at eGrid, SPSO, 2008
+Melamine urea formaldehyde hardener, at plant
+Corn stover, carted
+Electricity, at Grid, MRO, 2008
+Electricity, at eGrid, CAMX, 2008
+Lumber, softwood, borate treated, PNW
+Solid strip and plank flooring, hardwood, E
+Diesel, combusted in industrial boiler
+Enzyme, Alpha-amylase, Novozyme Liquozyme
+Transport, single unit truck, long-haul, diesel powered, West North Central
+Surfaced dried lumber, at planer mill, US PNW
+Pulpwood, softwd, avg, state or private moist forest, at forest rd, INW
+Benzene, at plant
+Dragline; Manufacture; For surface coal mine, at plant; 7,439 metric tonne working weight
+Transport, single unit truck, long-haul, diesel powered, Hawaii
+Transport, combination truck, short-haul, diesel powered, Northeast
+Wood fuel, softwood, purchased, combusted in industrial boiler, NE-NC
+Bark, at plywood plant, US PNW
+Electric head drive; Manufacture; For underground coal mine, at plant
+Site preparation, state or private moist cold softwood forest, gentle slope, INW
+Electricity, at Grid, US, 2010
+Phenol resorcinol formaldehyde resin, at plant
+Bark, softwood, average, state or private moist cold forest, at forest road, INW
+Transport, single unit truck, short-haul, gasoline powered, West North Central
+Roundwood, softwood, national forest, average, at forest road, INW
+Reforesting, average state or private dry softwood forest, INW
+Aluminum, secondary, shape casted
+Lignite coal, at surface mine
+Rice straw, at field
+Transport, single unit truck, short-haul, gasoline powered, Hawaii
+Continuous coal miner; Manufacture; At underground mine; 563 kW
+Greenhouse seedling, softwood, INW
+Roundwood, hardwood, average, Low Intensity Management, NE-NC
+Transport, light commercial truck, gasoline powered, Northwest
+Combustion, wet wood residue, AP-42
+Electricity, at eGrid, SRMV, 2008
+Fertilizer, switchgrass, 2022
+Transport, single unit truck, long-haul, diesel powered, Southeast
+Electricity, at eGrid, NYUP, 2010
+Reforesting, high intensity site, US PNW
+Natural gas, combusted in industrial boiler, at hydrocracker, for ethylene
+Electricity, diesel, at power plant
+Transport, transit bus, diesel powered, Southwest
+Wood fuel, hardwood,gen at flooring prod plant, combusted in industrial boiler, E
+Electricity, at grid, Eastern US, 2000
+Paper, mechanical, uncoated, average production, at mill
+Transport, combination truck, short-haul, diesel powered, South
+Mining truck; Manufacture; For surface mine, at plant; Gross machine operating weight  623,690 kg
+Transport, intercity bus, diesel powered, East North Central
+Pyrolysis gasoline, at plant
+Fuels, burned at uncoated freesheet, average production, at mill
+Pressed raw panels, hardwood, at engineered wood flooring plant, E
+Open molding, rigid composites part, at plant
+Water use and quality; Production mix, from surface coal mine
+Transport, ocean freighter, average fuel mix
+Mixed recyclables, at collection, curbside, volume basis
+Bituminous coal, combusted in industrial boiler, at pulp and paper mill (EXCL.)
+Transport, intercity bus, diesel powered, Central
+Site preparation, national softwood forest, gentle slope, INW
+Ethanol, 85%, at blending terminal, 2022
+Gypsum wallboard product, type X, 0.625 inch (15.875 mm)
+Transport, light commercial truck, diesel powered, Central
+Thermal energy; From diesel fired equipment; Production mix
+Mixed recyclables, sorted at MRF
+Softwood logs with bark, harvested at average intensity site, at mill, US PNW
+Oriented strand board product, US SE
+Transport, combination truck, short-haul, diesel powered, Southwest
+Softwood logs with bark, harvested at average intensity site, at mill, US SE
+Electricity, at Grid, WECC, 2008
+Roundwood, softwood, green, at mill, NE-NC
+Recovered energy, for Polyol ether, for flexible foam polyurethane production, at plant, CTR
+Soy oil, refined, at plant
+Aluminum, secondary, ingot, at plant
+Transport, light commercial truck, gasoline powered, Alaska
+Coal; Production mix, from underground mine
+Corn stover, production, average, US, 2022
+Containerboard, 100% recycled, average production, at mill
+Electricity, at eGrid, RMPA, 2008
+Transport, school bus, gasoline powered
+Metal panels, wall, at plant
+Transport, light commercial truck, diesel powered, Northeast
+Transport, light commercial truck, gasoline powered, Southeast
+Electricity, at Grid, HICC, 2008
+Corn steep liquor
+Transport, school bus, diesel powered, Central
+Transport, school bus, diesel powered, Northwest
+Transport, intercity bus, diesel powered, Hawaii
+Winter wheat straw, production, average, US, 2022
+Engineered flooring, hardwood, unfinished, E
+Electricity, at eGrid, SRMW, 2008
+Deposit containers, at collection, CRV
+Transport, single unit truck, long-haul, gasoline powered, Southeast
+Delimbing, slide boom delimber
+Surfaced green lumber, at planer mill, US PNW
+Dry veneer, at plywood plant, US SE
+Transport, school bus, diesel powered, Northeast
+Natural gas, combusted in industrial boiler, at hydrocracker, for propylene
+Composite wood I-joist, at plant, US SE
+Zinc, Special High Grade 
+Roundwood, softwood, average, Med Intensity Management, NE-NC
+Transport, single unit truck, short-haul, diesel powered, Northeast
+Sawn Lumber, softwood, planed, kiln dried, at planer mill, INW
+Transport, combination truck, long-haul, diesel powered, Alaska
+Heat, onsite boiler, softwood mill, average, NE-NC
+Packaging, production scanners
+Line pan; Manufacture; For underground coal mine, at plant
+Steel product, primary structural, beams and columns, at plant
+Electricity, at Grid, NPCC, 2008
+Reforesting, medium intensity site, US PNW
+Bauxite, at mine
+Electricity, at Grid, TRE, 2008
+Polypropylene resin, at plant
+Wheat straw, at conversion plant, 2022
+Transport, single unit truck, short-haul, diesel powered, Southeast
+Electricity, bituminous coal, at power plant
+Electricity, at eGrid, AZNM, 2008
+Steel plate; Blast furnace route; Production mix; 85% recovery rate
+Harvest, wheat, single pass
+Aluminum ingot, production mix, at plant
+Methylene diphenyl diisocyanate resin, at plant, US SE
+Roundwood, hardwood, average, Med Intensity Management, NE-NC
+Electricity, residual fuel oil, at power plant
+Diesel, combusted in industrial equipment
+Transport, barge, diesel powered
+Combustion, dry wood residue, AP-42
+Electricity, biomass, at power plant
+Limestone, at mine
+Electricity, nuclear, at power plant
+Electricity, at eGrid, SRVC, 2008
+Transport, refuse truck, diesel powered, Hawaii
+Mixed Alcohols, thermochemical process
+Hydraulic shield; Manufacture; For underground coal mine, at plant; 2 m width
+Natural gas, combusted in industrial boiler, at hydrocracker, for butadiene
+Electricity, at eGrid, HIMS, 2010
+Electricity, at eGrid, RFCM, 2008
+Pesticide, corn, 2022
+Water use and quality; Production mix, from underground coal mine
+Transport, light commercial truck, diesel powered, Alaska
+Natural gas, processed, for olefins production, at plant
+Electricity, at eGrid, MROE, 2010
+Transport, single unit truck, long-haul, diesel powered, Alaska
+Polystyrene, general purpose, at plant
+Electricity, at grid, Western US, 2000
+Transport, passenger truck, diesel powered
+Electricity, at eGrid, AKMS, 2010
+Phosphorous fertilizer, production mix, at plant
+Laminated veneer lumber, at plant, US SE
+Soy-based resin, at plant
+Transport, light commercial truck, gasoline powered, South
+Pressed raw plywood, from lay-up, at plywood plant, US PNW
+Sawn lumber, softwood, planed, kiln dried, at planer, NE-NC
+Transport, refuse truck, diesel powered, South
+Transport, single unit truck, short-haul, gasoline powered, Northwest
+Transport, intercity bus, diesel powered, South
+Natural gas, at extraction site
+Transport, light commercial truck, gasoline powered, West North Central
+Electric shovel; Manufacture; For surface coal mine, at plant; 109 metric tonne payload
+Electricity, at Grid, RFC, 2008
+Transport, refuse truck, diesel powered, Alaska
+Coal mine equipment assembly; Production mix, underground mine
+Fertilizer, stover, 2022
+Portland cement, at plant
+Toluene diisocyanate, at plant, CTR
+Transport, school bus, diesel powered, Southeast
+Nitrogen fertilizer, production mix, at plant
+Gasoline, combusted in equipment
+Bark, softwood, average, state or private dry forest, at forest road, INW
+Transport, aircraft, freight
+Roundwood, softwood, national forest, steep slope, at forest road, INW
+Slack wax, at plant, US SE
+Iron and steel, production mix
+Electricity, alumina refining regions
+Electricity, at eGrid, NWPP, 2010
+Aluminum recovery, transport, to plant
+Scanner, i1150WN desktop
+Butadiene, at plant
+Roundwood, hardwood, green, at mill, NE-NC
+Piling, whole tree slash, at landing, gentle slope forest, INW
+Corrugated product, containerboard, average production, at mill, 2010
+Electricity, at eGrid, NYLI, 2008
+Transport, light commercial truck, diesel powered
+Propylene oxide, at plant
+Aniline, at plant
+Roundwood, sftwd, state-private moist cold forest, gentle slope, at frst rd, INW
+Coil, coating, m2, at plant
+Conditioned log, at plywood plant, US PNW
+Transport, refuse truck, diesel powered, Northwest
+Electricity, at eGrid, HIOA, 2010
+Transport, combination truck, long-haul, diesel powered, West North Central
+Coal mine equipment assembly; Production mix, surface mine
+Melamine urea formaldehyde resin, neat, 60% solids
+Automotive painting, electrocoating, per m2
+Mixed recyclables, at collection, commercial
+Polystyrene, general purpose, at plant, CTR
+Lignite coal, combusted in industrial boiler
+Transport, single unit truck, long-haul, diesel powered, Northeast region
+Acrylonitrile-butadiene-styrene copolymer, resin, at plant
+Tillage, reduce, corn production
+Electricity, at eGrid, FRCC, 2010
+Ethanol, denatured, wheat straw, biochemical
+Transport, school bus, diesel powered, South
+Toluene diisocyanate, at plant
+Ethylene dichloride-vinyl chloride monomer, at plant
+Alumina, at plant
+Wood fuel, softwood, gen at lumber mill, combusted in industrial boiler, NE-NC
+Coal cleaning facility;  Construction; At mine
+Wood fuel, MDF, purchased, combusted in industrial boiler
+Transport, single unit truck, long-haul, gasoline powered
+Methylene diphenyl diisocyanate resin, at plant, US PNW
+Electricity, at cogen, for natural gas turbine
+Secondary bonding application, rigid composites part, at plant
+Laminated veneer lumber, at plant, US PNW
+Aluminum, secondary, ingot, from beverage cans, at plant
+Transport, school bus, diesel powered, West North Central
+Calcium carbonate, ground, screened grade, at plant
+Wood Combusted, at boiler, at hardboard mill
+Railroad tie, hardwood, rough, green, at sawmill, SE
+Transport, transit bus, gasoline powered
+Bark, softwood, average, at forest road, NE-NC
+Transport, single unit truck, long-haul, gasoline powered, South
+Transport, single unit truck, short-haul, gasoline powered, Southeast
+Transport, transit bus, diesel powered, South
+Wheat straw, at field
+Polystyrene, high impact, resin, at plant
+Electric stage loader; Manufacture; For underground coal mine, at plant
+Composite wood I-joist, at plant, US PNW
+Transport, transit bus, CNG powered
+Polyol ether, for rigid foam polyurethane production, at plant
+Paper, freesheet, coated, average production, at mill
+Vacuum infusion, rigid composites part, at plant
+Transport, transit bus, diesel powered, Alaska
+Scanner, department, i5800
+Transport, school bus, diesel powered
+Electricity, at eGrid, RFCE, 2010
+Transport, combination truck, gasoline powered
+Bark, at plywood plant, US SE
+Thermoforming, rigid polypropylene part, at plant
+Transport, single unit truck, long-haul, gasoline powered, Northwest
+Metal composite material (MCM) sheet, at plant
+Reforesting, average state or private moist cold softwood forest, INW
+Electricity, at eGrid, SRSO, 2008
+Coal shuttle car; Manufacture; For underground mine, at plant; 28.6 metric tonnes
+Ethanol, denatured, at refueling station, 2022
+Recycled postconsumer PET pellet
+Sawn lumber, softwood, rough, green, at sawmill, NE-NC
+Transport, light commercial truck, gasoline powered, Hawaii
+Aluminum, primary, ingot, at plant, 1998
+Unsaturated polyester, resin, at plant
+Electricity, onsite boiler, hardwood mill, average, NE-NC
+Transport, single unit truck, short-haul, gasoline powered, Alaska
+Felling, feller buncher, > 200 HP, INW
+Mixed recyclables, at collection, curbside, weight basis
+Electricity, at eGrid, SRSO, 2010
+Transport, single unit truck, short-haul, diesel powered, Southwest
+Steel, stainless 304, scrap
+Electricity, at eGrid, NWPP, 2008
+Electricity, at eGrid, RMPA, 2010
+Hydrochloric acid, at plant 
+Calcium carbonate, ground, fine slurry, 3 micron, at plant
+Mixed recyclables, at collection, dropoff center
+Roundwood, softwood, average, Low Intensity Management, NE-NC
+Corn stover, at conversion plant, 2022
+Longwall mining system; Equipment assembly; Production mix, at underground coal mine
+Scanner, i1190WN desktop 
+Transport, combination truck, diesel powered
+Reforesting, high intensity site, US SE
+Grinding
+Anode, at plant
+Electricity, at eGrid, RFCW, 2010
+Transport, intercity bus, diesel powered, West North Central
+Transport, light commercial truck, gasoline powered, Central
+Transport, single unit truck, long-haul, gasoline powered, Hawaii
+Aluminum, secondary, extruded
+Transport, transit bus, diesel powered, Northeast
+Transport, combination truck, short-haul, diesel powered, Southeast
