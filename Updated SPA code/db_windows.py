@@ -8,6 +8,7 @@ import csv
     
 limit1 = 0
 limit2 = 0
+limit3 = 0
 line = 0
 
 # get the NAICS code from sectorsCodes csv file
@@ -46,6 +47,7 @@ with open("myfile4.txt","r") as f:
         spaLinks.append(numbers)
     f.close()
 
+#glade file updated: 4/10/18
 class limitsWindow:
 
     def __init__(self):
@@ -61,6 +63,8 @@ class limitsWindow:
         limit1 = self.builder.get_object("entry1").get_text()
         global limit2
         limit2 = self.builder.get_object("entry2").get_text()
+        global limit3
+        limit3 = self.builder.get_object("entry3").get_text()
         self.window.destroy()
         process.window.show_all()
         
@@ -69,6 +73,7 @@ class limitsWindow:
         Gtk.main_quit(*args)
       
 
+#glade file updated: 4/10/18
 class ProcessWindow:
 
     
@@ -221,36 +226,68 @@ class ProcessWindow:
                 skipWindow.window.show_all()
 
 
-
+#Updated: 4/11/2018, basic flow functionality
 class SkipWindow:
 
-
     #constructor takes a list of tuples which are the names and amounts, this list is left empty if nothing is given
-    def __init__(self, row, index):
+    def __init__(self):
         self.builder = Gtk.Builder()
         self.builder.add_from_file("skip_window.glade")
         self.builder.connect_signals(self)
-        self.currentRow = row
-        self.SectorIndexInRow = index
 
         self.window = self.builder.get_object("skip_window")
         self.window.show_all()
 
     def onDeleteWindow(self, *args):
         print("skip window delete-event signal")
-
-    def on_skip_yes_clicked(self, button):
-        #destroy the window and quit
-        self.window.destroy()
         Gtk.main_quit()
 
+    def on_skip_yes_clicked(self, button):
+        #destroy the argswindow and quit
+        self.window.destroy()
+        #go to the parameters window
+        process_limits_reentry = ParametersWindow()
+        Gtk.main() #call this to keep the program going
     def on_skip_no_clicked(self, button):
         #re-open a database window
-        new_dbwindow = ProcessWindow(self.currentRow, self.SectorIndexInRow)
+        new_dbwindow = DatabaseResultsWindow()
         self.window.destroy()
-        new_dbwindow.window.show_all()
+        Gtk.main()
+
+#Added: 4/11/2018, basic flow functionality
+class ParametersWindow:
+
+    def __init__(self):
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file("process_parameters.glade")
+        self.builder.connect_signals(self)
+        self.window = self.builder.get_object("process_parameters")
+        self.window.show_all()
+    def onContinueClicked(self, button):
+        #get the text from the entries and open up the skip window
+        processUncertainty = self.builder.get_object("processUncertaintyData")
+        envUncertainty = self.builder.get_object("envUncertaintyData")
+        thisProcessComplexity = self.builder.get_object("complexityData")
+        print(processUncertainty.get_text())
+        print(envUncertainty.get_text())
+        print(thisProcessComplexity.get_text())
+        #open a skip window
+        self.window.destroy()
+        skip = SkipWindow()
+        Gtk.main() #don't call this until after the window has been constructed and shown
+        
+
+    def onDeleteWindow(self, *args):
+        self.window.destroy()
+        Gtk.main_quit(args)
 
 
+
+
+
+
+
+'''
 #while going through a line in the SPA results file, we can consider the sector numbers to alternate in an "outer level"
 #and "inner level" fashion, so for the line 22-248-380, the order would be 380 (top) -> 248 (inner) ; 248 (top) -> 22 (inner)
 class DatabaseResultsWindow:
@@ -299,7 +336,7 @@ class DatabaseResultsWindow:
             #the list will change based on that
    
         
-        '''
+        
         for x in range(0, len(namesAndAmounts)):
             self.resultNames[x].set_text(namesAndAmounts[x][0])
             self.resultAmounts[x].set_text(namesAndAmounts[x][1])
@@ -326,7 +363,7 @@ class DatabaseResultsWindow:
         self.fifthResultName.set_text(namesAndAmounts[4][0])
         self.fifthResultAmount.set_text(namesAndAmounts[4][1]) 
 '''
-        
+'''
     def on_radiobutton1_toggled(self, button):
         print("toggle button 1 clicked")
         print(button.get_active())
