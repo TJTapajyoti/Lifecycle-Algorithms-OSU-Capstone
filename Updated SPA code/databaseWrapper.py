@@ -83,12 +83,12 @@ class Process:
         return co2
 
     # returns the top 5 likely inputs for the NAICS code passed in 
-    def top5Inputs(self, code):
-        naicsDescrs = NAICSdescription(code)
+    def top5Inputs(self, description):
         scores = []
         for name in self.inputs:
-            score = compareNames(name[0],naicsDescrs)
-            scores.append([name[0],score,name[1]])
+            score = compareNames(name[0],description)
+            if score > 0:
+                scores.append([name[0],score,name[1]])
         top5 = []
         numOutputs = len(scores)
         for x in xrange(numOutputs):
@@ -123,7 +123,7 @@ def compareNames(name, descrs):
                 if nameWord.lower() == naicsWord.lower():
                     score += 1
     return score
-
+'''
 # function to return list of descriptions for NAICS code passed in   
 def NAICSdescription(code):
     list1 = []
@@ -148,6 +148,7 @@ def NAICSdescription(code):
                 list1.append(row[1])
         f.close()
     return list1
+'''
 
 # returns the top 5 most likely process names from database, based on description passed in
 def top5Processes(desc):
