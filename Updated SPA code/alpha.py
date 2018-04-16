@@ -69,6 +69,8 @@ class limitsWindow:
         limit1 = self.builder.get_object("entry1").get_text()
         global limit2
         limit2 = self.builder.get_object("entry2").get_text()
+        global limit3
+        limit3 = self.builder.get_object("entry3").get_text()
         self.window.destroy()
         Gtk.main_quit()
 
@@ -79,8 +81,7 @@ class limitsWindow:
       
 
 class ProcessWindow:
-
-    
+            
     #constructor takes the row number from the spa results and index of the link in the row 
     def __init__(self, link):
         self.builder = Gtk.Builder()
@@ -106,18 +107,19 @@ class ProcessWindow:
         self.fifthResultButton = self.builder.get_object("fifthResultSelectButton")
         self.manualEntryButton = self.builder.get_object("manualEntrySelectButton")
 
+        # search entry & button
+        self.searchEntry = self.builder.get_object("searchEntry")
+        self.searchButton = self.builder.get_object("searchButton")
+        
         # set title and get top 5 results
         naics = getCode(link)
-        self.title.set_text("Process Name for NAICS: " + str(naics))
-        description = [getDescr(link)]
+        name = getDescr(link)
+        self.title.set_text("Process: "+name+" ("+str(naics)+")")
+        description = [name]
         print(description)
         self.results = d.top5Processes(description)
-        if len(self.results) < 5:
-            description = d.NAICSdescription(naics)
-            self.results = self.results + d.top5Processes(description)
-        #print(self.results)
-        self.toggle = 6    
-
+        self.toggle = 6
+        
         # populate name fields with top 5 results for first line
         try:
             self.firstResultName.set_text(str(self.results[0]))
@@ -138,7 +140,7 @@ class ProcessWindow:
         try:
             self.fifthResultName.set_text(str(self.results[4]))
         except:
-            self.fifthResultName.set_text("...")
+            self.fifthResultName.set_text("...")       
 
     def on_radiobutton1_toggled(self, button):
         self.toggle = 1
@@ -169,6 +171,30 @@ class ProcessWindow:
 	Gtk.main_quit(*args)
         sys.exit()
         print("delete-event signal happened for ProcessWindow class")
+
+    def on_searchButton_clicked(self,button):
+        description = [self.searchEntry.get_text()]
+        self.results = d.top5Processes(description)
+        try:
+            self.firstResultName.set_text(str(self.results[0]))
+        except:
+            self.firstResultName.set_text("...")
+        try:
+            self.secondResultName.set_text(str(self.results[1]))
+        except:
+            self.secondResultName.set_text("...")
+        try:
+            self.thirdResultName.set_text(str(self.results[2]))
+        except:
+            self.thirdResultName.set_text("...")
+        try:
+            self.fourthResultName.set_text(str(self.results[3]))
+        except:
+            self.fourthResultName.set_text("...")
+        try:
+            self.fifthResultName.set_text(str(self.results[4]))
+        except:
+            self.fifthResultName.set_text("...") 
         
     def onManualEntryDataChanged(self, entry):
         #set the manual entry radio button to be active
@@ -191,6 +217,7 @@ class ProcessWindow:
         self.window.destroy()
         Gtk.main_quit()
 
+    
         
 class SkipWindow:
 
@@ -228,15 +255,15 @@ class SkipWindow:
 #and "inner level" fashion, so for the line 22-248-380, the order would be 380 (top) -> 248 (inner) ; 248 (top) -> 22 (inner)
 class InputWindow:
 
-    
-    #constructor takes a list of tuples which are the names and amounts, this list is left empty if nothing is given
+    # outer=name of process, inner=spa code of input
     def __init__(self, outer, inner):
         self.builder = Gtk.Builder()
         self.builder.add_from_file("inputWindow.glade")
         self.builder.connect_signals(self)
         self.window = self.builder.get_object("database_results")
         self.title = self.builder.get_object("label1")
-
+        self.toggle = 6
+        
         # name and amount labels
         self.firstResultName = self.builder.get_object("firstResultName")
         self.firstResultAmount = self.builder.get_object("firstResultAmount")
@@ -260,21 +287,23 @@ class InputWindow:
         self.fifthResultButton = self.builder.get_object("fifthResultSelectButton")
         self.manualEntryButton = self.builder.get_object("manualEntrySelectButton")
 
+        # search entry & button
+        self.searchEntry = self.builder.get_object("searchEntry")
+        self.searchButton = self.builder.get_object("searchButton")
+        
         self.resultNames = [self.firstResultName, self.secondResultName, self.thirdResultName, self.fourthResultName, self.fifthResultName]
         self.resultAmounts = [self.firstResultAmount, self.secondResultAmount, self.thirdResultAmount, self.fourthResultAmount, self.fifthResultAmount] 
         self.buttonList = [self.firstResultButton, self.secondResultButton, self.thirdResultButton, self.fourthResultButton, self.fifthResultButton, self.manualEntryButton]
 
         # set title and get top 5 results
-        self.title.set_text("Input NAICS: "+str(inner)+"\nIn Process: " + str(outer))
+        self.title.set_text("Input: "+inner+"\nIn Process: " + str(outer))
         self.results = []
         try:
-            p = d.Process(outer)
-            self.results = p.top5Inputs(inner)
+            self.process = d.Process(outer)
+            self.results = self.process.top5Inputs([inner])
         except:
-            for i in self.resultNames:
-                i.set_text("No database information for process name")
-        #print(self.results)
-        self.toggle = 6    
+            print("Manually entered process name")
+        
 
         # populate name and amount fields with top 5 results for first line
         i = 0
@@ -325,7 +354,31 @@ class InputWindow:
     def onManualEntryDataChanged(self, entry):
         #set the manual entry radio button to be active
         self.manualEntryButton.set_active(True)
+
+    def on_searchButton_clicked(self,button):
+        description = [self.searchEntry.get_text()]
+        try:
+            self.results = self.process.top5Inputs(description)
+            i = 0
+            for x in self.resultNames:
+                try:
+                    x.set_text(str(self.results[i][0]))
+                except:
+                    x.set_text("...")
+                i += 1
+            i = 0
+            for y in self.resultAmounts:
+                try:
+                    y.set_text(str(self.results[i][2]))
+                except:
+                    y.set_text("...")
+                i += 1
+        except:
+            error = self.builder.get_object("label5")
+            error.set_text("Manually entered process name. Cannot search for terms.")
+            print("Manually entered process name")
         
+            
     def onContinueClicked(self, button):
         if self.toggle == 1:
             self.results = self.results[0]
@@ -376,8 +429,7 @@ for x in range(len(spaLinks)):
             if y > 0:
                 #print("process input window")
                 outer = getName(codeToName,links[-y])
-                naics = getCode(links[-y-1])
-                iWin = InputWindow(outer,naics)
+                iWin = InputWindow(outer,name)
                 iWin.window.show_all()
                 Gtk.main()
                 while not iWin.onContinueClicked:
