@@ -339,7 +339,7 @@
               <object class="GtkEntry" id="searchEntry">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="placeholder_text" translatable="yes">Enter New Search Entry...</property>
+                <property name="placeholder_text" translatable="yes">Enter New Search Term...</property>
               </object>
               <packing>
                 <property name="expand">True</property>

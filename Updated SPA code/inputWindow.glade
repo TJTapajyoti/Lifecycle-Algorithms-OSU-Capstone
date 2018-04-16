@@ -215,7 +215,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="ypad">10</property>
-                    <property name="label" translatable="yes">UNITS</property>
+                    <property name="label" translatable="yes">UNIT</property>
                     <attributes>
                       <attribute name="underline" value="True"/>
                     </attributes>
@@ -227,7 +227,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="firstResultUnits">
+                  <object class="GtkLabel" id="firstResultUnit">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">...</property>
@@ -239,7 +239,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="secondResultUnits">
+                  <object class="GtkLabel" id="secondResultUnit">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">...</property>
@@ -251,7 +251,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="thirdResultUnits">
+                  <object class="GtkLabel" id="thirdResultUnit">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">...</property>
@@ -263,7 +263,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="fourthResultUnits">
+                  <object class="GtkLabel" id="fourthResultUnit">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">...</property>
@@ -275,7 +275,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="fifthResultUnits">
+                  <object class="GtkLabel" id="fifthResultUnit">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">...</property>
@@ -459,7 +459,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="manualEntryUnits">
+              <object class="GtkEntry" id="manualEntryUnit">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="placeholder_text" translatable="yes">Manual Units Entry...</property>
@@ -536,7 +536,7 @@
                   <object class="GtkEntry" id="searchEntry">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="placeholder_text" translatable="yes">Enter New Search Entry...</property>
+                    <property name="placeholder_text" translatable="yes">Enter New Search Term...</property>
                   </object>
                   <packing>
                     <property name="expand">True</property>

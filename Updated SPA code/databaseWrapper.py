@@ -24,55 +24,24 @@ class Process:
                     i += 1
                     nameIndex = puts.index("$")-1
                     amtIndex = puts.index("*")+1
+                    unitIndex = puts.index("!")
+                    try:
+                        unit = puts[unitIndex+1:]
+                    except:
+                        unit = " "
                     if "$input: True" in puts:
                         # input
-                        self.inputs.append([puts[0:nameIndex],puts[amtIndex:-1]])
-                        #print("added input: "+puts[0:nameIndex]+" "+puts[amtIndex:-1])
+                        self.inputs.append([puts[0:nameIndex],puts[amtIndex:unitIndex],unit])
+                        print("added input: "+puts[0:nameIndex]+" "+puts[amtIndex:unitIndex]+unit)
                     elif "$input: False" in puts:
                         # output
-                        self.outputs.append([puts[0:nameIndex],puts[amtIndex:-1]])
+                        self.outputs.append([puts[0:nameIndex],puts[amtIndex:unitIndex],unit])
                         #print("added output: "+puts[0:nameIndex]+" "+puts[amtIndex:-1])
             else:
                 while lines[i] != "\n":
                     i += 1
             i += 1
         allProcesses.close()
-
-    # returns the mass of the name in the process
-    def mass(self,name):
-        mass = 0
-        inputsOutputs = self.inputs + self.outputs
-        for i in inputsOutputs:
-            if i[0] == name:
-                print(i[0])
-                print(name)
-                space = i[1].index(" ")
-                mass = float(i[1][:space])
-        return mass
-    
-    # returns name and amt of inputs with name in it 
-    def input(self, name):
-        results = []
-        for i in self.inputs:
-            if name in i[0]:
-                results.append(i)
-        return results
-
-    # returns list of inputs
-    def allInputs(self):
-        return self.inputs
-    
-    # returns list of outputs
-    def allOutputs(self):
-        return self.outputs
-    
-    # returns name and amt of outputs with name in it 
-    def output(self, name):
-        results = []
-        for o in self.outputs:
-            if name in o[0]:
-                results.append(o)
-        return results
 
     # returns the value of the carbonDioxide output
     def carbonDioxide(self):
@@ -88,7 +57,7 @@ class Process:
         for name in self.inputs:
             score = compareNames(name[0],description)
             if score > 0:
-                scores.append([name[0],score,name[1]])
+                scores.append([name[0],score,name[1],name[2]])
         top5 = []
         numOutputs = len(scores)
         for x in xrange(numOutputs):
@@ -171,9 +140,9 @@ def top5Processes(desc):
     return top5
 
 # examples     
-'''
+
 p1 = Process("Transport, single unit truck, short-haul, diesel powered, South")
-print(p1.carbonDioxide())
+'''print(p1.carbonDioxide())
 
 print("name of process:")
 print(p1.name())

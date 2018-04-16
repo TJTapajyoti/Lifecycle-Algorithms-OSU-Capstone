@@ -114,7 +114,8 @@ class ProcessWindow:
         # set title and get top 5 results
         naics = getCode(link)
         name = getDescr(link)
-        self.title.set_text("Process: "+name+" ("+str(naics)+")")
+        self.title.set_text("Process: "+name+" (NAICS: "+str(naics)+")")
+        self.manualEntryName.set_text(name)
         description = [name]
         print(description)
         self.results = d.top5Processes(description)
@@ -264,20 +265,26 @@ class InputWindow:
         self.title = self.builder.get_object("label1")
         self.toggle = 6
         
-        # name and amount labels
+        # name, amount, and units labels
         self.firstResultName = self.builder.get_object("firstResultName")
         self.firstResultAmount = self.builder.get_object("firstResultAmount")
+        self.firstResultUnit = self.builder.get_object("firstResultUnit")
         self.secondResultName = self.builder.get_object("secondResultName")
         self.secondResultAmount = self.builder.get_object("secondResultAmount")
+        self.secondResultUnit = self.builder.get_object("secondResultUnit")
         self.thirdResultName = self.builder.get_object("thirdResultName")
         self.thirdResultAmount = self.builder.get_object("thirdResultAmount")
+        self.thirdResultUnit = self.builder.get_object("thirdResultUnit")        
         self.fourthResultName = self.builder.get_object("fourthResultName")
         self.fourthResultAmount = self.builder.get_object("fourthResultAmount")
+        self.fourthResultUnit = self.builder.get_object("fourthResultUnit")
         self.fifthResultName = self.builder.get_object("fifthResultName")
         self.fifthResultAmount = self.builder.get_object("fifthResultAmount")
-        # name and amount text fields
+        self.fifthResultUnit = self.builder.get_object("fifthResultUnit")        
+        # name, amount, and units manual entry text fields
         self.manualEntryName = self.builder.get_object("manualEntryName")
         self.manualEntryAmount = self.builder.get_object("manualEntryAmount")
+        self.manualEntryUnit = self.builder.get_object("manualEntryUnit")               
         
         # radio buttons
         self.firstResultButton = self.builder.get_object("firstResultSelectButton")
@@ -292,11 +299,13 @@ class InputWindow:
         self.searchButton = self.builder.get_object("searchButton")
         
         self.resultNames = [self.firstResultName, self.secondResultName, self.thirdResultName, self.fourthResultName, self.fifthResultName]
-        self.resultAmounts = [self.firstResultAmount, self.secondResultAmount, self.thirdResultAmount, self.fourthResultAmount, self.fifthResultAmount] 
+        self.resultAmounts = [self.firstResultAmount, self.secondResultAmount, self.thirdResultAmount, self.fourthResultAmount, self.fifthResultAmount]
+        self.resultUnits = [self.firstResultUnit, self.secondResultUnit, self.thirdResultUnit, self.fourthResultUnit, self.fifthResultUnit] 
         self.buttonList = [self.firstResultButton, self.secondResultButton, self.thirdResultButton, self.fourthResultButton, self.fifthResultButton, self.manualEntryButton]
 
         # set title and get top 5 results
         self.title.set_text("Input: "+inner+"\nIn Process: " + str(outer))
+        self.manualEntryName.set_text(inner)
         self.results = []
         try:
             self.process = d.Process(outer)
@@ -319,6 +328,13 @@ class InputWindow:
                 y.set_text(str(self.results[i][2]))
             except:
                 y.set_text("...")
+            i += 1
+        i = 0
+        for z in self.resultUnits:
+            try:
+                z.set_text(str(self.results[i][3]))
+            except:
+                z.set_text("...")
             i += 1
         
     def on_radiobutton1_toggled(self, button):
@@ -373,6 +389,13 @@ class InputWindow:
                 except:
                     y.set_text("...")
                 i += 1
+            i = 0
+            for z in self.resultUnits:
+                try:
+                    z.set_text(str(self.results[i][3]))
+                except:
+                    z.set_text("...")
+                i += 1
         except:
             error = self.builder.get_object("label5")
             error.set_text("Manually entered process name. Cannot search for terms.")
@@ -391,8 +414,8 @@ class InputWindow:
         elif self.toggle == 5:
             self.results = self.results[4]
         elif self.toggle == 6:
-            self.results = self.manualEntryName.get_text()
-        print("User selected: "+str(self.results[0]))
+            self.results = [self.manualEntryName.get_text()]+[self.manualEntryAmount.get_text()]+[self.manualEntryUnit.get_text()]
+        print("User selected: "+str(self.results[0])+", Amount: "+str(self.results[1])+" "+str(self.results[2]))
         self.window.destroy()
         Gtk.main_quit()
 
