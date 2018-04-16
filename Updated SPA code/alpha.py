@@ -63,7 +63,6 @@ class limitsWindow:
        self.window = self.builder.get_object("window1")
        self.window.show_all()
        
-    #TODO: functionality integration, all below is just a basic template
     def onContinue(self, button):
         global limit1
         limit1 = self.builder.get_object("entry1").get_text()
@@ -223,13 +222,11 @@ class ProcessWindow:
 class SkipWindow:
 
 
-    #constructor takes a list of tuples which are the names and amounts, this list is left empty if nothing is given
-    def __init__(self, row, index):
+
+    def __init__(self):
         self.builder = Gtk.Builder()
         self.builder.add_from_file("skip_window.glade")
         self.builder.connect_signals(self)
-        self.currentRow = row
-        self.SectorIndexInRow = index
 
         self.window = self.builder.get_object("skip_window")
         self.window.show_all()
@@ -237,11 +234,10 @@ class SkipWindow:
     def onDeleteWindow(self, *args):
         self.window.destroy()
 	Gtk.main_quit(*args)
-        sys.exit()
         print("skip window delete-event signal")
 
     def on_skip_yes_clicked(self, button):
-        #destroy the window and quit
+        #destroy the window and go to the threshold re-entry for each process in the line
         self.window.destroy()
         Gtk.main_quit()
 
@@ -253,7 +249,7 @@ class SkipWindow:
 
 
 #while going through a line in the SPA results file, we can consider the sector numbers to alternate in an "outer level"
-#and "inner level" fashion, so for the line 22-248-380, the order would be 380 (top) -> 248 (inner) ; 248 (top) -> 22 (inner)
+#and "inner level" fashion, e.g. the line 22-248-380, we get the info for 380 as a top level, then the info for 248 as a top level and as an input to 380, then, we get the info for 22 as a top level and as an input to the process 248. Then we perform the calculations for the model, try again if the values aren't within the acceptable threshold and quit if it fails 5 times successively.
 class InputWindow:
 
     # outer=name of process, inner=spa code of input
@@ -418,6 +414,72 @@ class InputWindow:
         print("User selected: "+str(self.results[0])+", Amount: "+str(self.results[1])+" "+str(self.results[2]))
         self.window.destroy()
         Gtk.main_quit()
+
+#Window to be used to enter process and env uncertainty + complexity for each process in a line after the line has been processed
+#but before the calculations have been performed
+class ParametersWindow:
+
+    def __init__(self):
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file("process_parameters.glade")
+        self.builder.connect_signals(self)
+        self.window = self.builder.get_object("process_parameters")
+        self.processUncertaintyObj = self.builder.get_object("processUncertaintyData")
+        self.envUncertaintyObj = self.builder.get_object("envUncertaintyData")
+        self.thisProcessComplexityObj = self.builder.get_object("complexityData")
+        self.window.show_all()
+    def onContinueClicked(self, button):
+        #get the text from the entries and open up the skip window
+        print(self.processUncertaintyObj.get_text())
+        print(self.envUncertaintyObj.get_text())
+        print(self.thisProcessComplexityObj.get_text())
+
+        #get these as numeric values
+        procUncert = int(self.processUncertaintyObj.get_text())
+        envUncert = int(self.envUncertaintyObj.get_text())
+        complexity = int(self.thisProcessComplexityObj.get_text())
+
+        #these numeric values will be passed to the model generator for calculations
+
+
+        self.window.destroy()
+        skip = SkipWindow()
+        Gtk.main() #don't call this until after the window has been constructed and shown
+        
+
+    def onDeleteWindow(self, *args):
+        self.window.destroy()
+        Gtk.main_quit(args)
+
+#Added: 4/16/18, pulled up when a line has been processed, if the user wishes to continue building the model
+#click continue, otherwise, click finish and the program will finalize the current model and exit
+class FinishWindow:
+
+    def __init__(self):
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file("finish_window.glade")
+        self.builder.connect_signals(self)
+        self.window = self.builder.get_object("finish_window")
+        self.window.show_all()
+
+
+    def on_continue_button_clicked(self, button):
+        #get the next line and process each of the processes on that line as before
+        #that is, open a new db window and loop back again
+        self.window.destroy()
+        new_db_window = DatabaseResultsWindow()
+        Gtk.main()
+    def on_finish_button_clicked(self, button):
+        #finalize model stuff and exit the program
+        self.window.destroy()
+        sys.exit()
+
+    def onDeleteWindow(self, *args):
+        Gtk.main_quit(args)
+
+dbwindow = DatabaseResultsWindow()
+Gtk.main()
+
 
 
 # Main
