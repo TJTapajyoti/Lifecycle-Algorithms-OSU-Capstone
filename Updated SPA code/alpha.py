@@ -497,6 +497,7 @@ class FinishWindow:
     def onDeleteWindow(self, *args):
         Gtk.main_quit(args)
 
+
 #dbwindow = DatabaseResultsWindow()
 #Gtk.main()
 
