@@ -32,7 +32,7 @@ class Process:
                     if "$input: True" in puts:
                         # input
                         self.inputs.append([puts[0:nameIndex],puts[amtIndex:unitIndex],unit])
-                        print("added input: "+puts[0:nameIndex]+" "+puts[amtIndex:unitIndex]+unit)
+                        #print("added input: "+puts[0:nameIndex]+" "+puts[amtIndex:unitIndex]+unit)
                     elif "$input: False" in puts:
                         # output
                         self.outputs.append([puts[0:nameIndex],puts[amtIndex:unitIndex],unit])

@@ -4,14 +4,34 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 import databaseWrapper as d
+import model_generator as mg
 import csv
 import sys
-    
+import math
+from numpy.linalg import inv
+
 limit1 = 0
 limit2 = 0
+limit3 = 0
 line = 0
 
-# get the NAICS code from sectorsCodes csv file
+# X= ,M= ,F= , sa= ,sb= . Returns emission, (SD), and (RSD).
+def uncertainty(X,M,F,sa,sb):
+    t2 = M*inv(X)
+    t1 = inv(X)*F
+    term1 = 0
+    for i in range(len(X)):
+        term1 = term1+(t1(i)*t1(i))*(sb(i)**2)  
+    term2 = 0;
+    for i in range(len(X)):
+        for j in range(len(X)):
+            term2 = term2+((t2(i)*t1(j))**2)*(sa(i,j)**2)
+    emission = M*inv(X)*F
+    SD = math.sqrt(term2+term1)
+    RSD = math.sqrt(term2+term1)/emission
+    return [emission,SD,RSD]
+
+# Get the NAICS code from sectorsCodes csv file
 def getCode(num):
     naics = 0
     with open('SectorsCodes.csv','rb') as f:
@@ -21,7 +41,7 @@ def getCode(num):
                 naics = row[1]
     return naics
 
-# get the industry description from sectorsCodes csv file
+# Get the industry description from sectorsCodes csv file
 def getDescr(num):
     descr = ""
     with open('SectorsCodes.csv','rb') as f:
@@ -410,8 +430,8 @@ class InputWindow:
         elif self.toggle == 5:
             self.results = self.results[4]
         elif self.toggle == 6:
-            self.results = [self.manualEntryName.get_text()]+[self.manualEntryAmount.get_text()]+[self.manualEntryUnit.get_text()]
-        print("User selected: "+str(self.results[0])+", Amount: "+str(self.results[1])+" "+str(self.results[2]))
+            self.results = [self.manualEntryName.get_text()]+[""]+[self.manualEntryAmount.get_text()]+[self.manualEntryUnit.get_text()]
+        print("User selected: "+str(self.results[0])+", Amount: "+str(self.results[2])+" "+str(self.results[3]))
         self.window.destroy()
         Gtk.main_quit()
 
@@ -477,8 +497,8 @@ class FinishWindow:
     def onDeleteWindow(self, *args):
         Gtk.main_quit(args)
 
-dbwindow = DatabaseResultsWindow()
-Gtk.main()
+#dbwindow = DatabaseResultsWindow()
+#Gtk.main()
 
 
 
@@ -487,8 +507,7 @@ Gtk.main()
 limits = limitsWindow()
 Gtk.main()
 
-pWin = 0
-inner = 0
+matrix = mg.Final_Model_Generator(limit1,limit2)
 viewed = [] # keeps track of codes that have already been updated by user
 spaLinks = getSPAlinks() # line by line links of codes in SPA results
 codeToName = [] # list of tuples containing spa codes and their corresponding names
@@ -503,16 +522,16 @@ for x in range(len(spaLinks)):
         
         if links[-y-1] not in viewed:
             viewed.append(links[-y-1])
-            pWin= ProcessWindow(links[-y-1])
+            # Open Process Name Selector Window
+            pWin = ProcessWindow(links[-y-1])
             pWin.window.show_all()
             Gtk.main()
             while not pWin.onContinueClicked:
                 t = 0 # do nothing
             name = pWin.results
+            #matrix.add_process(links[-y-1],pWin.results[1],envImp)
             codeToName.append([links[-y-1],name])
-            #print(codeToName)
             if y > 0:
-                #print("process input window")
                 outer = getName(codeToName,links[-y])
                 iWin = InputWindow(outer,name)
                 iWin.window.show_all()
@@ -520,8 +539,8 @@ for x in range(len(spaLinks)):
                 while not iWin.onContinueClicked:
                     t = 0 # do nothing
                     # add inner.results to matrix
-                #print('exited input window')
+        
+        #emissions = uncertainty(
                     
-#spaLinks is a list of lists, where each sublist is a line of the spa file
-#print(spaLinks)
+
 
