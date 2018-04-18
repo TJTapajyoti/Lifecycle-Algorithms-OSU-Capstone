@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 from __future__ import division
 from __future__ import absolute_import
 import numpy as np
+from math import sqrt
+from numpy.linalg import inv
 
 
 class Model(object):
@@ -65,6 +67,8 @@ class Final_Model_Generator(object):
         self.fail_counter = 0
         self.limit_c = limit_c
         self.limit_u = limit_u
+        self.cur_rsd = None
+        self.next_rsd = None
 
     def add_process(self, code, value, env_impact, uncertainty_p=None,
                     uncertainty_e=None, complexity=None):
@@ -137,7 +141,39 @@ class Final_Model_Generator(object):
                                 uncertainty_e, complexity)
 
         # do error calculation here
+        err_matrix = matrix.tolist()
+        for i in len(err_matrix):
+            for j in len(err_matrix):
+                if matrix[i][j] != 0:
+                    err_matrix[i][j] = uncertainty_p[j]
+        err_matrix = np.array(err_matrix)
+
+        F = [0 for x in env_impact]
+        F[-1] = 1
+
+        emission, SD, RSD = uncertainty(matrix, env_impact, F, err_matrix,
+                                        uncertainty_e)
+
         boolean = True
+
+        if sum(complexity) > self.limit_c:
+            boolean = False
+
+        if self.cur_rsd is not None:
+            rsd_diff = RSD - self.cur_rsd
+            if rsd_diff >= 0.0:
+                boolean = False
+            elif -1 * rsd_diff < self.limit_u:
+                boolean = False
+            else:
+                self.next_rsd = RSD
+        else:
+            self.next_rsd = RSD
+
+        if not boolean:
+            self.fail_counter += 1
+            if fail_counter >= 5:
+                boolean = 'exit'
 
         # return accept or reject
         return boolean
@@ -156,3 +192,24 @@ class Final_Model_Generator(object):
         self.outputs = {}
         self.inputs = {}
         self.fail_counter = 0
+        self.cur_rsd = self.next_rsd
+        self.next_rsd = None
+
+    def get_most_recent_model(self):
+        return self.cur_model
+
+
+def uncertainty(X, M, F, sa, sb):
+    t2 = np.dot(M, inv(X))
+    t1 = np.dot(inv(X), F)
+    term1 = 0
+    for i in range(len(X)):
+        term1 += (t1[i] * t1[i]) * (sb[i]**2)
+    term2 = 0
+    for i in range(len(X)):
+        for j in range(len(X)):
+            term2 += ((t2[i] * t1[j])**2) * (sa[i][j]**2)
+    emission = np.dot(np.dot(M, inv(X)), F)
+    SD = sqrt(term2 + term1)
+    RSD = sqrt(term2 + term1) / emission
+    return emission, SD, RSD
