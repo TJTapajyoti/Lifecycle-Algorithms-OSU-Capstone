@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.16.1 -->
+<!-- Generated with glade 3.18.3 -->
 <interface>
   <requires lib="gtk+" version="3.10"/>
   <object class="GtkWindow" id="process_parameters">
@@ -13,20 +13,38 @@
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <child>
+          <object class="GtkLabel" id="label5">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Threshold Calculations Failed
+</property>
+            <attributes>
+              <attribute name="font-desc" value="Abyssinica SIL 16"/>
+              <attribute name="underline" value="True"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkLabel" id="title_label">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="xpad">5</property>
-            <property name="label" translatable="yes">Uncertainty and Complexity Parameters for Process: </property>
+            <property name="label" translatable="yes">Option 1: Enter New 
+Uncertainty/Complexity values </property>
             <property name="justify">center</property>
             <attributes>
-              <attribute name="font-desc" value="Abyssinica SIL 16"/>
+              <attribute name="font-desc" value="Abyssinica SIL 14"/>
             </attributes>
           </object>
           <packing>
             <property name="expand">True</property>
             <property name="fill">True</property>
-            <property name="position">0</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -48,7 +66,7 @@
                     <property name="width_chars">40</property>
                     <property name="max_width_chars">40</property>
                     <attributes>
-                      <attribute name="font-desc" value="Abyssinica SIL 14"/>
+                      <attribute name="font-desc" value="Abyssinica SIL 12"/>
                     </attributes>
                   </object>
                   <packing>
@@ -67,7 +85,7 @@
                     <property name="width_chars">40</property>
                     <property name="max_width_chars">40</property>
                     <attributes>
-                      <attribute name="font-desc" value="Abyssinica SIL 14"/>
+                      <attribute name="font-desc" value="Abyssinica SIL 12"/>
                     </attributes>
                   </object>
                   <packing>
@@ -86,7 +104,7 @@
                     <property name="width_chars">40</property>
                     <property name="max_width_chars">40</property>
                     <attributes>
-                      <attribute name="font-desc" value="Abyssinica SIL 14"/>
+                      <attribute name="font-desc" value="Abyssinica SIL 12"/>
                     </attributes>
                   </object>
                   <packing>
@@ -98,7 +116,7 @@
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
+                <property name="fill">False</property>
                 <property name="position">0</property>
               </packing>
             </child>
@@ -155,21 +173,55 @@
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="padding">10</property>
-            <property name="position">1</property>
+            <property name="position">2</property>
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="continue_button">
-            <property name="label" translatable="yes">Continue</property>
+          <object class="GtkButton" id="button1">
+            <property name="label" translatable="yes">Submit</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <signal name="clicked" handler="onContinueClicked" swapped="no"/>
+            <property name="image_position">right</property>
+            <signal name="clicked" handler="onSubmitClicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">False</property>
+            <property name="padding">5</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Option 2: Re-Enter Process 
+Information For Failed Sectors</property>
+            <property name="justify">center</property>
+            <attributes>
+              <attribute name="font-desc" value="Abyssinica SIL 14"/>
+            </attributes>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">2</property>
+            <property name="padding">21</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button2">
+            <property name="label" translatable="yes">Click Here</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_reentry_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">5</property>
           </packing>
         </child>
       </object>

@@ -13,7 +13,6 @@ from numpy.linalg import inv
 limit1 = 0
 limit2 = 0
 limit3 = 0
-line = 0
 
 # X= ,M= ,F= , sa= ,sb= . Returns emission, (SD), and (RSD).
 def uncertainty(X,M,F,sa,sb):
@@ -84,14 +83,29 @@ class limitsWindow:
        self.window.show_all()
        
     def onContinue(self, button):
-        global limit1
-        limit1 = self.builder.get_object("entry1").get_text()
-        global limit2
-        limit2 = self.builder.get_object("entry2").get_text()
-        global limit3
-        limit3 = self.builder.get_object("entry3").get_text()
-        self.window.destroy()
-        Gtk.main_quit()
+        errorMessage = self.builder.get_object("error")
+        try:
+            global limit1
+            limit1 = self.builder.get_object("entry1").get_text()
+            self.window.destroy()
+            Gtk.main_quit()
+        except:
+            errorMessage.set_text("Invalid Complexity")
+        try:
+            global limit2
+            limit2 = self.builder.get_object("entry2").get_text()
+            self.window.destroy()
+            Gtk.main_quit()
+        except:
+            errorMessage.set_text("Invalid Uncertainty")            
+        try:
+            global limit3
+            limit3 = self.builder.get_object("entry3").get_text()
+            self.window.destroy()
+            Gtk.main_quit()
+        except:
+            errorMessage.set_text("Invalid Tolerance")
+        
 
     def onDeleteWindow(self, *args):
 	self.window.destroy()
@@ -109,14 +123,27 @@ class ProcessWindow:
         self.window = self.builder.get_object("database_results")
         self.title = self.builder.get_object("label1")
         
-        # name labels
+        # name, amount, and units labels
         self.firstResultName = self.builder.get_object("firstResultName")
+        self.firstResultAmount = self.builder.get_object("firstResultAmount")
+        self.firstResultUnit = self.builder.get_object("firstResultUnit")
         self.secondResultName = self.builder.get_object("secondResultName")
+        self.secondResultAmount = self.builder.get_object("secondResultAmount")
+        self.secondResultUnit = self.builder.get_object("secondResultUnit")
         self.thirdResultName = self.builder.get_object("thirdResultName")
+        self.thirdResultAmount = self.builder.get_object("thirdResultAmount")
+        self.thirdResultUnit = self.builder.get_object("thirdResultUnit")        
         self.fourthResultName = self.builder.get_object("fourthResultName")
+        self.fourthResultAmount = self.builder.get_object("fourthResultAmount")
+        self.fourthResultUnit = self.builder.get_object("fourthResultUnit")
         self.fifthResultName = self.builder.get_object("fifthResultName")
-        # name text field
+        self.fifthResultAmount = self.builder.get_object("fifthResultAmount")
+        self.fifthResultUnit = self.builder.get_object("fifthResultUnit")        
+        # name, amount, units, and Co2 manual entry text fields
         self.manualEntryName = self.builder.get_object("manualEntryName")
+        self.manualEntryAmount = self.builder.get_object("manualEntryAmount")
+        self.manualEntryUnit = self.builder.get_object("manualEntryUnit")  
+        self.manualEntryCo2 = self.builder.get_object("manualEntryCo2")
         
         # radio buttons
         self.firstResultButton = self.builder.get_object("firstResultSelectButton")
@@ -126,6 +153,12 @@ class ProcessWindow:
         self.fifthResultButton = self.builder.get_object("fifthResultSelectButton")
         self.manualEntryButton = self.builder.get_object("manualEntrySelectButton")
 
+        # lists of names, amounts, units, and buttons objects
+        self.resultNames = [self.firstResultName, self.secondResultName, self.thirdResultName, self.fourthResultName, self.fifthResultName]
+        self.resultAmounts = [self.firstResultAmount, self.secondResultAmount, self.thirdResultAmount, self.fourthResultAmount, self.fifthResultAmount]
+        self.resultUnits = [self.firstResultUnit, self.secondResultUnit, self.thirdResultUnit, self.fourthResultUnit, self.fifthResultUnit] 
+        self.buttonList = [self.firstResultButton, self.secondResultButton, self.thirdResultButton, self.fourthResultButton, self.fifthResultButton, self.manualEntryButton]
+        
         # search entry & button
         self.searchEntry = self.builder.get_object("searchEntry")
         self.searchButton = self.builder.get_object("searchButton")
@@ -140,51 +173,46 @@ class ProcessWindow:
         self.results = d.top5Processes(description)
         self.toggle = 6
         
-        # populate name fields with top 5 results for first line
-        try:
-            self.firstResultName.set_text(str(self.results[0]))
-        except:
-            self.firstResultName.set_text("...")
-        try:
-            self.secondResultName.set_text(str(self.results[1]))
-        except:
-            self.secondResultName.set_text("...")
-        try:
-            self.thirdResultName.set_text(str(self.results[2]))
-        except:
-            self.thirdResultName.set_text("...")
-        try:
-            self.fourthResultName.set_text(str(self.results[3]))
-        except:
-            self.fourthResultName.set_text("...")
-        try:
-            self.fifthResultName.set_text(str(self.results[4]))
-        except:
-            self.fifthResultName.set_text("...")       
+        # populate name, amount, and units fields with top 5 results 
+        i = 0
+        for x in self.resultNames:
+            try:
+                x.set_text(str(self.results[i][0]))
+            except:
+                x.set_text("...")
+            i += 1
+        i = 0
+        for y in self.resultAmounts:
+            try:
+                y.set_text(str(self.results[i][1]))
+            except:
+                y.set_text("...")
+            i += 1
+        i = 0
+        for z in self.resultUnits:
+            try:
+                z.set_text(str(self.results[i][2]))
+            except:
+                z.set_text("...")
+            i += 1
 
     def on_radiobutton1_toggled(self, button):
         self.toggle = 1
-        print("toggle button 1 clicked")
     
     def on_radiobutton2_toggled(self, button):
         self.toggle = 2
-        print("toggle button 2 clicked")
        
     def on_radiobutton3_toggled(self, button):
         self.toggle = 3
-        print("toggle button 3 clicked")
  
     def on_radiobutton4_toggled(self, button):
         self.toggle = 4
-        print("toggle button 4 clicked")
 
     def on_radiobutton5_toggled(self, button):
         self.toggle = 5
-        print("toggle button 5 clicked")
 
     def on_radiobutton6_toggled(self, button):
         self.toggle = 6
-        print("toggle button 6 clicked")
 
     def onDeleteWindow(self, *args):
         self.window.destroy()
@@ -195,53 +223,50 @@ class ProcessWindow:
     def on_searchButton_clicked(self,button):
         description = [self.searchEntry.get_text()]
         self.results = d.top5Processes(description)
-        try:
-            self.firstResultName.set_text(str(self.results[0]))
-        except:
-            self.firstResultName.set_text("...")
-        try:
-            self.secondResultName.set_text(str(self.results[1]))
-        except:
-            self.secondResultName.set_text("...")
-        try:
-            self.thirdResultName.set_text(str(self.results[2]))
-        except:
-            self.thirdResultName.set_text("...")
-        try:
-            self.fourthResultName.set_text(str(self.results[3]))
-        except:
-            self.fourthResultName.set_text("...")
-        try:
-            self.fifthResultName.set_text(str(self.results[4]))
-        except:
-            self.fifthResultName.set_text("...") 
-        
+        i = 0
+        for x in self.resultNames:
+            try:
+                x.set_text(str(self.results[i][0]))
+            except:
+                x.set_text("...")
+            i += 1
+        i = 0
+        for y in self.resultAmounts:
+            try:
+                y.set_text(str(self.results[i][1]))
+            except:
+                y.set_text("...")
+            i += 1
+        i = 0
+        for z in self.resultUnits:
+            try:
+                z.set_text(str(self.results[i][2]))
+            except:
+                z.set_text("...")
+            i += 1
+    '''    
     def onManualEntryDataChanged(self, entry):
         #set the manual entry radio button to be active
         self.manualEntryButton.set_active(True)
-        
+    '''    
     def onContinueClicked(self, button):
-        if self.toggle == 1:
-            self.results = self.results[0]
-        elif self.toggle == 2:
-            self.results = self.results[1]
-        elif self.toggle == 3:
-            self.results = self.results[2]
-        elif self.toggle == 4:
-            self.results = self.results[3]
-        elif self.toggle == 5:
-            self.results = self.results[4]
+        if self.toggle < 6:
+            for i in range(5):
+                if self.toggle == i+1:
+                    self.results = self.results[i]
+                    try:
+                        self.results.append([d.Process(self.results[i][0]).carbonDioxide()])
+                    except:
+                        self.results.append([0])
         elif self.toggle == 6:
-            self.results = self.manualEntryName.get_text()
-        print("User selected "+str(self.results))
+            self.results = [self.manualEntryName.get_text()]+[self.manualEntryAmount.get_text()]+[self.manualEntryUnit.get_text()]+[self.manualEntryCo2.get_text()]
+        print("User selected: "+str(self.results[0])+", Amount: "+str(self.results[1])+" "+str(self.results[2]))
         self.window.destroy()
         Gtk.main_quit()
 
     
         
 class SkipWindow:
-
-
 
     def __init__(self):
         self.builder = Gtk.Builder()
@@ -320,7 +345,7 @@ class InputWindow:
         self.buttonList = [self.firstResultButton, self.secondResultButton, self.thirdResultButton, self.fourthResultButton, self.fifthResultButton, self.manualEntryButton]
 
         # set title and get top 5 results
-        self.title.set_text("Input: "+inner+"\nIn Process: " + str(outer))
+        self.title.set_text("Input: "+str(inner)+"\nIn Process: " + str(outer))
         self.manualEntryName.set_text(inner)
         self.results = []
         try:
@@ -444,29 +469,22 @@ class ParametersWindow:
         self.builder.add_from_file("process_parameters.glade")
         self.builder.connect_signals(self)
         self.window = self.builder.get_object("process_parameters")
-        self.processUncertaintyObj = self.builder.get_object("processUncertaintyData")
-        self.envUncertaintyObj = self.builder.get_object("envUncertaintyData")
-        self.thisProcessComplexityObj = self.builder.get_object("complexityData")
         self.window.show_all()
-    def onContinueClicked(self, button):
-        #get the text from the entries and open up the skip window
-        print(self.processUncertaintyObj.get_text())
-        print(self.envUncertaintyObj.get_text())
-        print(self.thisProcessComplexityObj.get_text())
-
-        #get these as numeric values
-        procUncert = int(self.processUncertaintyObj.get_text())
-        envUncert = int(self.envUncertaintyObj.get_text())
-        complexity = int(self.thisProcessComplexityObj.get_text())
-
-        #these numeric values will be passed to the model generator for calculations
-
-
-        self.window.destroy()
-        skip = SkipWindow()
-        Gtk.main() #don't call this until after the window has been constructed and shown
+        self.newThreshold = 0
         
-
+    def onSubmitClicked(self, button):
+        #get the text from the entries and open up the skip window
+        self.processUncertainty = float(self.builder.get_object("processUncertaintyData").get_text())
+        self.envUncertainty = float(self.builder.get_object("envUncertaintyData").get_text())
+        self.processComplexity = float(self.builder.get_object("complexityData").get_text())
+        self.newThreshold = 1
+        self.window.destroy()
+        Gtk.main_quit() 
+        
+    def onReentryClicked(self, button):
+        self.window.destroy()
+        Gtk.main_quit()
+        
     def onDeleteWindow(self, *args):
         self.window.destroy()
         Gtk.main_quit(args)
@@ -508,7 +526,7 @@ class FinishWindow:
 limits = limitsWindow()
 Gtk.main()
 
-matrix = mg.Final_Model_Generator(limit1,limit2)
+modelGenerator = mg.Final_Model_Generator(limit1,limit2)
 viewed = [] # keeps track of codes that have already been updated by user
 spaLinks = getSPAlinks() # line by line links of codes in SPA results
 codeToName = [] # list of tuples containing spa codes and their corresponding names
@@ -521,7 +539,7 @@ for x in range(len(spaLinks)):
     for y in range(len(links)):
         print("link: "+str(links[-y-1]))
         
-        if links[-y-1] not in viewed:
+        if not modelGenerator.has_process(links[-y-1]):
             viewed.append(links[-y-1])
             # Open Process Name Selector Window
             pWin = ProcessWindow(links[-y-1])
@@ -529,8 +547,8 @@ for x in range(len(spaLinks)):
             Gtk.main()
             while not pWin.onContinueClicked:
                 t = 0 # do nothing
-            name = pWin.results
-            #matrix.add_process(links[-y-1],pWin.results[1],envImp)
+            name = pWin.results[0]
+            modelGenerator.add_process(links[-y-1],pWin.results[1],pWin.results[3])
             codeToName.append([links[-y-1],name])
             if y > 0:
                 outer = getName(codeToName,links[-y])

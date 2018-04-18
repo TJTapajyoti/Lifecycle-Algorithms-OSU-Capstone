@@ -4,8 +4,10 @@ with open('allProcesses.txt') as f:
 	prev = 'a'
 	for line in f:
 		if prev == '\n':
-                        end = line.index("$")-1
-			processNames.write(line[:end]+"\n")
+                        name = line.index("$")-1
+                        amount = line.index("*")+1
+                        unit = line.index("!")
+			processNames.write(line[:name]+"$"+line[amount:unit]+"!"+line[unit+1:])
 			prev = line
 		else:
 			prev = line

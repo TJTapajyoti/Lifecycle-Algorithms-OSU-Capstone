@@ -26,7 +26,7 @@ class Process:
                     amtIndex = puts.index("*")+1
                     unitIndex = puts.index("!")
                     try:
-                        unit = puts[unitIndex+1:]
+                        unit = puts[unitIndex+1:-1]
                     except:
                         unit = " "
                     if "$input: True" in puts:
@@ -45,10 +45,10 @@ class Process:
 
     # returns the value of the carbonDioxide output
     def carbonDioxide(self):
-        co2 = ""
+        co2 = 0
         for i in self.outputs:
             if "Carbon dioxide, fossil " in i[0]:
-                co2 = i[1]
+                co2 = float(i[1])
         return co2
 
     # returns the top 5 likely inputs for the NAICS code passed in 
@@ -89,7 +89,7 @@ def compareNames(name, descrs):
         for naicsWord in naicsWords:
             nameWords = re.findall(r"[\w']+",name)
             for nameWord in nameWords:
-                if nameWord.lower() == naicsWord.lower():
+                if naicsWord.lower() in nameWord.lower():
                     score += 1
     return score
 '''
@@ -124,25 +124,28 @@ def top5Processes(desc):
     processNames = open("processNames.txt",'r')
     scores = []
     for line in processNames:
-        score = compareNames(line,desc)
+        name = line.index("$")
+        score = compareNames(line[:name],desc)
         if score > 0:
-            scores.append([line[:-1],score])
+            unit = line.index("!")
+            scores.append([line[:name],score,line[name+1:unit],line[unit+1:-1]])
     top5 = []
-    numOutputs = len(scores)
-    for x in xrange(numOutputs):
+    for x in xrange(len(scores)):
         top = topScore(scores)
         #print(top)
         scores.remove(top)
-        top5.append(top[0])
+        top5.append([top[0],top[2],top[3]])
     if len(top5) > 5:
         top5 = top5[0:5]
     processNames.close()
     return top5
 
-# examples     
+# examples
 
+#print(top5Processes(["chemical"]))
+'''
 p1 = Process("Transport, single unit truck, short-haul, diesel powered, South")
-'''print(p1.carbonDioxide())
+print(p1.carbonDioxide())
 
 print("name of process:")
 print(p1.name())
