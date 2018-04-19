@@ -31,7 +31,7 @@ class Model(object):
             return False
         row = self.basis.index(input_code)
         col = self.basis.index(output_code)
-        if self.matrix[i][j] != 0:
+        if self.matrix[row][col] != 0:
             return True
         else:
             return False
@@ -142,8 +142,8 @@ class Final_Model_Generator(object):
 
         # do error calculation here
         err_matrix = matrix.tolist()
-        for i in len(err_matrix):
-            for j in len(err_matrix):
+        for i in range(len(err_matrix)):
+            for j in range(len(err_matrix)):
                 if matrix[i][j] != 0:
                     err_matrix[i][j] = uncertainty_p[j]
         err_matrix = np.array(err_matrix)
@@ -157,13 +157,16 @@ class Final_Model_Generator(object):
         boolean = True
 
         if sum(complexity) > self.limit_c:
+            print('complexity fail')
             boolean = False
 
         if self.cur_rsd is not None:
             rsd_diff = RSD - self.cur_rsd
             if rsd_diff >= 0.0:
+                print('resid diff: {}'.format(rsd_diff))
                 boolean = False
             elif -1 * rsd_diff < self.limit_u:
+                print('resid diff: {}'.format(rsd_diff))
                 boolean = False
             else:
                 self.next_rsd = RSD
@@ -172,7 +175,7 @@ class Final_Model_Generator(object):
 
         if not boolean:
             self.fail_counter += 1
-            if fail_counter >= 5:
+            if self.fail_counter >= 5:
                 boolean = 'exit'
 
         # return accept or reject
