@@ -14,7 +14,6 @@ from numpy.linalg import inv
 comp = 0
 unce = 0
 tol = 0
-#modelGenerator = mg.Final_Model_Generator(comp,unce)
 
 def runLine(links):
     global modelGenerator
@@ -59,6 +58,15 @@ def runLine(links):
                 # add inner results to matrix
                 modelGenerator.add_process_input(links[-y],links[-y-1],iWin.results[2])
 
+
+# displays the matrix on a csv file
+def displayMatrix(model):
+    with open('final_matrix.csv','wb') as csvfile:
+        writer = csv.writer(csvfile,delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        for i in model:
+            writer.writerow(i)
+            
+                
 # Get the NAICS code from sectorsCodes csv file
 def getCode(num):
     naics = 0
@@ -68,6 +76,7 @@ def getCode(num):
             if row[0] == num:
                 naics = row[1]
     return naics
+
 
 # Get the industry description from sectorsCodes csv file
 def getDescr(num):
@@ -561,7 +570,7 @@ for x in range(len(spaLinks)):
             skipWin = SkipWindow()
             Gtk.main()
             while skipWin.button < 1:
-                pass #wait for user
+                pass #user makes decision to reenter process info or display most recent matrix
         
             if skipWin.button == 1:
                 modelGenerator.clear_unfinalized_data()
@@ -570,14 +579,15 @@ for x in range(len(spaLinks)):
                 #modelGenerator.get_most_recent_model()
                 modelGenerator.finalize()
                 #display results
+                displayMatrix(modelGenerator.get_most_recent_model.matrix)
         elif value == True:
             print("Passed Calculation")
-            break # Passed calculation
+            break 
         elif value == "exit":
             #modelGenerator.get_most_recent_model()
             modelGenerator.finalize()
             #display results
-        
+            displayMatrix(modelGenerator.get_most_recent_model.matrix)
                     
 
 
