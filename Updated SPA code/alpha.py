@@ -10,25 +10,54 @@ import sys
 import math
 from numpy.linalg import inv
 
-limit1 = 0
-limit2 = 0
-limit3 = 0
+# Global variables
+comp = 0
+unce = 0
+tol = 0
+#modelGenerator = mg.Final_Model_Generator(comp,unce)
 
-# X= ,M= ,F= , sa= ,sb= . Returns emission, (SD), and (RSD).
-def uncertainty(X,M,F,sa,sb):
-    t2 = M*inv(X)
-    t1 = inv(X)*F
-    term1 = 0
-    for i in range(len(X)):
-        term1 = term1+(t1(i)*t1(i))*(sb(i)**2)  
-    term2 = 0;
-    for i in range(len(X)):
-        for j in range(len(X)):
-            term2 = term2+((t2(i)*t1(j))**2)*(sa(i,j)**2)
-    emission = M*inv(X)*F
-    SD = math.sqrt(term2+term1)
-    RSD = math.sqrt(term2+term1)/emission
-    return [emission,SD,RSD]
+def runLine(links):
+    global modelGenerator
+    global codeToName
+    
+    # read each link in the line
+    for y in range(len(links)):
+        print("link: "+str(links[-y-1]))
+        
+        # read from right to left at the end
+        if not modelGenerator.has_process(links[-y-1]):
+            #viewed.append(links[-y-1])
+            # Open Process Name Selector Window
+            pWin = ProcessWindow(links[-y-1])
+            pWin.window.show_all()
+            Gtk.main()
+            while not pWin.onContinueClicked:
+                pass  #wait for user
+            
+            # add outer results to matrix
+            name = pWin.results[0]
+            modelGenerator.add_process(links[-y-1],pWin.results[1],pWin.results[3])
+            codeToName.append([links[-y-1],name])
+            paramWin = ParametersWindow(name)
+            paramWin.window.show_all()
+            Gtk.main()
+            while not paramWin.onSubmitClicked:
+                pass #wait for user
+            
+            # add uncertainty and complexity values
+            modelGenerator.set_process_unc_and_comp(links[-y-1],paramWin.processUncertainty,paramWin.envUncertainty,paramWin.processComplexity)
+
+        if y > 0:
+            if not modelGenerator.has_process_input(links[-y],links[-y-1]):
+                outer = getName(codeToName,links[-y])
+                iWin = InputWindow(outer,name)
+                iWin.window.show_all()
+                Gtk.main()
+                while not iWin.onContinueClicked:
+                    pass #wait for user
+                
+                # add inner results to matrix
+                modelGenerator.add_process_input(links[-y],links[-y-1],iWin.results[2])
 
 # Get the NAICS code from sectorsCodes csv file
 def getCode(num):
@@ -85,26 +114,16 @@ class limitsWindow:
     def onContinue(self, button):
         errorMessage = self.builder.get_object("error")
         try:
-            global limit1
-            limit1 = self.builder.get_object("entry1").get_text()
+            global comp
+            comp = self.builder.get_object("entry1").get_text()
+            global unce
+            unce = self.builder.get_object("entry2").get_text()
+            global tol
+            tol = self.builder.get_object("entry3").get_text()
             self.window.destroy()
             Gtk.main_quit()
         except:
-            errorMessage.set_text("Invalid Complexity")
-        try:
-            global limit2
-            limit2 = self.builder.get_object("entry2").get_text()
-            self.window.destroy()
-            Gtk.main_quit()
-        except:
-            errorMessage.set_text("Invalid Uncertainty")            
-        try:
-            global limit3
-            limit3 = self.builder.get_object("entry3").get_text()
-            self.window.destroy()
-            Gtk.main_quit()
-        except:
-            errorMessage.set_text("Invalid Tolerance")
+            errorMessage.set_text("Invalid Entry")
         
 
     def onDeleteWindow(self, *args):
@@ -272,27 +291,26 @@ class SkipWindow:
         self.builder = Gtk.Builder()
         self.builder.add_from_file("skip_window.glade")
         self.builder.connect_signals(self)
-
         self.window = self.builder.get_object("skip_window")
+        self.button = 0
         self.window.show_all()
+
+    def on_button1_clicked(self, button):
+        self.button = 1
+        self.window.destroy()
+	Gtk.main_quit(*args)
+
+    def on_button2_clicked(self, button):
+        #destroy the window and go to the threshold re-entry for each process in the line
+        self.button = 2
+        self.window.destroy()
+        Gtk.main_quit()
 
     def onDeleteWindow(self, *args):
         self.window.destroy()
 	Gtk.main_quit(*args)
-        print("skip window delete-event signal")
-
-    def on_skip_yes_clicked(self, button):
-        #destroy the window and go to the threshold re-entry for each process in the line
-        self.window.destroy()
-        Gtk.main_quit()
-
-    def on_skip_no_clicked(self, button):
-        #re-open a database window
-        new_dbwindow = ProcessWindow(self.currentRow, self.SectorIndexInRow)
-        self.window.destroy()
-        new_dbwindow.window.show_all()
-
-
+        sys.exit()
+        
 #while going through a line in the SPA results file, we can consider the sector numbers to alternate in an "outer level"
 #and "inner level" fashion, e.g. the line 22-248-380, we get the info for 380 as a top level, then the info for 248 as a top level and as an input to 380, then, we get the info for 22 as a top level and as an input to the process 248. Then we perform the calculations for the model, try again if the values aren't within the acceptable threshold and quit if it fails 5 times successively.
 class InputWindow:
@@ -426,7 +444,7 @@ class InputWindow:
             i = 0
             for y in self.resultAmounts:
                 try:
-                    y.set_text(str(self.results[i][2]))
+                    y.set_text(str(self.results[i][2])) #index 1 is the score value
                 except:
                     y.set_text("...")
                 i += 1
@@ -464,31 +482,29 @@ class InputWindow:
 #but before the calculations have been performed
 class ParametersWindow:
 
-    def __init__(self):
+    def __init__(self,name):
         self.builder = Gtk.Builder()
-        self.builder.add_from_file("process_parameters.glade")
+        self.builder.add_from_file("process_parameters2.glade")
         self.builder.connect_signals(self)
         self.window = self.builder.get_object("process_parameters")
-        self.window.show_all()
-        self.newThreshold = 0
+        self.builder.get_object("title_label").set_text(name)
         
     def onSubmitClicked(self, button):
         #get the text from the entries and open up the skip window
         self.processUncertainty = float(self.builder.get_object("processUncertaintyData").get_text())
         self.envUncertainty = float(self.builder.get_object("envUncertaintyData").get_text())
         self.processComplexity = float(self.builder.get_object("complexityData").get_text())
-        self.newThreshold = 1
+        print("Process Uncertainty: "+str(self.processUncertainty))
+        print("Process EnvUncertainty: "+str(self.envUncertainty))
+        print("Process Complexity: "+str(self.processComplexity))
         self.window.destroy()
         Gtk.main_quit() 
-        
-    def onReentryClicked(self, button):
-        self.window.destroy()
-        Gtk.main_quit()
-        
+    
     def onDeleteWindow(self, *args):
         self.window.destroy()
-        Gtk.main_quit(args)
-
+	Gtk.main_quit(*args)
+        sys.exit()
+        
 #Added: 4/16/18, pulled up when a line has been processed, if the user wishes to continue building the model
 #click continue, otherwise, click finish and the program will finalize the current model and exit
 class FinishWindow:
@@ -513,7 +529,9 @@ class FinishWindow:
         sys.exit()
 
     def onDeleteWindow(self, *args):
-        Gtk.main_quit(args)
+        self.window.destroy()
+	Gtk.main_quit(*args)
+        sys.exit()
 
 
 #dbwindow = DatabaseResultsWindow()
@@ -522,44 +540,45 @@ class FinishWindow:
 
 
 # Main
-
 limits = limitsWindow()
 Gtk.main()
+print("Complexity: "+str(comp)+" Uncertainty: "+str(unce)+" Tolerance: "+str(tol))
 
-modelGenerator = mg.Final_Model_Generator(limit1,limit2)
-viewed = [] # keeps track of codes that have already been updated by user
+modelGenerator = mg.Final_Model_Generator(comp,unce)
 spaLinks = getSPAlinks() # line by line links of codes in SPA results
-codeToName = [] # list of tuples containing spa codes and their corresponding names
+codeToName = [] # list of tuples containing spa codes and their corresponding names the user selects
 
 # read each line of the SPA results
 for x in range(len(spaLinks)):
     links = spaLinks[x]
     print("\nSPA links: "+str(links))
-    # read each link in the line
-    for y in range(len(links)):
-        print("link: "+str(links[-y-1]))
-        
-        if not modelGenerator.has_process(links[-y-1]):
-            viewed.append(links[-y-1])
-            # Open Process Name Selector Window
-            pWin = ProcessWindow(links[-y-1])
-            pWin.window.show_all()
+    runLine(links)
+    
+    while True:
+        value = modelGenerator.create_new_matrix_and_calculate()
+        if value == False:
+            print("Failed Calculation")
+            skipWin = SkipWindow()
             Gtk.main()
-            while not pWin.onContinueClicked:
-                t = 0 # do nothing
-            name = pWin.results[0]
-            modelGenerator.add_process(links[-y-1],pWin.results[1],pWin.results[3])
-            codeToName.append([links[-y-1],name])
-            if y > 0:
-                outer = getName(codeToName,links[-y])
-                iWin = InputWindow(outer,name)
-                iWin.window.show_all()
-                Gtk.main()
-                while not iWin.onContinueClicked:
-                    t = 0 # do nothing
-                    # add inner.results to matrix
+            while skipWin.button < 1:
+                pass #wait for user
         
-        #emissions = uncertainty(
+            if skipWin.button == 1:
+                modelGenerator.clear_unfinalized_data()
+                runLine(links)
+            elif skipWin.button == 2:
+                #modelGenerator.get_most_recent_model()
+                modelGenerator.finalize()
+                #display results
+        elif value == True:
+            print("Passed Calculation")
+            break # Passed calculation
+        elif value == "exit":
+            #modelGenerator.get_most_recent_model()
+            modelGenerator.finalize()
+            #display results
+        
                     
+
 
 

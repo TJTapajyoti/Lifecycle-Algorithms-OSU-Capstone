@@ -18,9 +18,12 @@
           <object class="GtkLabel" id="label1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_bottom">12</property>
             <property name="label" translatable="yes">Set Limits</property>
             <attributes>
-              <attribute name="scale" value="3"/>
+              <attribute name="font-desc" value="Abyssinica SIL Bold 16"/>
+              <attribute name="scale" value="1"/>
+              <attribute name="underline" value="True"/>
             </attributes>
           </object>
           <packing>
@@ -94,16 +97,6 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="entry2">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">1</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkEntry" id="entry3">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
@@ -111,6 +104,16 @@
                   <packing>
                     <property name="left_attach">1</property>
                     <property name="top_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="entry2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">1</property>
                   </packing>
                 </child>
               </object>

@@ -1,59 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.18.3 -->
 <interface>
-  <requires lib="gtk+" version="3.10"/>
+  <requires lib="gtk+" version="3.12"/>
   <object class="GtkWindow" id="process_parameters">
     <property name="can_focus">False</property>
     <property name="window_position">center</property>
-    <signal name="delete-event" handler="onDeleteWindow" swapped="no"/>
-    <signal name="destroy" handler="onDeleteWindow" swapped="no"/>
-    <signal name="destroy-event" handler="onDeleteWindow" swapped="no"/>
     <child>
       <object class="GtkBox" id="box1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="margin_left">4</property>
+        <property name="margin_right">4</property>
+        <property name="margin_top">4</property>
+        <property name="margin_bottom">4</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkLabel" id="title_label">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="xpad">5</property>
-            <property name="justify">center</property>
             <attributes>
-              <attribute name="font-desc" value="Abyssinica SIL 14"/>
+              <attribute name="font-desc" value="Abyssinica SIL Bold 16"/>
               <attribute name="underline" value="True"/>
             </attributes>
           </object>
           <packing>
-            <property name="expand">True</property>
+            <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">1</property>
+            <property name="padding">25</property>
+            <property name="position">0</property>
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="box3">
+          <object class="GtkBox" id="box2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="homogeneous">True</property>
             <child>
-              <object class="GtkBox" id="box4">
+              <object class="GtkBox" id="box3">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
+                <property name="spacing">4</property>
+                <property name="homogeneous">True</property>
                 <child>
                   <object class="GtkLabel" id="label2">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="xpad">5</property>
-                    <property name="ypad">5</property>
                     <property name="label" translatable="yes">Process Uncertainty</property>
-                    <property name="width_chars">40</property>
-                    <property name="max_width_chars">40</property>
-                    <attributes>
-                      <attribute name="font-desc" value="Abyssinica SIL 12"/>
-                    </attributes>
                   </object>
                   <packing>
-                    <property name="expand">True</property>
+                    <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">0</property>
                   </packing>
@@ -62,17 +58,10 @@
                   <object class="GtkLabel" id="label3">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="xpad">5</property>
-                    <property name="ypad">5</property>
                     <property name="label" translatable="yes">Environmental Uncertainty</property>
-                    <property name="width_chars">40</property>
-                    <property name="max_width_chars">40</property>
-                    <attributes>
-                      <attribute name="font-desc" value="Abyssinica SIL 12"/>
-                    </attributes>
                   </object>
                   <packing>
-                    <property name="expand">True</property>
+                    <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">1</property>
                   </packing>
@@ -81,17 +70,10 @@
                   <object class="GtkLabel" id="label4">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="xpad">5</property>
-                    <property name="ypad">5</property>
                     <property name="label" translatable="yes">Complexity</property>
-                    <property name="width_chars">40</property>
-                    <property name="max_width_chars">40</property>
-                    <attributes>
-                      <attribute name="font-desc" value="Abyssinica SIL 12"/>
-                    </attributes>
                   </object>
                   <packing>
-                    <property name="expand">True</property>
+                    <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">2</property>
                   </packing>
@@ -99,24 +81,25 @@
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">False</property>
+                <property name="fill">True</property>
                 <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <object class="GtkBox" id="box5">
+              <object class="GtkBox" id="box4">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
+                <property name="spacing">3</property>
+                <property name="homogeneous">True</property>
                 <child>
                   <object class="GtkEntry" id="processUncertaintyData">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
                   <packing>
-                    <property name="expand">True</property>
+                    <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="padding">5</property>
                     <property name="position">0</property>
                   </packing>
                 </child>
@@ -126,9 +109,8 @@
                     <property name="can_focus">True</property>
                   </object>
                   <packing>
-                    <property name="expand">True</property>
+                    <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="padding">5</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
@@ -138,9 +120,8 @@
                     <property name="can_focus">True</property>
                   </object>
                   <packing>
-                    <property name="expand">True</property>
+                    <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="padding">5</property>
                     <property name="position">2</property>
                   </packing>
                 </child>
@@ -155,8 +136,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="padding">10</property>
-            <property name="position">2</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -165,14 +145,13 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="image_position">right</property>
             <signal name="clicked" handler="onSubmitClicked" swapped="no"/>
           </object>
           <packing>
-            <property name="expand">True</property>
+            <property name="expand">False</property>
             <property name="fill">False</property>
-            <property name="padding">5</property>
-            <property name="position">3</property>
+            <property name="padding">31</property>
+            <property name="position">2</property>
           </packing>
         </child>
       </object>
