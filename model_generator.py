@@ -108,11 +108,11 @@ class Final_Model_Generator(object):
         uncertainty_e = np.array(self.cur_model.uncertainty_e).tolist()
         complexity = np.array(self.cur_model.complexity).tolist()
         for output in self.outputs:
-            print(basis)
-            print(env_impact)
-            print(uncertainty_e)
-            print(uncertainty_p)
-            print(complexity)
+            # print(basis)
+            # print(env_impact)
+            # print(uncertainty_e)
+            # print(uncertainty_p)
+            # print(complexity)
             output_proc = self.outputs[output]
             basis.insert(0, output)
             env_impact.insert(0, output_proc.env_impact)
@@ -122,35 +122,35 @@ class Final_Model_Generator(object):
 
         # create new matrix
         matrix = np.zeros((len(basis), len(basis)))
-        print(matrix)
-        print(basis)
-        print(env_impact)
-        print(uncertainty_e)
-        print(uncertainty_p)
-        print(complexity)
+        # print(matrix)
+        # print(basis)
+        # print(env_impact)
+        # print(uncertainty_e)
+        # print(uncertainty_p)
+        # print(complexity)
 
         # put old matrix in bottom right of new matrix
         if old_matrix.shape != (1, 0):
             matrix[-old_matrix.shape[0]:, -old_matrix.shape[1]:] = old_matrix
 
-        print(matrix)
-        print(basis)
-        print(env_impact)
-        print(uncertainty_e)
-        print(uncertainty_p)
-        print(complexity)
+        # print(matrix)
+        # print(basis)
+        # print(env_impact)
+        # print(uncertainty_e)
+        # print(uncertainty_p)
+        # print(complexity)
 
         # add diagonal elements
         for i in range(len(self.outputs)):
             output = basis[i]
             matrix[i][i] = self.outputs[output].value
 
-        print(matrix)
-        print(basis)
-        print(env_impact)
-        print(uncertainty_e)
-        print(uncertainty_p)
-        print(complexity)
+        # print(matrix)
+        # print(basis)
+        # print(env_impact)
+        # print(uncertainty_e)
+        # print(uncertainty_p)
+        # print(complexity)
 
         # add off-diagonal elements that are defined
         for key in self.inputs:
@@ -161,12 +161,12 @@ class Final_Model_Generator(object):
             col = basis.index(output_code)
             matrix[row][col] = -1 * input_proc.val
 
-        print(matrix)
-        print(basis)
-        print(env_impact)
-        print(uncertainty_e)
-        print(uncertainty_p)
-        print(complexity)
+        # print(matrix)
+        # print(basis)
+        # print(env_impact)
+        # print(uncertainty_e)
+        # print(uncertainty_p)
+        # print(complexity)
 
         # Save as next model
         self.next_model = Model(matrix, basis, env_impact, uncertainty_p,
@@ -180,17 +180,17 @@ class Final_Model_Generator(object):
                     err_matrix[i][j] = uncertainty_p[j]
         err_matrix = np.array(err_matrix)
 
-        print(matrix)
-        print(basis)
-        print(env_impact)
-        print(uncertainty_e)
-        print(uncertainty_p)
-        print(complexity)
-        print(err_matrix)
-        print(F)
-
         F = [0 for x in env_impact]
         F[-1] = 1
+
+        # print(matrix)
+        # print(basis)
+        # print(env_impact)
+        # print(uncertainty_e)
+        # print(uncertainty_p)
+        # print(complexity)
+        # print(err_matrix)
+        # print(F)
 
         emission, SD, RSD = uncertainty(matrix, env_impact, F, err_matrix,
                                         uncertainty_e)
@@ -244,7 +244,7 @@ class Final_Model_Generator(object):
 
 
 def uncertainty(X, M, F, sa, sb):
-    t2 = np.dot(M, inv(X))
+    t2 = np.dot(inv(X), M)
     t1 = np.dot(inv(X), F)
     term1 = 0
     for i in range(len(X)):
@@ -253,7 +253,7 @@ def uncertainty(X, M, F, sa, sb):
     for i in range(len(X)):
         for j in range(len(X)):
             term2 += ((t2[i] * t1[j])**2) * (sa[i][j]**2)
-    emission = np.dot(np.dot(M, inv(X)), F)
+    emission = np.dot(np.dot(inv(X), F), M)
     SD = sqrt(term2 + term1)
     if emission == 0:
         RSD = 0
