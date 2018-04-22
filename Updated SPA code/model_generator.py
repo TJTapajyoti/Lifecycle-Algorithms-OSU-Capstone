@@ -159,7 +159,7 @@ class Final_Model_Generator(object):
             input_code = input_proc.input_code
             row = basis.index(input_code)
             col = basis.index(output_code)
-            matrix[row][col] = -1 * input_proc.val
+            matrix[row][col] = -1 * np.float32(input_proc.val)
 
         print(matrix)
         print(basis)
@@ -187,10 +187,10 @@ class Final_Model_Generator(object):
         print(uncertainty_p)
         print(complexity)
         print(err_matrix)
-        print(F)
 
         F = [0 for x in env_impact]
         F[-1] = 1
+        print(F)
 
         emission, SD, RSD = uncertainty(matrix, env_impact, F, err_matrix,
                                         uncertainty_e)
@@ -244,7 +244,7 @@ class Final_Model_Generator(object):
 
 
 def uncertainty(X, M, F, sa, sb):
-    t2 = np.dot(M, inv(X))
+    t2 = np.dot(inv(X), M)
     t1 = np.dot(inv(X), F)
     term1 = 0
     for i in range(len(X)):
@@ -253,7 +253,7 @@ def uncertainty(X, M, F, sa, sb):
     for i in range(len(X)):
         for j in range(len(X)):
             term2 += ((t2[i] * t1[j])**2) * (sa[i][j]**2)
-    emission = np.dot(np.dot(M, inv(X)), F)
+    emission = np.dot(F,np.dot(inv(X),M))
     SD = sqrt(term2 + term1)
     if emission == 0:
         RSD = 0

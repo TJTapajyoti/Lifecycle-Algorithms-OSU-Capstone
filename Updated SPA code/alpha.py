@@ -22,7 +22,6 @@ def runLine(links):
     # read each link in the line
     for y in range(len(links)):
         print("link: "+str(links[-y-1]))
-        
         # read from right to left at the end
         if not modelGenerator.has_process(links[-y-1]):
             #viewed.append(links[-y-1])
@@ -49,6 +48,7 @@ def runLine(links):
         if y > 0:
             if not modelGenerator.has_process_input(links[-y],links[-y-1]):
                 outer = getName(codeToName,links[-y])
+                name = getName(codeToName,links[-y-1])
                 iWin = InputWindow(outer,name)
                 iWin.window.show_all()
                 Gtk.main()
