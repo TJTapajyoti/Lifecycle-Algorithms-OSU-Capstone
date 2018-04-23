@@ -81,7 +81,13 @@ def getCode(num):
 # Get the industry description from sectorsCodes csv file
 def getDescr(num):
     descr = ""
-    with open('SectorsCodes.csv','rb') as f:
+    if sys.version_info[0] < 3: 
+        infile = open('SectorsCodes.csv', 'rb')
+    else:
+        infile = open('SectorsCodes.csv', 'r', newline='', encoding='utf8')
+
+    with infile as f:
+    # with open('SectorsCodes.csv','rb') as f:
         sectorCodes = csv.reader(f)
         for row in sectorCodes:
             if row[0] == num:
@@ -136,7 +142,7 @@ class limitsWindow:
         
 
     def onDeleteWindow(self, *args):
-	self.window.destroy()
+        self.window.destroy()
         Gtk.main_quit(*args)
         sys.exit()
       
@@ -244,7 +250,7 @@ class ProcessWindow:
 
     def onDeleteWindow(self, *args):
         self.window.destroy()
-	Gtk.main_quit(*args)
+        Gtk.main_quit(*args)
         sys.exit()
         print("delete-event signal happened for ProcessWindow class")
 
@@ -283,9 +289,10 @@ class ProcessWindow:
                 if self.toggle == i+1:
                     self.results = self.results[i]
                     try:
-                        self.results.append([d.Process(self.results[i][0]).carbonDioxide()])
+                        # print(d.Process(self.results[i][0]).carbonDioxide())
+                        self.results.append(d.Process(self.results[i][0]).carbonDioxide())
                     except:
-                        self.results.append([0])
+                        self.results.append(0)
         elif self.toggle == 6:
             self.results = [self.manualEntryName.get_text()]+[self.manualEntryAmount.get_text()]+[self.manualEntryUnit.get_text()]+[self.manualEntryCo2.get_text()]
         print("User selected: "+str(self.results[0])+", Amount: "+str(self.results[1])+" "+str(self.results[2]))
@@ -302,12 +309,12 @@ class SkipWindow:
         self.builder.connect_signals(self)
         self.window = self.builder.get_object("skip_window")
         self.button = 0
-        self.window.show_all()
+        # self.window.show_all()
 
     def on_button1_clicked(self, button):
         self.button = 1
         self.window.destroy()
-	Gtk.main_quit(*args)
+        Gtk.main_quit(*args)
 
     def on_button2_clicked(self, button):
         #destroy the window and go to the threshold re-entry for each process in the line
@@ -317,7 +324,7 @@ class SkipWindow:
 
     def onDeleteWindow(self, *args):
         self.window.destroy()
-	Gtk.main_quit(*args)
+        Gtk.main_quit(*args)
         sys.exit()
         
 #while going through a line in the SPA results file, we can consider the sector numbers to alternate in an "outer level"
@@ -431,7 +438,7 @@ class InputWindow:
         
     def onDeleteWindow(self, *args):
         self.window.destroy()
-	Gtk.main_quit(*args)
+        Gtk.main_quit(*args)
         sys.exit()
         print("delete-event signal happened for ProcessWindow class")
         
@@ -511,7 +518,7 @@ class ParametersWindow:
     
     def onDeleteWindow(self, *args):
         self.window.destroy()
-	Gtk.main_quit(*args)
+        Gtk.main_quit(*args)
         sys.exit()
         
 #Added: 4/16/18, pulled up when a line has been processed, if the user wishes to continue building the model
@@ -539,7 +546,7 @@ class FinishWindow:
 
     def onDeleteWindow(self, *args):
         self.window.destroy()
-	Gtk.main_quit(*args)
+        Gtk.main_quit(*args)
         sys.exit()
 
 
@@ -553,7 +560,7 @@ limits = limitsWindow()
 Gtk.main()
 print("Complexity: "+str(comp)+" Uncertainty: "+str(unce)+" Tolerance: "+str(tol))
 
-modelGenerator = mg.Final_Model_Generator(comp,unce)
+modelGenerator = mg.Final_Model_Generator(comp,unce, tol)
 spaLinks = getSPAlinks() # line by line links of codes in SPA results
 codeToName = [] # list of tuples containing spa codes and their corresponding names the user selects
 
@@ -563,11 +570,14 @@ for x in range(len(spaLinks)):
     print("\nSPA links: "+str(links))
     runLine(links)
     
-    while True:
+    exit_bool = False
+    while not exit_bool:
         value = modelGenerator.create_new_matrix_and_calculate()
-        if value == False:
+        print('got back value {}'.format(value))
+        if value is False:
             print("Failed Calculation")
             skipWin = SkipWindow()
+            skipWin.window.show_all()
             Gtk.main()
             while skipWin.button < 1:
                 pass #user makes decision to reenter process info or display most recent matrix
@@ -579,18 +589,24 @@ for x in range(len(spaLinks)):
                 #modelGenerator.get_most_recent_model()
                 modelGenerator.finalize()
                 #display results
-                displayMatrix(modelGenerator.get_most_recent_model.matrix)
-        elif value == True:
+                displayMatrix(modelGenerator.get_most_recent_model().matrix)
+                exit_bool = True
+        elif value is True:
             print("Passed Calculation")
-            break 
+            modelGenerator.finalize()
+            break
+            # exit_bool = False
         elif value == "exit":
             #modelGenerator.get_most_recent_model()
-            modelGenerator.finalize()
+            # modelGenerator.finalize()
             #display results
-            displayMatrix(modelGenerator.get_most_recent_model.matrix)
+            displayMatrix(modelGenerator.get_most_recent_model().matrix)
+            exit_bool = True
+    if exit_bool:
+        break
                     
 
-modelGenerator.finalize()
+# modelGenerator.finalize()
 #display results
-displayMatrix(modelGenerator.get_most_recent_model.matrix)
+displayMatrix(modelGenerator.get_most_recent_model().matrix)
 

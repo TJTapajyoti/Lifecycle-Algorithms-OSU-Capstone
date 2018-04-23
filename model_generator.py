@@ -59,19 +59,22 @@ class Input_Process(object):
 
 class Final_Model_Generator(object):
 
-    def __init__(self, limit_c, limit_u):
+    def __init__(self, limit_c, uncertainty, limit_u):
         self.cur_model = Model([[]], [], [], [], [], [])
         self.next_model = None
         self.outputs = {}
         self.inputs = {}
         self.fail_counter = 0
-        self.limit_c = limit_c
-        self.limit_u = limit_u
+        self.limit_c = float(limit_c)
+        self.limit_u = float(limit_u)
         self.cur_rsd = None
         self.next_rsd = None
+        self.uncertainty = float(uncertainty)
+        # print('{} {} {}'.format(limit_c, uncertainty, limit_u))
 
     def add_process(self, code, value, env_impact, uncertainty_p=None,
                     uncertainty_e=None, complexity=None):
+        print(env_impact)
         self.outputs[code] = Output_Process(code, value, env_impact,
                                             uncertainty_p, uncertainty_e,
                                             complexity)
@@ -192,27 +195,39 @@ class Final_Model_Generator(object):
         # print(err_matrix)
         # print(F)
 
-        emission, SD, RSD = uncertainty(matrix, env_impact, F, err_matrix,
+        emission, SD, rsd = uncertainty(matrix, env_impact, F, err_matrix,
                                         uncertainty_e)
 
         boolean = True
+
+        print(rsd)
 
         if sum(complexity) > self.limit_c:
             print('complexity fail')
             boolean = False
 
         if self.cur_rsd is not None:
-            rsd_diff = RSD - self.cur_rsd
+            rsd_diff = rsd - self.cur_rsd
             if rsd_diff >= 0.0:
                 print('resid diff: {}'.format(rsd_diff))
+                print('resid 1 fail')
                 boolean = False
             elif -1 * rsd_diff < self.limit_u:
                 print('resid diff: {}'.format(rsd_diff))
+                print('resid 2 fail')
                 boolean = False
             else:
-                self.next_rsd = RSD
+                self.next_rsd = rsd
         else:
-            self.next_rsd = RSD
+            self.next_rsd = rsd
+
+        if rsd < self.uncertainty:
+            # print(rsd)
+            # print(self.uncertainty)
+            # print('{}'.format(rsd < self.uncertainty))
+            print('succeed')
+            self.cur_model = self.next_model
+            boolean = 'exit'
 
         if not boolean:
             self.fail_counter += 1
@@ -256,7 +271,7 @@ def uncertainty(X, M, F, sa, sb):
     emission = np.dot(np.dot(inv(X), F), M)
     SD = sqrt(term2 + term1)
     if emission == 0:
-        RSD = 0
+        rsd = 0
     else:
-        RSD = sqrt(term2 + term1) / emission
-    return emission, SD, RSD
+        rsd = sqrt(term2 + term1) / emission
+    return emission, SD, rsd

@@ -1,4 +1,12 @@
 
+Biodiesel $input: False *0.531!kg
+Phosphoric acid, $input: True *1.28!kg
+Electricity, at Grid, US, 2010 $input: True *71.76!MJ
+Potassium hydroxide, $input: True *0.001!kg
+Soy meal, at plant $input: True *1.267!kg
+Methanol, at plant $input: True *0.19!kg
+Carbon dioxide, fossil  $input: False *0.005!kg
+
 Calcium carbonate, ground, 30 micron, at plant $input: False *1.0!
 Ethylene glycol, at plant  $input: True *0.013337967!kg
 CUTOFF Naphtha, at regional storage $input: True *0.01160328!l
@@ -2057,7 +2065,7 @@ Mercury compounds, unspecified $input: False *1.36585200888e-10!kg
 Water, irrigation $input: True *20.0149598988!kg
 Sulfur, in ground $input: True *0.00775470830467!kg
 Isoxaflutole $input: False *6.795977405e-07!kg
-CUTOFF Disposal, tailings waste, underground deposit  $input: True *0.00125866948591!kg
+CUTOFF Disposal, tailings waste, underground deposit  $input: True *0.00125866948591!kg
 Coal, lignite, in ground $input: True *2.55689900739e-05!kg
 Calcium sulphate, in ground $input: True *2.68607102719e-08!kg
 Fluoride compounds, unspecified $input: False *2.11200031073e-11!kg
@@ -33319,10 +33327,12 @@ Methane  $input: False *7.32459939376e-07!kg
 Transport, pipeline, unspecified petroleum products $input: True *0.114327885096!t*km
 Diesel, at refinery $input: True *0.0351858573104!l
 
-Biodiesel, $input: False *0.531!kg
+Biodiesel $input: False *0.531!kg
 Phosphoric acid, $input: True *1.28!kg
 Electricity, at Grid, US, 2010 $input: True *71.76!MJ
 Potassium hydroxide, $input: True *0.001!kg
 Soy meal, at plant $input: True *1.267!kg
 Methanol, at plant $input: True *0.19!kg
 Carbon dioxide, fossil  $input: False *0.005!kg
+
+

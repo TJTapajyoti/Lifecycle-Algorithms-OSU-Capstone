@@ -765,3 +765,4 @@ Transport, single unit truck, long-haul, gasoline powered, Hawaii$1.0!t*km
 Aluminum, secondary, extruded$1.0!kg
 Transport, transit bus, diesel powered, Northeast$1.0!p*km
 Transport, combination truck, short-haul, diesel powered, Southeast$1.0!t*km
+Biodiesel $0.531!kg
