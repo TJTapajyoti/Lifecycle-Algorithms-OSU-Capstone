@@ -56,7 +56,7 @@ def runLine(links):
                     pass #wait for user
                 
                 # add inner results to matrix
-                modelGenerator.add_process_input(links[-y],links[-y-1],iWin.results[2])
+                modelGenerator.add_process_input(links[-y],links[-y-1],float(iWin.results[2]))
 
 
 # displays the matrix on a csv file
@@ -590,5 +590,7 @@ for x in range(len(spaLinks)):
             displayMatrix(modelGenerator.get_most_recent_model.matrix)
                     
 
-
+modelGenerator.finalize()
+#display results
+displayMatrix(modelGenerator.get_most_recent_model.matrix)
 
