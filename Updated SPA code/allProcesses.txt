@@ -33318,3 +33318,11 @@ Transport, combination truck, average fuel mix $input: True *0.0113424403017!t*k
 Methane  $input: False *7.32459939376e-07!kg
 Transport, pipeline, unspecified petroleum products $input: True *0.114327885096!t*km
 Diesel, at refinery $input: True *0.0351858573104!l
+
+Biodiesel, $input: False *0.531!kg
+Phosphoric acid, $input: True *1.28!kg
+Electricity, at Grid, US, 2010 $input: True *71.76!MJ
+Potassium hydroxide, $input: True *0.001!kg
+Soy meal, at plant $input: True *1.267!kg
+Methanol, at plant $input: True *0.19!kg
+Carbon dioxide, fossil  $input: False *0.005!kg
