@@ -1,5 +1,9 @@
 Calcium carbonate, ground, 30 micron, at plant$1.0!
 Electricity, at Grid, SPP, 2008$1.0!kWh
+Electric power generation $45739!MJ
+Phosphoric acid, $2.909!kg
+Soybean oil processing, $10!kg
+Methanol, $0.20!kg
 Fuels, burned at bleached kraft market pulp mill, average production, at mill$10867.0!MJ
 Transport, light commercial truck, gasoline powered, Northeast$1.0!t*km
 Transport, train, diesel powered$1.0!t*km
