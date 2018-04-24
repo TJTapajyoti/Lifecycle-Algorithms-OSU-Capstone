@@ -4,15 +4,19 @@ Go to the following link: https://www.gtk.org/download/windows.php
 
 Follow the instructions, and do the optional Step 4, installing the Python 2 bindings.
 
-## Note: Everything from here on out will be an MSYS2 shell
-
-# Install numpy
-
-Run:
+Run the following commands:
 
 ```
-pip install numpy
+pacman -S mingw-w64-x86_64-python2-pip
+pacman -S mingw-w64-x86_64-python2-numpy
+pacman -S git
+git clone https://github.com/cheshyre/Lifecycle-Algorithms-OSU-Capstone
+cd Lifecycle-Algorithms-OSU-Capstone/Updated\ SPA\ code/
 ```
 
-to install numpy.
+Run the code with:
+```
+python alpha.py
+```
+
 
