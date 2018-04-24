@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.16.1 -->
+<!-- Generated with glade 3.18.3 -->
 <interface>
   <requires lib="gtk+" version="3.10"/>
   <object class="GtkWindow" id="finish_window">
     <property name="can_focus">False</property>
+    <property name="window_position">center</property>
     <signal name="delete-event" handler="onDeleteWindow" swapped="no"/>
     <signal name="destroy-event" handler="onDeleteWindow" swapped="no"/>
     <child>
@@ -17,7 +18,7 @@
             <property name="can_focus">False</property>
             <property name="label" translatable="yes">Continue building the model?</property>
             <attributes>
-              <attribute name="font-desc" value="&lt;Enter Value&gt; 24"/>
+              <attribute name="font-desc" value="Abyssinica SIL Bold 24"/>
             </attributes>
           </object>
           <packing>
@@ -25,6 +26,21 @@
             <property name="fill">True</property>
             <property name="padding">20</property>
             <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label2">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <attributes>
+              <attribute name="scale" value="1.5"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="padding">63</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -63,7 +79,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">1</property>
+            <property name="position">2</property>
           </packing>
         </child>
       </object>

@@ -23,30 +23,29 @@ def runLine(links):
     for y in range(len(links)):
         print("link: "+str(links[-y-1]))
         # read from right to left at the end
-        if not modelGenerator.has_process(links[-y-1]):
-            #viewed.append(links[-y-1])
+        if not modelGenerator.has_process(abs(int(links[-y-1]))):
             # Open Process Name Selector Window
             pWin = ProcessWindow(links[-y-1])
             pWin.window.show_all()
             Gtk.main()
             while not pWin.onContinueClicked:
-                pass  #wait for user
+                pass  #wait for user to enter outer process info
             
             # add outer results to matrix
             name = pWin.results[0]
-            modelGenerator.add_process(links[-y-1],pWin.results[1],pWin.results[3])
+            modelGenerator.add_process(int(links[-y-1]),pWin.results[1],pWin.results[3])
             codeToName.append([links[-y-1],name])
             paramWin = ParametersWindow(name)
             paramWin.window.show_all()
             Gtk.main()
             while not paramWin.onSubmitClicked:
-                pass #wait for user
+                pass #wait for user to enter uncertainty and complexity info.
             
             # add uncertainty and complexity values
-            modelGenerator.set_process_unc_and_comp(links[-y-1],paramWin.processUncertainty,paramWin.envUncertainty,paramWin.processComplexity)
+            modelGenerator.set_process_unc_and_comp(int(links[-y-1]),paramWin.processUncertainty,paramWin.envUncertainty,paramWin.processComplexity)
 
         if y > 0:
-            if not modelGenerator.has_process_input(links[-y],links[-y-1]):
+            if not modelGenerator.has_process_input(int(links[-y]),int(links[-y-1])):
                 outer = getName(codeToName,links[-y])
                 name = getName(codeToName,links[-y-1])
                 iWin = InputWindow(outer,name)
@@ -56,7 +55,7 @@ def runLine(links):
                     pass #wait for user
                 
                 # add inner results to matrix
-                modelGenerator.add_process_input(links[-y],links[-y-1],float(iWin.results[2]))
+                modelGenerator.add_process_input(int(links[-y]),int(links[-y-1]),float(iWin.results[2]))
 
 
 # displays the matrix on a csv file
@@ -309,13 +308,15 @@ class SkipWindow:
         self.builder.connect_signals(self)
         self.window = self.builder.get_object("skip_window")
         self.button = 0
-        # self.window.show_all()
+        self.window.show_all()
 
     def on_button1_clicked(self, button):
         self.button = 1
+        print("fuck you")
         self.window.destroy()
-        Gtk.main_quit(*args)
-
+        Gtk.main_quit()
+        print("fuck you too")
+        
     def on_button2_clicked(self, button):
         #destroy the window and go to the threshold re-entry for each process in the line
         self.button = 2
@@ -379,7 +380,7 @@ class InputWindow:
         self.buttonList = [self.firstResultButton, self.secondResultButton, self.thirdResultButton, self.fourthResultButton, self.fifthResultButton, self.manualEntryButton]
 
         # set title and get top 5 results
-        self.title.set_text("Input: "+str(inner)+"\nIn Process: " + str(outer))
+        self.title.set_text("Input: "+str(inner)+"\nOuter Process: " + str(outer))
         self.manualEntryName.set_text(inner)
         self.results = []
         try:
@@ -525,24 +526,28 @@ class ParametersWindow:
 #click continue, otherwise, click finish and the program will finalize the current model and exit
 class FinishWindow:
 
-    def __init__(self):
+    def __init__(self,rsd):
         self.builder = Gtk.Builder()
         self.builder.add_from_file("finish_window.glade")
         self.builder.connect_signals(self)
         self.window = self.builder.get_object("finish_window")
+        self.builder.get_object("label2").set_text("RSD: "+str(rsd))
+        self.finish = 0
         self.window.show_all()
 
 
     def on_continue_button_clicked(self, button):
         #get the next line and process each of the processes on that line as before
         #that is, open a new db window and loop back again
+        self.finish = 1
         self.window.destroy()
-        new_db_window = DatabaseResultsWindow()
-        Gtk.main()
+        Gtk.main_quit()
+        
     def on_finish_button_clicked(self, button):
         #finalize model stuff and exit the program
+        self.finish = 2
         self.window.destroy()
-        sys.exit()
+        Gtk.main_quit()
 
     def onDeleteWindow(self, *args):
         self.window.destroy()
@@ -577,36 +582,36 @@ for x in range(len(spaLinks)):
         if value is False:
             print("Failed Calculation")
             skipWin = SkipWindow()
-            skipWin.window.show_all()
             Gtk.main()
             while skipWin.button < 1:
                 pass #user makes decision to reenter process info or display most recent matrix
-        
             if skipWin.button == 1:
+                # user wants to reenter process info.
+                print("reenter")
                 modelGenerator.clear_unfinalized_data()
                 runLine(links)
             elif skipWin.button == 2:
-                #modelGenerator.get_most_recent_model()
-                modelGenerator.finalize()
-                #display results
-                displayMatrix(modelGenerator.get_most_recent_model().matrix)
+                # user wants to end program
+                print("end program")
                 exit_bool = True
         elif value is True:
-            print("Passed Calculation")
             modelGenerator.finalize()
-            break
-            # exit_bool = False
+            print("Passed Calculation")
+            finishWin = FinishWindow(modelGenerator.cur_rsd)
+            Gtk.main()
+            while finishWin.finish == 0:
+                pass # wait for user to decide if they want to move to next row or stop
+            if finishWin.finish == 1:
+                break # go to next row
+            elif finishWin.finish == 2:
+                exit_bool = True # end program
         elif value == "exit":
-            #modelGenerator.get_most_recent_model()
-            # modelGenerator.finalize()
-            #display results
-            displayMatrix(modelGenerator.get_most_recent_model().matrix)
+            print("exit")
             exit_bool = True
+
     if exit_bool:
         break
                     
-
-# modelGenerator.finalize()
 #display results
 displayMatrix(modelGenerator.get_most_recent_model().matrix)
 
