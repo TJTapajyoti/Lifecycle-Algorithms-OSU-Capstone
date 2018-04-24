@@ -33,7 +33,7 @@ def runLine(links):
             
             # add outer results to matrix
             name = pWin.results[0]
-            modelGenerator.add_process(int(links[-y-1]),pWin.results[1],pWin.results[3])
+            modelGenerator.add_process(int(links[-y-1]),float(pWin.results[1]),float(pWin.results[3]))
             codeToName.append([links[-y-1],name])
             paramWin = ParametersWindow(name)
             paramWin.window.show_all()
@@ -42,7 +42,7 @@ def runLine(links):
                 pass #wait for user to enter uncertainty and complexity info.
             
             # add uncertainty and complexity values
-            modelGenerator.set_process_unc_and_comp(int(links[-y-1]),paramWin.processUncertainty,paramWin.envUncertainty,paramWin.processComplexity)
+            modelGenerator.set_process_unc_and_comp(int(links[-y-1]),float(paramWin.processUncertainty),float(paramWin.envUncertainty),float(paramWin.processComplexity))
 
         if y > 0:
             if not modelGenerator.has_process_input(int(links[-y]),int(links[-y-1])):
@@ -59,10 +59,12 @@ def runLine(links):
 # displays the matrix on a csv file
 def displayMatrix(model):
     with open('final_matrix.csv','wb') as csvfile:
-        writer = csv.writer(csvfile,delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-        for i in model:
+        writer = csv.writer(csvfile,delimiter='|', quotechar=' ', quoting=csv.QUOTE_MINIMAL)
+        for i in model.matrix:
             writer.writerow(i)
-            
+        writer.writerow([])
+        writer.writerow(model.impact)
+    
                 
 # Get the NAICS code from sectorsCodes csv file
 def getCode(num):
@@ -311,10 +313,8 @@ class SkipWindow:
 
     def on_button1_clicked(self, button):
         self.button = 1
-        print("fuck you")
         self.window.destroy()
         Gtk.main_quit()
-        print("fuck you too")
         
     def on_button2_clicked(self, button):
         #destroy the window and go to the threshold re-entry for each process in the line
@@ -380,6 +380,7 @@ class InputWindow:
         self.buttonList = [self.firstResultButton, self.secondResultButton, self.thirdResultButton, self.fourthResultButton, self.fifthResultButton, self.manualEntryButton]
 
         # set title and get top 5 results
+        global codeToName
         outer = getName(codeToName,outer)
         inner = getName(codeToName,inner)
         self.title.set_text("Outer Process: " + str(outer)+"\nInner Process: "+str(inner))
@@ -451,6 +452,7 @@ class InputWindow:
 
     def on_searchButton_clicked(self,button):
         description = [self.searchEntry.get_text()]
+        print("search terms"+str(description))
         try:
             self.results = self.process.top5Inputs(description)
             i = 0
@@ -476,7 +478,7 @@ class InputWindow:
                 i += 1
         except:
             error = self.builder.get_object("label5")
-            error.set_text("Manually entered process name. Cannot search for terms.")
+            error.set_text("Cannot search for terms.")
             print("Manually entered process name")
         
             
@@ -557,17 +559,12 @@ class FinishWindow:
         sys.exit()
 
 
-#dbwindow = DatabaseResultsWindow()
-#Gtk.main()
-
-
-
 # Main
 limits = limitsWindow()
 Gtk.main()
 print("Complexity: "+str(comp)+" Uncertainty: "+str(unce)+" Tolerance: "+str(tol))
 
-modelGenerator = mg.Final_Model_Generator(comp,unce, tol)
+modelGenerator = mg.Final_Model_Generator(float(comp),float(unce),float(tol))
 spaLinks = getSPAlinks() # line by line links of codes in SPA results
 codeToName = [] # list of tuples containing spa codes and their corresponding names the user selects
 
@@ -615,5 +612,5 @@ for x in range(len(spaLinks)):
         break
                     
 #display results
-displayMatrix(modelGenerator.get_most_recent_model().matrix)
+displayMatrix(modelGenerator.get_most_recent_model())
 

@@ -146,7 +146,7 @@ class Final_Model_Generator(object):
         # add diagonal elements
         for i in range(len(self.outputs)):
             output = basis[i]
-            matrix[i][i] = self.outputs[output].value
+            matrix[i][i] = float(self.outputs[output].value)
 
         # print(matrix)
         # print(basis)
@@ -162,7 +162,7 @@ class Final_Model_Generator(object):
             input_code = input_proc.input_code
             row = basis.index(input_code)
             col = basis.index(output_code)
-            matrix[row][col] = -1 * input_proc.val
+            matrix[row][col] = float(-1 * input_proc.val)
 
         # print(matrix)
         # print(basis)
