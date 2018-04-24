@@ -14,11 +14,24 @@
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <child>
+          <object class="GtkLabel" id="label6">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0.0099999997764825821</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="padding">7</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkLabel" id="label1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="wrap">True</property>
-            <property name="max_width_chars">60</property>
+            <property name="max_width_chars">80</property>
             <attributes>
               <attribute name="font-desc" value="Abyssinica SIL Bold 16"/>
               <attribute name="scale" value="1"/>
@@ -27,7 +40,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">0</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -63,7 +76,7 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">...</property>
                     <property name="wrap">True</property>
-                    <property name="max_width_chars">50</property>
+                    <property name="max_width_chars">80</property>
                     <property name="xalign">0.20000000298023224</property>
                   </object>
                   <packing>
@@ -78,7 +91,7 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">...</property>
                     <property name="wrap">True</property>
-                    <property name="max_width_chars">50</property>
+                    <property name="max_width_chars">80</property>
                     <property name="xalign">0.20000000298023224</property>
                   </object>
                   <packing>
@@ -93,7 +106,7 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">...</property>
                     <property name="wrap">True</property>
-                    <property name="max_width_chars">50</property>
+                    <property name="max_width_chars">80</property>
                     <property name="xalign">0.20000000298023224</property>
                   </object>
                   <packing>
@@ -108,7 +121,7 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">...</property>
                     <property name="wrap">True</property>
-                    <property name="max_width_chars">50</property>
+                    <property name="max_width_chars">80</property>
                     <property name="xalign">0.20000000298023224</property>
                   </object>
                   <packing>
@@ -123,7 +136,7 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">...</property>
                     <property name="wrap">True</property>
-                    <property name="max_width_chars">50</property>
+                    <property name="max_width_chars">80</property>
                     <property name="xalign">0.20000000298023224</property>
                   </object>
                   <packing>
@@ -440,7 +453,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">1</property>
+            <property name="position">2</property>
           </packing>
         </child>
         <child>
@@ -517,7 +530,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">2</property>
+            <property name="position">3</property>
           </packing>
         </child>
         <child>
@@ -557,7 +570,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">3</property>
+            <property name="position">4</property>
           </packing>
         </child>
         <child>
@@ -572,7 +585,7 @@
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="padding">6</property>
-            <property name="position">4</property>
+            <property name="position">5</property>
           </packing>
         </child>
         <child>
@@ -588,6 +601,7 @@
               <packing>
                 <property name="expand">True</property>
                 <property name="fill">True</property>
+                <property name="padding">2</property>
                 <property name="position">0</property>
               </packing>
             </child>
@@ -610,7 +624,7 @@
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="padding">6</property>
-            <property name="position">5</property>
+            <property name="position">6</property>
           </packing>
         </child>
       </object>

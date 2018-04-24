@@ -25,7 +25,7 @@ def runLine(links):
         # read from right to left at the end
         if not modelGenerator.has_process(abs(int(links[-y-1]))):
             # Open Process Name Selector Window
-            pWin = ProcessWindow(links[-y-1])
+            pWin = ProcessWindow(links[-y-1],links)
             pWin.window.show_all()
             Gtk.main()
             while not pWin.onContinueClicked:
@@ -46,9 +46,7 @@ def runLine(links):
 
         if y > 0:
             if not modelGenerator.has_process_input(int(links[-y]),int(links[-y-1])):
-                outer = getName(codeToName,links[-y])
-                name = getName(codeToName,links[-y-1])
-                iWin = InputWindow(outer,name)
+                iWin = InputWindow(links[-y],links[-y-1],links)
                 iWin.window.show_all()
                 Gtk.main()
                 while not iWin.onContinueClicked:
@@ -149,12 +147,13 @@ class limitsWindow:
 class ProcessWindow:
             
     #constructor takes the row number from the spa results and index of the link in the row 
-    def __init__(self, link):
+    def __init__(self, link, links):
         self.builder = Gtk.Builder()
         self.builder.add_from_file("processWindow.glade")
         self.builder.connect_signals(self)
         self.window = self.builder.get_object("database_results")
         self.title = self.builder.get_object("label1")
+        self.builder.get_object("label6").set_text("ROW: "+str(links)+" CODE: "+str(link))
         
         # name, amount, and units labels
         self.firstResultName = self.builder.get_object("firstResultName")
@@ -333,12 +332,13 @@ class SkipWindow:
 class InputWindow:
 
     # outer=name of process, inner=spa code of input
-    def __init__(self, outer, inner):
+    def __init__(self, outer, inner, links):
         self.builder = Gtk.Builder()
         self.builder.add_from_file("inputWindow.glade")
         self.builder.connect_signals(self)
         self.window = self.builder.get_object("database_results")
         self.title = self.builder.get_object("label1")
+        self.builder.get_object("label6").set_text("ROW: "+str(links)+" CODES: "+str(inner)+"->"+str(outer))
         self.toggle = 6
         
         # name, amount, and units labels
@@ -380,7 +380,9 @@ class InputWindow:
         self.buttonList = [self.firstResultButton, self.secondResultButton, self.thirdResultButton, self.fourthResultButton, self.fifthResultButton, self.manualEntryButton]
 
         # set title and get top 5 results
-        self.title.set_text("Input: "+str(inner)+"\nOuter Process: " + str(outer))
+        outer = getName(codeToName,outer)
+        inner = getName(codeToName,inner)
+        self.title.set_text("Outer Process: " + str(outer)+"\nInner Process: "+str(inner))
         self.manualEntryName.set_text(inner)
         self.results = []
         try:
