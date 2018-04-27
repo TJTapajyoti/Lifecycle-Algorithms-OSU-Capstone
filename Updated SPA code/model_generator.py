@@ -208,14 +208,18 @@ class Final_Model_Generator(object):
 
         if self.cur_rsd is not None:
             rsd_diff = rsd - self.cur_rsd
-            if rsd_diff >= 0.0:
+            if rsd_diff > 0.0:
                 print('resid diff: {}'.format(rsd_diff))
                 print('resid 1 fail')
                 boolean = False
-            elif -1 * rsd_diff < self.limit_u:
+            elif rsd_diff == 0:
+                self.next_rsd = rsd
+            elif (np.absolute(rsd_diff)) < self.limit_u:
                 print('resid diff: {}'.format(rsd_diff))
+                print(np.absolute(rsd_diff)) 
+                print(self.limit_u)
                 print('resid 2 fail')
-                boolean = False
+                boolean = False           
             else:
                 self.next_rsd = rsd
         else:
@@ -259,8 +263,12 @@ class Final_Model_Generator(object):
 
 
 def uncertainty(X, M, F, sa, sb):
-    t2 = np.dot(inv(X), M)
+    t2 = np.dot(M,inv(X))
     t1 = np.dot(inv(X), F)
+    print(t1)
+    print(t2)
+    print(sa)
+    print(sb)
     term1 = 0
     for i in range(len(X)):
         term1 += (t1[i] * t1[i]) * (sb[i]**2)

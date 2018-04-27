@@ -1,11 +1,24 @@
 
 Biodiesel $input: False *0.531!kg
-Phosphoric acid, $input: True *1.28!kg
-Electricity, at Grid, US, 2010 $input: True *71.76!MJ
+Phosphoric acid, $input: True *1.2865!kg
+Electric power generation, $input: True *71.76!MJ
 Potassium hydroxide, $input: True *0.001!kg
-Soy meal, at plant $input: True *1.267!kg
-Methanol, at plant $input: True *0.19!kg
-Carbon dioxide, fossil  $input: False *0.005!kg
+Soybean oil processing, at plant $input: True *1.267!kg
+Methanol, at plant $input: True *0.9119!kg
+Carbon dioxide, fossil  $input: False *0.0005!kg
+
+Phosphoric acid, $input: False *2.909!kg
+Carbon dioxide, fossil  $input: False *5.94!kg
+Electric power generation, $input: True *33813!MJ
+
+Electric power generation, $input: False *45739!MJ
+Carbon dioxide, fossil  $input: False *7.5540!kg
+
+Soybean oil processing, at plant $input: False *10!kg
+Carbon dioxide, fossil  $input: False *1.2930!kg
+
+Methanol, at plant $input: False *0.20!kg
+Carbon dioxide, fossil  $input: False *0.47!kg
 
 Calcium carbonate, ground, 30 micron, at plant $input: False *1.0!
 Ethylene glycol, at plant  $input: True *0.013337967!kg
