@@ -204,7 +204,7 @@ class ProcessWindow:
         self.manualEntryName.set_text(name)
         description = [name]
         print(description)
-        self.results = d.top5Processes(description)
+        self.results = d.top5Processes(description,1)
         self.toggle = 6
         
         # populate name, amount, and units fields with top 5 results 
@@ -256,7 +256,7 @@ class ProcessWindow:
 
     def on_searchButton_clicked(self,button):
         description = [self.searchEntry.get_text()]
-        self.results = d.top5Processes(description)
+        self.results = d.top5Processes(description,1)
         i = 0
         for x in self.resultNames:
             try:
@@ -278,6 +278,33 @@ class ProcessWindow:
             except:
                 z.set_text("...")
             i += 1
+
+    def on_searchButton2_clicked(self,button):
+        description = [self.searchEntry.get_text()]
+        self.results = d.top5Processes(description,2)
+        i = 0
+        for x in self.resultNames:
+            try:
+                x.set_text(str(self.results[i][0]))
+            except:
+                x.set_text("...")
+            i += 1
+        i = 0
+        for y in self.resultAmounts:
+            try:
+                y.set_text(str(self.results[i][1]))
+            except:
+                y.set_text("...")
+            i += 1
+        i = 0
+        for z in self.resultUnits:
+            try:
+                z.set_text(str(self.results[i][2]))
+            except:
+                z.set_text("...")
+            i += 1
+
+            
     '''    
     def onManualEntryDataChanged(self, entry):
         #set the manual entry radio button to be active
@@ -388,7 +415,7 @@ class InputWindow:
         self.results = []
         try:
             self.process = d.Process(outer)
-            self.results = self.process.top5Inputs([inner])
+            self.results = self.process.top5Inputs([inner],1)
         except:
             print("Manually entered process name")
         
@@ -454,7 +481,7 @@ class InputWindow:
         description = [self.searchEntry.get_text()]
         print("search terms"+str(description))
         try:
-            self.results = self.process.top5Inputs(description)
+            self.results = self.process.top5Inputs(description,1)
             i = 0
             for x in self.resultNames:
                 try:
@@ -481,6 +508,38 @@ class InputWindow:
             error.set_text("Cannot search for terms.")
             print("Manually entered process name")
         
+
+    def on_searchButton2_clicked(self,button):
+        description = [self.searchEntry.get_text()]
+        print("search terms"+str(description))
+        try:
+            self.results = self.process.top5Inputs(description,2)
+            i = 0
+            for x in self.resultNames:
+                try:
+                    x.set_text(str(self.results[i][0]))
+                except:
+                    x.set_text("...")
+                i += 1
+            i = 0
+            for y in self.resultAmounts:
+                try:
+                    y.set_text(str(self.results[i][2])) #index 1 is the score value
+                except:
+                    y.set_text("...")
+                i += 1
+            i = 0
+            for z in self.resultUnits:
+                try:
+                    z.set_text(str(self.results[i][3]))
+                except:
+                    z.set_text("...")
+                i += 1
+        except:
+            error = self.builder.get_object("label5")
+            error.set_text("Cannot search for terms.")
+            print("Manually entered process name")
+
             
     def onContinueClicked(self, button):
         if self.toggle == 1:

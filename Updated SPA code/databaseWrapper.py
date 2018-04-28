@@ -52,10 +52,13 @@ class Process:
         return co2
 
     # returns the top 5 likely inputs for the NAICS code passed in 
-    def top5Inputs(self, description):
+    def top5Inputs(self, description, searchType):
         scores = []
         for name in self.inputs:
-            score = compareNames(name[0],description)
+            if searchType == 1:
+                score = compareNames(name[0],description)
+            elif searchType == 2:
+                score = compareNames2(name[0],description)                
             if score > 0:
                 scores.append([name[0],score,name[1],name[2]])
         top5 = []
@@ -92,6 +95,17 @@ def compareNames(name, descrs):
                 if naicsWord.lower() in nameWord.lower():
                     score += 1
     return score
+
+def compareNames2(name, descrs):
+    score = 0
+    for descr in descrs:
+        naicsWords = re.findall(r"[\w']+",descr)
+        for naicsWord in naicsWords:
+            nameWords = re.findall(r"[\w']+",name)
+            for nameWord in nameWords:
+                if naicsWord.lower() == nameWord.lower():
+                    score += 1
+    return score
 '''
 # function to return list of descriptions for NAICS code passed in   
 def NAICSdescription(code):
@@ -120,12 +134,15 @@ def NAICSdescription(code):
 '''
 
 # returns the top 5 most likely process names from database, based on description passed in
-def top5Processes(desc):
+def top5Processes(desc,searchType):
     processNames = open("processNames.txt",'r')
     scores = []
     for line in processNames:
         name = line.index("$")
-        score = compareNames(line[:name],desc)
+        if searchType == 1:
+            score = compareNames(line[:name],desc)
+        elif searchType == 2:
+            score = compareNames2(line[:name],desc)
         if score > 0:
             unit = line.index("!")
             scores.append([line[:name],score,line[name+1:unit],line[unit+1:-1]])
