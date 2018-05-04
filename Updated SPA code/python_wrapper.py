@@ -2,7 +2,8 @@ from __future__ import print_function
 from __future__ import unicode_literals
 from __future__ import division
 from __future__ import absolute_import
-import matlab.engine
+# import matlab.engine
+import spa_python
 import numpy as np
 import os
 
@@ -88,7 +89,7 @@ class Model_Generator(object):
         self.codes = None
         self.environmental_impact = None
         self.p_out = None
-        self.future = matlab.engine.start_matlab(async=True)
+        # self.future = matlab.engine.start_matlab(async=True)
 
     def add_process_output(self, code, output, price):
         # Save process output values as 3-tuple
@@ -225,14 +226,18 @@ class Model_Generator(object):
         print('emissions = {}'.format(emissions))
 
         # Cast A, B to MATLAB compatible types
-        a = matlab.double(a.tolist())
-        b = matlab.double(self.b.tolist())
+        # a = matlab.double(a.tolist())
+        # b = matlab.double(self.b.tolist())
+        a = a.tolist()
+        b = self.b.tolist()
+
 
         # Get/wait for asynchronous MATLAB engine start
-        eng = self.future.result()
+        # eng = self.future.result()
 
         emissions = float(emissions)
-        eng.runprog(int(location + 1), emissions, a, b, int(n + 1), nargout=0)
+        # eng.runprog(int(location + 1), emissions, a, b, int(n + 1), nargout=0)
+        spa_python.run_prog(int(location + 1), emissions, a, b, int(n + 1), th=0.005)
         # ret = eng.runprog(int(location + 1), emissions, a, b, int(n + 1))
         # print(ret)
 
